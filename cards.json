@@ -1,95 +1,482 @@
 [
   {
     "id": 1,
-    "external_id": "sample:akane-unique",
-    "name": "Akane's Resolve",
-    "character": "Akane",
+    "external_id": "anchor-shot",
+    "name": "Anchor Shot",
+    "character": "Haru",
     "card_type": "character",
     "category": "Attack",
-    "description": "Akane's signature card. Deals bonus damage equal to her current rage stacks."
+    "monster_rarity": null,
+    "description": "240% Damage. +60% Damage for each time this card has been used (Max 5 times)."
   },
   {
     "id": 2,
-    "external_id": "sample:kiro-unique",
-    "name": "Kiro's Shadowstep",
-    "character": "Kiro",
+    "external_id": "anchor-drop",
+    "name": "Anchor Drop",
+    "character": "Haru",
     "card_type": "character",
-    "category": "Mobility",
-    "description": "Teleport behind the target and gain stealth for one turn."
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "100% Shield."
   },
   {
     "id": 3,
-    "external_id": "sample:neutral-heal-salve",
-    "name": "Healing Salve",
-    "character": null,
-    "card_type": "neutral",
-    "category": "Support",
-    "description": "Restore 30% HP to an ally. Removes one debuff."
+    "external_id": "anchor-pointer",
+    "name": "Anchor Pointer",
+    "character": "Haru",
+    "card_type": "character",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "From Draw Pile or Graveyard, move Anchor Shot to hand."
   },
   {
     "id": 4,
-    "external_id": "sample:neutral-storm-bolt",
-    "name": "Storm Bolt",
-    "character": null,
-    "card_type": "neutral",
-    "category": "Attack",
-    "description": "Deal lightning damage to up to 3 enemies in a line."
+    "external_id": "absolute-perfection",
+    "name": "Absolute Perfection",
+    "character": "Khalipe",
+    "card_type": "character",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "+X100% Shield. Grant Retain to all cards in hand for 1 turn."
   },
   {
     "id": 5,
-    "external_id": "sample:neutral-guard-stance",
-    "name": "Guard Stance",
-    "character": null,
-    "card_type": "neutral",
-    "category": "Defense",
-    "description": "Gain a shield equal to 25% of max HP. Lasts 2 turns."
+    "external_id": "adagio",
+    "name": "Adagio",
+    "character": "Nia",
+    "card_type": "character",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Draw 1. Discard 1. With this effect, move discarded card to top of the Draw Pile."
   },
   {
     "id": 6,
-    "external_id": "sample:forbidden-soul-exchange",
-    "name": "Soul Exchange",
-    "character": null,
-    "card_type": "forbidden",
-    "category": "Utility",
-    "description": "Swap HP percentages with the target. Once per battle."
+    "external_id": "amp-therapy",
+    "name": "Amp Therapy",
+    "character": "Nia",
+    "card_type": "character",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Heal 100%."
   },
   {
     "id": 7,
-    "external_id": "sample:forbidden-oblivion",
-    "name": "Mark of Oblivion",
-    "character": null,
-    "card_type": "forbidden",
-    "category": "Debuff",
-    "description": "Marked target cannot be healed for 3 turns. Priority-saved."
+    "external_id": "advanced-shadow-dagger",
+    "name": "Advanced Shadow Dagger",
+    "character": "Tressa",
+    "card_type": "character",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "100% Damage. 2 x 2 Agony."
   },
   {
     "id": 8,
-    "external_id": "sample:monster-slime",
-    "name": "Common Slime",
-    "character": null,
-    "card_type": "monster",
-    "category": "Monster",
-    "monster_rarity": "common",
-    "description": "A basic summoned slime. Taunts for 1 turn."
+    "external_id": "annihilation-shot",
+    "name": "Annihilation Shot",
+    "character": "Renoa",
+    "card_type": "character",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "Deal 100% Damage."
   },
   {
     "id": 9,
-    "external_id": "sample:monster-griffon",
-    "name": "Wind Griffon",
-    "character": null,
-    "card_type": "monster",
-    "category": "Monster",
-    "monster_rarity": "rare",
-    "description": "A flying beast that grants the team +15% speed while alive."
+    "external_id": "annoying",
+    "name": "Annoying",
+    "character": "Orlea",
+    "card_type": "character",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "40% Fixed Damage equal to the number of cards in hand."
   },
   {
     "id": 10,
-    "external_id": "sample:monster-dragon-king",
-    "name": "Crimson Dragon King",
+    "external_id": "bombardment-prep",
+    "name": "Bombardment Prep",
+    "character": "Veronica",
+    "card_type": "character",
+    "category": "Upgrade",
+    "monster_rarity": null,
+    "description": "Max Reload stacks +1. Gain 1 Reload."
+  },
+  {
+    "id": 11,
+    "external_id": "deluge",
+    "name": "Deluge",
+    "character": "Mika",
+    "card_type": "character",
+    "category": "Upgrade",
+    "monster_rarity": null,
+    "description": "1 Wave. Gain 1 Wave at the start of each turn."
+  },
+  {
+    "id": 12,
+    "external_id": "extended-magazine",
+    "name": "Extended Magazine",
+    "character": "Lucas",
+    "card_type": "character",
+    "category": "Upgrade",
+    "monster_rarity": null,
+    "description": "Create 1 Launcher Bullet at the start of each turn."
+  },
+  {
+    "id": 13,
+    "external_id": "black-hole",
+    "name": "Black Hole",
+    "character": "Kayron",
+    "card_type": "character",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "240% Damage. +40% Damage for each Exhausted Futility card."
+  },
+  {
+    "id": 14,
+    "external_id": "barrier",
+    "name": "Barrier",
+    "character": "Beryl",
+    "card_type": "character",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "100% Shield."
+  },
+  {
+    "id": 15,
+    "external_id": "consecutive-attack",
+    "name": "Consecutive Attack",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "50% Damage x 3."
+  },
+  {
+    "id": 16,
+    "external_id": "ambush",
+    "name": "Ambush",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "80% Damage. If Ravage, move this card from the Graveyard to hand."
+  },
+  {
+    "id": 17,
+    "external_id": "first-aid-kit",
+    "name": "First Aid Kit",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Heal 250%."
+  },
+  {
+    "id": 18,
+    "external_id": "deadly-shot",
+    "name": "Deadly Shot",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "350% Damage. At the start of the next turn, Draw 1."
+  },
+  {
+    "id": 19,
+    "external_id": "atomic-decomposition",
+    "name": "Atomic Decomposition",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "230% Piercing Damage to all enemies."
+  },
+  {
+    "id": 20,
+    "external_id": "amber-lumen",
+    "name": "Amber Lumen",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Heal 150%. Harmonization: 150% Shield."
+  },
+  {
+    "id": 21,
+    "external_id": "crimson-lumen",
+    "name": "Crimson Lumen",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "300% Damage to all enemies."
+  },
+  {
+    "id": 22,
+    "external_id": "abyssalization",
+    "name": "Abyssalization",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "10% HP Reduction. Increases Damage Amount of the next Attack Card used by 30%."
+  },
+  {
+    "id": 23,
+    "external_id": "gear-bag",
+    "name": "Gear Bag",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Draw 2."
+  },
+  {
+    "id": 24,
+    "external_id": "camouflage",
+    "name": "Camouflage",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "1 Evade. Draw 2 next turn."
+  },
+  {
+    "id": 25,
+    "external_id": "forbidden-eternal-hunger",
+    "name": "Forbidden: Eternal Hunger",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Response: Draw 1, +1 AP."
+  },
+  {
+    "id": 26,
+    "external_id": "forbidden-portrait-of-fury",
+    "name": "Forbidden: Portrait of Fury",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "70% Damage x 1. For every 4 cards in hand, +1 Hit. Draw 1 for each Hit."
+  },
+  {
+    "id": 27,
+    "external_id": "forbidden-disposable-ego",
+    "name": "Forbidden: Disposable Ego",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Draw 1. Draw for each Cost of that card."
+  },
+  {
+    "id": 28,
+    "external_id": "forbidden-ecstasy-of-violence",
+    "name": "Forbidden: Ecstasy of Violence",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Attack",
+    "monster_rarity": null,
+    "description": "150% Damage x 4. When drawing by ability, Cost of this card -1."
+  },
+  {
+    "id": 29,
+    "external_id": "forbidden-engraved-malice",
+    "name": "Forbidden: Engraved Malice",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "Draw 1. Activate 2 random card(s) from hand."
+  },
+  {
+    "id": 30,
+    "external_id": "forbidden-gesture-of-freedom",
+    "name": "Forbidden: Gesture of Freedom",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "1 random card in hand, Cost -1."
+  },
+  {
+    "id": 31,
+    "external_id": "forbidden-guidance-of-futility",
+    "name": "Forbidden: Guidance of Futility",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Skill",
+    "monster_rarity": null,
+    "description": "When drawn by an ability, Heal 40% and -1 Stress of a random Combatant."
+  },
+  {
+    "id": 32,
+    "external_id": "abyssal-bug",
+    "name": "Abyssal Bug",
     "character": null,
     "card_type": "monster",
-    "category": "Monster",
+    "category": "Skill",
+    "monster_rarity": "common",
+    "description": "-1 Morale, -3 Resolve."
+  },
+  {
+    "id": 33,
+    "external_id": "beam-shooter",
+    "name": "Beam Shooter",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "common",
+    "description": "350% Damage. If target has Shield, +50% Damage."
+  },
+  {
+    "id": 34,
+    "external_id": "cultist-arbiter",
+    "name": "Cultist Arbiter",
+    "character": null,
+    "card_type": "monster",
+    "category": "Skill",
+    "monster_rarity": "common",
+    "description": "140% Shield. Increase Action Count of all enemies by 2."
+  },
+  {
+    "id": 35,
+    "external_id": "dark-grip",
+    "name": "Dark Grip",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "common",
+    "description": "120% x 2 Damage. Defeat: 120% x 2 Damage to random enemies."
+  },
+  {
+    "id": 36,
+    "external_id": "rotten-ripper",
+    "name": "Rotten Ripper",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "common",
+    "description": "160% Damage. +1 Action Count."
+  },
+  {
+    "id": 37,
+    "external_id": "sorrowful-godfather",
+    "name": "Sorrowful Godfather",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "common",
+    "description": "50% x 4 Damage. 6 Agony."
+  },
+  {
+    "id": 38,
+    "external_id": "wolves-bane",
+    "name": "Wolves Bane",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "common",
+    "description": "120% Damage to all enemies. 2 Weaken, 2 Impair."
+  },
+  {
+    "id": 39,
+    "external_id": "arbitum",
+    "name": "Arbitum",
+    "character": null,
+    "card_type": "monster",
+    "category": "Upgrade",
+    "monster_rarity": "rare",
+    "description": "-15% Damage taken (1 time per turn)."
+  },
+  {
+    "id": 40,
+    "external_id": "automata-cavalry",
+    "name": "Automata Cavalry",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "rare",
+    "description": "150% Damage. Vulnerable 4."
+  },
+  {
+    "id": 41,
+    "external_id": "elemental-phoenix",
+    "name": "Elemental Phoenix",
+    "character": null,
+    "card_type": "monster",
+    "category": "Skill",
+    "monster_rarity": "rare",
+    "description": "2 Resolve. Shield equal to the amount of lost HP."
+  },
+  {
+    "id": 42,
+    "external_id": "evil-spirit-salamander",
+    "name": "Evil Spirit Salamander",
+    "character": null,
+    "card_type": "monster",
+    "category": "Skill",
+    "monster_rarity": "rare",
+    "description": "Draw 4."
+  },
+  {
+    "id": 43,
+    "external_id": "hunger-of-loss",
+    "name": "Hunger of Loss",
+    "character": null,
+    "card_type": "monster",
+    "category": "Skill",
+    "monster_rarity": "rare",
+    "description": "Draw 1. If no cards in hand, Draw 4 extra."
+  },
+  {
+    "id": 44,
+    "external_id": "soldier-prime",
+    "name": "Soldier Prime",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "rare",
+    "description": "300% Damage. When Ravaged, gain 2 AP."
+  },
+  {
+    "id": 45,
+    "external_id": "spirit-kefox",
+    "name": "Spirit Kefox",
+    "character": null,
+    "card_type": "monster",
+    "category": "Skill",
+    "monster_rarity": "rare",
+    "description": "Choose 1 card from Draw Pile to Draw with Retrieve."
+  },
+  {
+    "id": 46,
+    "external_id": "dominion",
+    "name": "Dominion",
+    "character": null,
+    "card_type": "monster",
+    "category": "Upgrade",
     "monster_rarity": "legendary",
-    "description": "A legendary dragon. Breathes fire on all enemies for massive damage. 5-turn cooldown."
+    "description": "At start of turn, gain 1 Morale."
+  },
+  {
+    "id": 47,
+    "external_id": "evil-spirit-dullahan",
+    "name": "Evil Spirit Dullahan",
+    "character": null,
+    "card_type": "monster",
+    "category": "Upgrade",
+    "monster_rarity": "legendary",
+    "description": "Inflict 1 Agony when using targeting Attack Card."
+  },
+  {
+    "id": 48,
+    "external_id": "seven-arms",
+    "name": "Seven Arms",
+    "character": null,
+    "card_type": "monster",
+    "category": "Attack",
+    "monster_rarity": "legendary",
+    "description": "120% Damage. If target's Action Count is 5 or higher, gain 2 AP."
   }
 ]
