@@ -150,7 +150,8 @@
     "card_type": "character",
     "category": "Skill",
     "monster_rarity": null,
-    "description": "100% Shield."
+    "description": "100% Shield.",
+    "image_url": "images/barrier.png"
   },
   {
     "id": 15,
