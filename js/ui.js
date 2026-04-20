@@ -79,16 +79,28 @@ export function cardTile(card, { onSelect } = {}) {
     card.character ? el('span', {}, `· ${card.character}`) : null,
   ].filter(Boolean);
 
+  const artChildren = [
+    el('div', { class: 'card-cost', title: `${cost} Faint Memory` }, String(cost)),
+    pipsEl,
+  ];
+  if (card.image_url) {
+    artChildren.push(el('img', {
+      class: 'card-art-img',
+      src: card.image_url,
+      alt: card.name || '',
+      loading: 'lazy',
+      onerror: (e) => { e.target.remove(); },  // fall back to gradient glyph if image fails
+    }));
+  } else {
+    artChildren.push(el('div', { class: 'card-art-glyph' }, firstGlyph(card.name)));
+  }
+
   return el('div', {
-    class: `card-tile type-${typeClass}`,
+    class: `card-tile type-${typeClass}${card.image_url ? ' has-image' : ''}`,
     onclick: onSelect,
     title: card.description || '',
   }, [
-    el('div', { class: 'card-art' }, [
-      el('div', { class: 'card-cost', title: `${cost} Faint Memory` }, String(cost)),
-      pipsEl,
-      el('div', { class: 'card-art-glyph' }, firstGlyph(card.name)),
-    ]),
+    el('div', { class: 'card-art' }, artChildren.filter(Boolean)),
     el('div', { class: 'card-body' }, [
       el('div', { class: 'card-name' }, card.name || 'Unnamed'),
       el('div', { class: 'card-meta-row' }, metaBits),

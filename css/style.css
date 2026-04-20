@@ -350,6 +350,24 @@ p { color: var(--text-dim); margin: 0 0 12px; }
   justify-content: center;
   overflow: hidden;
 }
+
+/* when we have a real card image, let the art panel scale to full card aspect */
+.card-tile.has-image .card-art {
+  height: auto;
+  aspect-ratio: 2 / 3;
+  background: hsl(var(--card-hue, 262), 40%, 8%);
+}
+
+.card-art-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
 .card-art::before {
   content: '';
   position: absolute;
@@ -359,6 +377,8 @@ p { color: var(--text-dim); margin: 0 0 12px; }
               transparent 60%);
   pointer-events: none;
 }
+.card-tile.has-image .card-art::before { display: none; }
+
 .card-art::after {
   content: '';
   position: absolute;
@@ -367,6 +387,8 @@ p { color: var(--text-dim); margin: 0 0 12px; }
     linear-gradient(180deg, transparent 60%, rgba(10, 11, 20, 0.7) 100%);
   pointer-events: none;
 }
+.card-tile.has-image .card-art::after { display: none; }
+
 .card-art-glyph {
   position: relative;
   font-size: 56px;
