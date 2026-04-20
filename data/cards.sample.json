@@ -1,0 +1,95 @@
+[
+  {
+    "external_id": "sample:akane-unique",
+    "name": "Akane's Resolve",
+    "character": "Akane",
+    "card_type": "character",
+    "category": "Attack",
+    "description": "Akane's signature card. Deals bonus damage equal to her current rage stacks.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:kiro-unique",
+    "name": "Kiro's Shadowstep",
+    "character": "Kiro",
+    "card_type": "character",
+    "category": "Mobility",
+    "description": "Teleport behind the target and gain stealth for one turn.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:neutral-heal-salve",
+    "name": "Healing Salve",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Support",
+    "description": "Restore 30% HP to an ally. Removes one debuff.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:neutral-storm-bolt",
+    "name": "Storm Bolt",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Attack",
+    "description": "Deal lightning damage to up to 3 enemies in a line.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:neutral-guard-stance",
+    "name": "Guard Stance",
+    "character": null,
+    "card_type": "neutral",
+    "category": "Defense",
+    "description": "Gain a shield equal to 25% of max HP. Lasts 2 turns.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:forbidden-soul-exchange",
+    "name": "Soul Exchange",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Utility",
+    "description": "Swap HP percentages with the target. Once per battle.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:forbidden-oblivion",
+    "name": "Mark of Oblivion",
+    "character": null,
+    "card_type": "forbidden",
+    "category": "Debuff",
+    "description": "Marked target cannot be healed for 3 turns. Priority-saved.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:monster-slime",
+    "name": "Common Slime",
+    "character": null,
+    "card_type": "monster",
+    "category": "Monster",
+    "monster_rarity": "common",
+    "description": "A basic summoned slime. Taunts for 1 turn.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:monster-griffon",
+    "name": "Wind Griffon",
+    "character": null,
+    "card_type": "monster",
+    "category": "Monster",
+    "monster_rarity": "rare",
+    "description": "A flying beast that grants the team +15% speed while alive.",
+    "source": "sample"
+  },
+  {
+    "external_id": "sample:monster-dragon-king",
+    "name": "Crimson Dragon King",
+    "character": null,
+    "card_type": "monster",
+    "category": "Monster",
+    "monster_rarity": "legendary",
+    "description": "A legendary dragon. Breathes fire on all enemies for massive damage. 5-turn cooldown.",
+    "source": "sample"
+  }
+]

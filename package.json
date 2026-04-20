@@ -1,0 +1,25 @@
+{
+  "name": "czn-deck-builder",
+  "version": "0.1.0",
+  "description": "Chaos Zero Nightmare deck builder with live Faint Memory calculator",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "init-db": "node server/db/init.js",
+    "scrape": "node server/scraper/scrape.js",
+    "load-sample": "node server/scraper/load-sample.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
