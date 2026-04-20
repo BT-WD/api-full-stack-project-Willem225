@@ -1,0 +1,27 @@
+{
+  "name": "CZN Deck Builder",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "npm install && cp -n .env.example .env && npm run init-db && npm run load-sample",
+  "postAttachCommand": {
+    "server": "echo 'Run: npm start'"
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "CZN Deck Builder",
+      "onAutoForward": "openPreview",
+      "visibility": "public"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
