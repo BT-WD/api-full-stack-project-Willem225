@@ -1,9 +1,3 @@
-node_modules/
-.env
-data/app.db
-data/app.db-journal
-data/app.db-wal
-data/app.db-shm
-data/cache/
 .DS_Store
 *.log
+node_modules/
