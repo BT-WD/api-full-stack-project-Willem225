@@ -3,12 +3,12 @@ import { api } from '../api.js';
 
 export async function renderDecks({ view, navigate, toast }) {
   clear(view);
-  view.appendChild(el('div', { class: 'row' }, [
+  view.appendChild(el('div', { class: 'view-header' }, [
     el('h1', { class: 'grow' }, 'My Decks'),
     el('a', { href: '#/decks/new', class: 'btn btn-primary' }, '+ New Deck'),
   ]));
 
-  const list = el('div', { class: 'deck-list mt-2' });
+  const list = el('div', { class: 'deck-list' });
   view.appendChild(list);
   list.appendChild(el('div', { class: 'empty' }, 'Loading…'));
 
@@ -27,15 +27,15 @@ export async function renderDecks({ view, navigate, toast }) {
 }
 
 function deckRow(d, { navigate, toast, refresh }) {
-  const nm = d.nightmare ? ' · NM' : '';
   return el('div', { class: 'deck-row' }, [
     el('div', {}, [
       el('div', { class: 'deck-name' }, d.name),
       el('div', { class: 'deck-meta' }, [
-        `Tier ${d.tier}${nm}`,
-        d.character ? ` · ${d.character}` : '',
-        ` · ${d.cards.length} cards`,
-      ].join('')),
+        el('span', { class: `tier-badge ${d.nightmare ? 'nightmare' : ''}` },
+          `Tier ${d.tier}${d.nightmare ? ' · NM' : ''}`),
+        d.character ? el('span', {}, d.character) : null,
+        el('span', {}, `${d.cards.length} cards`),
+      ].filter(Boolean)),
     ]),
     el('div', { class: 'actions' }, [
       el('button', { class: 'btn btn-sm', onclick: () => navigate(`#/decks/${d.id}`) }, 'Edit'),

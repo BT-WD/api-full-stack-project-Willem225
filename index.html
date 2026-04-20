@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="#/cards" class="brand">
+  <div class="app">
+    <aside class="sidebar">
+      <a href="#/cards" class="sidebar-brand">
         <span class="brand-mark">CZN</span>
-        <span class="brand-name">Deck Builder</span>
       </a>
-      <nav id="nav" class="nav"></nav>
-      <div id="auth-slot" class="auth-slot"></div>
-    </div>
-  </header>
 
-  <main id="view" class="view"></main>
+      <nav id="nav" class="sidebar-nav"></nav>
+
+      <div id="auth-slot" class="sidebar-auth"></div>
+    </aside>
+
+    <main id="view" class="view"></main>
+  </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 

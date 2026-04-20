@@ -1,9 +1,18 @@
-import { el, clear } from '../ui.js';
+import { el, clear, cardTile } from '../ui.js';
 import { api } from '../api.js';
 
 export async function renderCards({ view, toast }) {
   clear(view);
-  view.appendChild(el('h1', {}, 'Cards'));
+
+  view.appendChild(el('div', { class: 'view-header' }, [
+    el('h1', {}, 'Cards'),
+    el('div', { class: 'row' }, [
+      el('span', { class: 'tag tag-character' }, 'Character'),
+      el('span', { class: 'tag tag-neutral' },   'Neutral'),
+      el('span', { class: 'tag tag-forbidden' }, 'Forbidden'),
+      el('span', { class: 'tag tag-monster' },   'Monster'),
+    ]),
+  ]));
 
   const state = { q: '', character: '', category: '', card_type: '' };
 
@@ -14,7 +23,7 @@ export async function renderCards({ view, toast }) {
   view.appendChild(grid);
 
   const searchInput = el('input', {
-    class: 'input grow',
+    class: 'input',
     type: 'search',
     placeholder: 'Search cards by name or text…',
     oninput: debounce(() => { state.q = searchInput.value.trim(); reload(); }, 200),
@@ -42,7 +51,7 @@ export async function renderCards({ view, toast }) {
     for (const c of f.characters)  charSelect.appendChild(el('option', { value: c }, c));
     for (const c of f.categories)  catSelect.appendChild(el('option',  { value: c }, c));
     for (const t of f.card_types)  typeSelect.appendChild(el('option', { value: t }, t));
-  } catch (err) { /* filter load is best-effort */ }
+  } catch { /* filter load is best-effort */ }
 
   async function reload() {
     clear(grid);
@@ -63,20 +72,6 @@ export async function renderCards({ view, toast }) {
   }
 
   reload();
-}
-
-function cardTile(c) {
-  const type = (c.card_type || '').toLowerCase();
-  const tagClass = `tag tag-${type || 'neutral'}`;
-  return el('div', { class: 'card-tile', title: c.description || '' }, [
-    el('div', { class: 'card-name' }, c.name),
-    el('div', { class: 'card-meta' }, [
-      el('span', { class: tagClass }, type || 'card'),
-      c.monster_rarity ? el('span', { class: 'card-meta' }, ` · ${c.monster_rarity}`) : null,
-      c.character ? el('span', {}, ` · ${c.character}`) : null,
-    ].filter(Boolean)),
-    c.description ? el('div', { class: 'card-desc' }, c.description) : null,
-  ].filter(Boolean));
 }
 
 function debounce(fn, ms) {

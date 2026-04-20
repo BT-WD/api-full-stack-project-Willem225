@@ -1,4 +1,4 @@
-import { el, clear } from '../ui.js';
+import { el, clear, cardTile, miniArt } from '../ui.js';
 import { api } from '../api.js';
 import {
   calculateFaintMemory, FLAGS, EPIPHANIES, TIER_MIN, TIER_MAX, MAX_EQUIPMENT_LEVEL,
@@ -26,12 +26,12 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   let allCards = [];
 
   // header + containers
-  view.appendChild(el('div', { class: 'row' }, [
+  view.appendChild(el('div', { class: 'view-header' }, [
     el('h1', { class: 'grow' }, mode === 'edit' ? 'Edit Deck' : 'New Deck'),
     el('button', { class: 'btn btn-ghost', onclick: () => navigate('#/decks') }, '← Back'),
   ]));
 
-  const layout = el('div', { class: 'builder mt-2' });
+  const layout = el('div', { class: 'builder' });
   view.appendChild(layout);
 
   const main    = el('div', { class: 'builder-main' });
@@ -139,6 +139,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     }, EPIPHANIES.map(e => el('option', { value: e, selected: e === entry.epiphany }, e)));
 
     return el('div', { class: 'deck-card-row' }, [
+      miniArt(entry.card),
       el('div', {}, [
         el('div', { class: 'card-label' }, entry.card.name),
         el('div', { class: 'card-sublabel' }, [
@@ -167,9 +168,10 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         levelSelect.appendChild(el('option', { value: l, selected: l === eq.level }, `Lv ${l}`));
       }
       eqWrap.appendChild(el('div', { class: 'deck-card-row' }, [
-        el('div', { class: 'card-label' }, eq.slot),
+        el('div', {}),
+        el('div', { class: 'card-label' }, capitalize(eq.slot)),
         levelSelect,
-        el('div', {}, `+${eq.level * 10} pts`),
+        el('div', { style: { color: 'var(--muted)', fontSize: '13px' } }, `+${eq.level * 10} pts`),
         el('span', {}),
       ]));
     });
@@ -252,22 +254,14 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         return;
       }
       for (const c of filtered.slice(0, 300)) {
-        const tile = el('div', {
-          class: 'card-tile',
-          onclick: () => {
+        list.appendChild(cardTile(c, {
+          onSelect: () => {
             deck.cards.push({ card: c, flag: 'normal', epiphany: 'none', is_starter: false });
             close();
             renderCardList();
             refreshSidebar();
           },
-        }, [
-          el('div', { class: 'card-name' }, c.name),
-          el('div', { class: 'card-meta' }, [
-            el('span', { class: `tag tag-${(c.card_type || 'neutral').toLowerCase()}` }, c.card_type || ''),
-            c.character ? el('span', {}, ` · ${c.character}`) : null,
-          ].filter(Boolean)),
-        ]);
-        list.appendChild(tile);
+        }));
       }
     }
     renderList();
@@ -311,3 +305,5 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   renderEquipment();
   refreshSidebar();
 }
+
+function capitalize(s) { return s ? s[0].toUpperCase() + s.slice(1) : ''; }
