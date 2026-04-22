@@ -50,7 +50,7 @@ const TYPE_LABEL = {
   monster:   'Monster',
 };
 
-const RARITY_PIPS = { common: 1, rare: 2, legendary: 3 };
+const RARITY_PIPS = { common: 1, rare: 2, legendary: 3, mythic: 4 };
 
 function firstGlyph(name) {
   if (!name) return '·';
@@ -64,16 +64,17 @@ export function cardTile(card, { onSelect } = {}) {
   const typeClass = (type === 'unique') ? 'character' : type;
   const cost = baseCardCost(card);
 
-  const pips = RARITY_PIPS[String(card.monster_rarity || '').toLowerCase()] || 0;
+  const rarity = String(card.rarity || card.monster_rarity || '').toLowerCase();
+  const pips = RARITY_PIPS[rarity] || 0;
   const pipsEl = pips > 0
-    ? el('div', { class: 'card-rarity-pips' },
+    ? el('div', { class: `card-rarity-pips rarity-${rarity}` },
         Array.from({ length: pips }, () => el('span', { class: 'pip' })))
     : null;
 
   const metaBits = [
     el('span', { class: `tag tag-${typeClass}` }, TYPE_LABEL[type] || type),
-    card.monster_rarity
-      ? el('span', { class: `tag tag-rarity-${card.monster_rarity}` }, card.monster_rarity)
+    rarity
+      ? el('span', { class: `tag tag-rarity-${rarity}` }, rarity)
       : null,
     card.category ? el('span', {}, card.category) : null,
     card.character ? el('span', {}, `· ${card.character}`) : null,
