@@ -80,23 +80,16 @@ export function cardTile(card, { onSelect } = {}) {
     card.character ? el('span', {}, `· ${card.character}`) : null,
   ].filter(Boolean);
 
+  // Always include a glyph underneath — if the <img> fails (404, network), we
+  // drop it + the `has-image` class, and the glyph shows through.
+  const glyph = el('div', { class: 'card-art-glyph' }, firstGlyph(card.name));
   const artChildren = [
     el('div', { class: 'card-cost', title: `${cost} Faint Memory` }, String(cost)),
     pipsEl,
+    glyph,
   ];
-  if (card.image_url) {
-    artChildren.push(el('img', {
-      class: 'card-art-img',
-      src: card.image_url,
-      alt: card.name || '',
-      loading: 'lazy',
-      onerror: (e) => { e.target.remove(); },  // fall back to gradient glyph if image fails
-    }));
-  } else {
-    artChildren.push(el('div', { class: 'card-art-glyph' }, firstGlyph(card.name)));
-  }
 
-  return el('div', {
+  const tile = el('div', {
     class: `card-tile type-${typeClass}${card.image_url ? ' has-image' : ''}`,
     onclick: onSelect,
     title: card.description || '',
@@ -108,6 +101,22 @@ export function cardTile(card, { onSelect } = {}) {
       card.description ? el('div', { class: 'card-desc' }, card.description) : null,
     ].filter(Boolean)),
   ]);
+
+  if (card.image_url) {
+    const img = el('img', {
+      class: 'card-art-img',
+      src: card.image_url,
+      alt: card.name || '',
+      loading: 'lazy',
+      onerror: (e) => {
+        e.target.remove();
+        tile.classList.remove('has-image');  // collapse art panel back to glyph mode
+      },
+    });
+    tile.querySelector('.card-art').appendChild(img);
+  }
+
+  return tile;
 }
 
 // Small inline mini-art used in deck rows (36x36 coloured square w/ glyph).
