@@ -121,18 +121,20 @@ async function me() {
 
 async function cards(query = {}) {
   const all = await loadCards();
-  const q    = (query.q || '').toLowerCase();
-  const char = query.character;
-  const cat  = query.category;
-  const type = query.card_type;
+  const q       = (query.q || '').toLowerCase();
+  const char    = query.character;
+  const cat     = query.category;
+  const type    = query.card_type;
+  const comb    = query.combatant;
   const filtered = all.filter(c => {
     if (q) {
-      const hay = `${c.name || ''} ${c.description || ''}`.toLowerCase();
+      const hay = `${c.name || ''} ${c.description || ''} ${c.combatant || ''}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     if (char && c.character !== char) return false;
     if (cat  && c.category  !== cat)  return false;
     if (type && c.card_type !== type) return false;
+    if (comb && c.combatant !== comb) return false;
     return true;
   });
   return { cards: filtered };

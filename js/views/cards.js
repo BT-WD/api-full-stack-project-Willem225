@@ -14,7 +14,7 @@ export async function renderCards({ view, toast }) {
     ]),
   ]));
 
-  const state = { q: '', character: '', category: '', card_type: '' };
+  const state = { q: '', character: '', category: '', card_type: '', combatant: '' };
 
   const filtersBar = el('div', { class: 'filters' });
   view.appendChild(filtersBar);
@@ -29,26 +29,33 @@ export async function renderCards({ view, toast }) {
     oninput: debounce(() => { state.q = searchInput.value.trim(); reload(); }, 200),
   });
 
-  const charSelect = el('select', {
+  const combatantSelect = el('select', {
     class: 'select',
-    onchange: () => { state.character = charSelect.value; reload(); },
-  }, [el('option', { value: '' }, 'All characters')]);
-
-  const catSelect = el('select', {
-    class: 'select',
-    onchange: () => { state.category = catSelect.value; reload(); },
-  }, [el('option', { value: '' }, 'All categories')]);
+    onchange: () => { state.combatant = combatantSelect.value; reload(); },
+  }, [el('option', { value: '' }, 'All combatants')]);
 
   const typeSelect = el('select', {
     class: 'select',
     onchange: () => { state.card_type = typeSelect.value; reload(); },
   }, [el('option', { value: '' }, 'All types')]);
 
-  filtersBar.append(searchInput, charSelect, catSelect, typeSelect);
+  const catSelect = el('select', {
+    class: 'select',
+    onchange: () => { state.category = catSelect.value; reload(); },
+  }, [el('option', { value: '' }, 'All categories')]);
+
+  filtersBar.append(searchInput, combatantSelect, typeSelect, catSelect);
+
+  // Populate combatants from combatants.json
+  try {
+    const res = await fetch('combatants.json', { cache: 'force-cache' });
+    const combatants = await res.json();
+    combatants.sort((a, b) => a.name.localeCompare(b.name));
+    for (const c of combatants) combatantSelect.appendChild(el('option', { value: c.name }, c.name));
+  } catch { /* ignore */ }
 
   try {
     const f = await api.cardFilters();
-    for (const c of f.characters)  charSelect.appendChild(el('option', { value: c }, c));
     for (const c of f.categories)  catSelect.appendChild(el('option',  { value: c }, c));
     for (const t of f.card_types)  typeSelect.appendChild(el('option', { value: t }, t));
   } catch { /* filter load is best-effort */ }

@@ -12,7 +12,8 @@
     "ap": 1,
     "description": "[Unique/Exhaust 2] Gain 250% Shield. Move 1 random self Attack Card from Graveyard to hand.",
     "description_cn": "[唯一/消灭2] 获得250%护盾 从坟墓将自身的1张随机攻击卡牌移动至手牌中",
-    "image_url": "images/gk967.png"
+    "image_url": "images/gk967.png",
+    "kind": "neutral"
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     "ap": 1,
     "description": "[Unique] Heal 250%. 3 Slow.",
     "description_cn": "[唯一] 治愈250% 行动迟缓3",
-    "image_url": "images/gk966.png"
+    "image_url": "images/gk966.png",
+    "kind": "neutral"
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     "ap": 1,
     "description": "[Unique] Gain 250% Heal. For 1 turn, when discarding a card, inflict 1 Agony on a random enemy.",
     "description_cn": "[唯一] 获得250%治愈 持续1回合，丢弃卡牌时，随机敌人痛苦1",
-    "image_url": "images/gk965.png"
+    "image_url": "images/gk965.png",
+    "kind": "neutral"
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     "ap": 1,
     "description": "[Unique/Exhaust 2] +30% Damage to Bullet cards.",
     "description_cn": "[唯一/消灭2] 弹药卡牌的伤害量+30%",
-    "image_url": "images/gk964.png"
+    "image_url": "images/gk964.png",
+    "kind": "neutral"
   },
   {
     "id": 5,
@@ -72,7 +76,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Damage. 2 Mark.",
     "description_cn": "[唯一] 造成250%的伤害 标记2",
-    "image_url": "images/gk963.png"
+    "image_url": "images/gk963.png",
+    "kind": "neutral"
   },
   {
     "id": 6,
@@ -87,7 +92,8 @@
     "ap": 1,
     "description": "[Unique/Bullet] Deal 250% Damage. +30% Damage until all Bullet cards in hand are used.",
     "description_cn": "[唯一/弹药] 造成250%的伤害 直到使用手牌中所有弹药卡牌为止，伤害量+30%",
-    "image_url": "images/gk962.png"
+    "image_url": "images/gk962.png",
+    "kind": "neutral"
   },
   {
     "id": 7,
@@ -102,7 +108,8 @@
     "ap": 1,
     "description": "[Unique] Gain 250% Shield. 2 Counterattack.",
     "description_cn": "[唯一] 获得250%护盾 反击2",
-    "image_url": "images/gk961.png"
+    "image_url": "images/gk961.png",
+    "kind": "neutral"
   },
   {
     "id": 8,
@@ -117,7 +124,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Defense-based Damage. +2 Action Count.",
     "description_cn": "[唯一] 造成250%的基于防御的伤害 行动次数增加2",
-    "image_url": "images/gk960.png"
+    "image_url": "images/gk960.png",
+    "kind": "neutral"
   },
   {
     "id": 9,
@@ -132,7 +140,8 @@
     "ap": 1,
     "description": "[Unique] Based on the number of cards in the Graveyard, +15% Damage to the next Attack Card used (max 150%).",
     "description_cn": "[唯一] 依坟墓的卡牌数量,接下来使用的攻击卡牌伤害量+15%(最多150%)",
-    "image_url": "images/gk959.png"
+    "image_url": "images/gk959.png",
+    "kind": "neutral"
   },
   {
     "id": 10,
@@ -147,7 +156,8 @@
     "ap": 1,
     "description": "[Unique/Exhaust 5] Deal 100% Damage. +50% Damage to self Attack Cards in hand.",
     "description_cn": "[唯一/消灭5] 造成100%的伤害 手牌中自身攻击卡牌伤害量+50%",
-    "image_url": "images/gk958.png"
+    "image_url": "images/gk958.png",
+    "kind": "neutral"
   },
   {
     "id": 11,
@@ -162,7 +172,8 @@
     "ap": 1,
     "description": "[Unique] Deal 150% Damage. +30% Damage per self Agony stack on the target.",
     "description_cn": "[唯一] 造成150%的伤害 依目标持有的自身痛苦叠加数，伤害量+30%",
-    "image_url": "images/gk957.png"
+    "image_url": "images/gk957.png",
+    "kind": "neutral"
   },
   {
     "id": 12,
@@ -177,7 +188,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Defense-based Damage. When the target's Action Count is 1, 2 Counterattack.",
     "description_cn": "[唯一] 造成250%的基于防御的伤害 当目标行动次数为1时，反击2",
-    "image_url": "images/gk956.png"
+    "image_url": "images/gk956.png",
+    "kind": "neutral"
   },
   {
     "id": 13,
@@ -192,7 +204,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Defense-based Damage. 1 Vulnerable.",
     "description_cn": "[唯一] 造成250%的基于防御的伤害 脆弱1",
-    "image_url": "images/gk955.png"
+    "image_url": "images/gk955.png",
+    "kind": "neutral"
   },
   {
     "id": 14,
@@ -207,7 +220,8 @@
     "ap": 1,
     "description": "[Unique] Draw 2. Deal 100% Pincer Damage per drawn Attack Card.",
     "description_cn": "[唯一] 抽取2 根据抽取到的攻击卡牌数量夹击100%",
-    "image_url": "images/gk954.png"
+    "image_url": "images/gk954.png",
+    "kind": "neutral"
   },
   {
     "id": 15,
@@ -222,7 +236,8 @@
     "ap": 1,
     "description": "[Unique/Quietus] Randomly discard 1 Quietus card from the Draw Pile.",
     "description_cn": "[唯一/安息] 在抽牌堆中随机丢弃1张安息卡牌",
-    "image_url": "images/gk953.png"
+    "image_url": "images/gk953.png",
+    "kind": "neutral"
   },
   {
     "id": 16,
@@ -237,7 +252,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Damage. If a card was generated this turn, +50% Damage.",
     "description_cn": "[唯一] 造成250%的伤害 若本回合生成了卡牌，伤害量增加50%",
-    "image_url": "images/gk952.png"
+    "image_url": "images/gk952.png",
+    "kind": "neutral"
   },
   {
     "id": 17,
@@ -252,7 +268,8 @@
     "ap": 1,
     "description": "[Unique] Draw 1. When drawing an Attack Card, 2 Morale for 1 turn.",
     "description_cn": "[唯一] 抽取1 抽取攻击卡牌时，持续1回合士气2",
-    "image_url": "images/gk951.png"
+    "image_url": "images/gk951.png",
+    "kind": "neutral"
   },
   {
     "id": 18,
@@ -267,7 +284,8 @@
     "ap": 1,
     "description": "[Unique] Discard up to 2 cards. +60% Damage to self Attack Cards for 1 turn per discarded card.",
     "description_cn": "[唯一] 最多丢弃2张 依丢弃数量,持续1回合 自身的攻击卡牌伤害量+60%",
-    "image_url": "images/gk950.png"
+    "image_url": "images/gk950.png",
+    "kind": "neutral"
   },
   {
     "id": 19,
@@ -282,7 +300,8 @@
     "ap": 0,
     "description": "[Retain/Exhaust] Deal 1000% Damage. 10 Tenacity Damage.",
     "description_cn": "[保留/消灭] 伤害1000% 韧性伤害10",
-    "image_url": "images/gk949.png"
+    "image_url": "images/gk949.png",
+    "kind": "neutral"
   },
   {
     "id": 20,
@@ -297,7 +316,8 @@
     "ap": -2,
     "description": "[Retain] After generating all kinds of Arena cards, replace this card with Judgment.",
     "description_cn": "[保留] 生成过所有种类的竞技场卡牌后，将该卡牌替换为审判",
-    "image_url": "images/gk948.png"
+    "image_url": "images/gk948.png",
+    "kind": "neutral"
   },
   {
     "id": 21,
@@ -312,7 +332,8 @@
     "ap": 1,
     "description": "[Unique] Deal 200% Damage. 1 Death Brand.",
     "description_cn": "[唯一] 造成200%的伤害 死亡烙印1",
-    "image_url": "images/gk947.png"
+    "image_url": "images/gk947.png",
+    "kind": "neutral"
   },
   {
     "id": 22,
@@ -327,7 +348,8 @@
     "ap": 1,
     "description": "[Unique] Deal 250% Damage. 3 Shockwave.",
     "description_cn": "[唯一] 造成250%伤害 冲击波3",
-    "image_url": "images/gk946.png"
+    "image_url": "images/gk946.png",
+    "kind": "neutral"
   },
   {
     "id": 23,
@@ -342,7 +364,10 @@
     "ap": 2,
     "description": "Draw 2 Bullet cards with Exhaust. Deal 300% Damage. +30% Damage per distinct Bullet card in hand.",
     "description_cn": "抽取附有消灭的2张弹药卡牌，伤害300%，伤害依手牌中不同弹药卡牌的数量，伤害量增加30%",
-    "image_url": "images/gk943.png"
+    "image_url": "images/gk943.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "unique"
   },
   {
     "id": 24,
@@ -357,7 +382,10 @@
     "ap": 1,
     "description": "Draw 1 Quietus card. Discard 2.",
     "description_cn": "抽取1张安息卡牌，丢弃2张",
-    "image_url": "images/gk942.png"
+    "image_url": "images/gk942.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "unique"
   },
   {
     "id": 25,
@@ -372,7 +400,10 @@
     "ap": 1,
     "description": "[Bullet/Quietus] Deal 120% Damage. 2 Resonance. When discarded, trigger 3 additional Resonance on the target.",
     "description_cn": "[弹药/安息] 造成120%伤害 共鸣2 被丢弃时，对目标额外发动3次自身的共鸣",
-    "image_url": "images/gk941.png"
+    "image_url": "images/gk941.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "unique"
   },
   {
     "id": 26,
@@ -387,7 +418,10 @@
     "ap": 1,
     "description": "Create 2 Heart Shaker.",
     "description_cn": "生成2张撼心者",
-    "image_url": "images/gk940.png"
+    "image_url": "images/gk940.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "unique"
   },
   {
     "id": 27,
@@ -402,7 +436,10 @@
     "ap": 1,
     "description": "[Quietus] Deal 100% Damage. Create 2 Heart Breaker.",
     "description_cn": "[安息] 造成100%的伤害，生成2张碎心者",
-    "image_url": "images/gk939.png"
+    "image_url": "images/gk939.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "unique"
   },
   {
     "id": 28,
@@ -417,7 +454,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%的治愈",
-    "image_url": "images/gk938.png"
+    "image_url": "images/gk938.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "basic"
   },
   {
     "id": 29,
@@ -432,7 +472,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk937.png"
+    "image_url": "images/gk937.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "basic"
   },
   {
     "id": 30,
@@ -447,7 +490,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk936.png"
+    "image_url": "images/gk936.png",
+    "combatant": "Diana",
+    "combatant_slug": "diana",
+    "kind": "basic"
   },
   {
     "id": 31,
@@ -462,7 +508,10 @@
     "ap": 0,
     "description": "[Unique] Consume all Chronicle. Gain Chronal Ascension equal to the amount consumed.",
     "description_cn": "[唯一] 消耗所有时间记录，获得与该数量相等的时间超越",
-    "image_url": "images/gk933.png"
+    "image_url": "images/gk933.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "unique"
   },
   {
     "id": 32,
@@ -477,7 +526,10 @@
     "ap": 1,
     "description": "Create 2 Fate Imprint.",
     "description_cn": "生成2张命运刻印",
-    "image_url": "images/gk932.png"
+    "image_url": "images/gk932.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "unique"
   },
   {
     "id": 33,
@@ -492,7 +544,10 @@
     "ap": 1,
     "description": "Until using 1 card of cost 2 or less in hand, +1 Cost; then activate 1 random cost-3 card.",
     "description_cn": "直到发动1张手牌中费用为2以下的卡牌为止，费用增加1，并发动1张费用为3的随机卡牌",
-    "image_url": "images/gk931.png"
+    "image_url": "images/gk931.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "unique"
   },
   {
     "id": 34,
@@ -507,7 +562,10 @@
     "ap": 2,
     "description": "Deal 300% Damage. +20% Damage per combined cost of cards in hand (max 200%).",
     "description_cn": "造成300%的伤害，依手牌的费用总和伤害量增加20。（最多200%）",
-    "image_url": "images/gk930.png"
+    "image_url": "images/gk930.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "unique"
   },
   {
     "id": 35,
@@ -522,7 +580,10 @@
     "ap": 1,
     "description": "[Unique/Initiation] When a card is activated, 1 Chronicle per cost of that card.",
     "description_cn": "[唯一/开战] 发动卡牌时，依该卡牌费用获得时间记录1",
-    "image_url": "images/gk929.png"
+    "image_url": "images/gk929.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "unique"
   },
   {
     "id": 36,
@@ -537,7 +598,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "治愈100%",
-    "image_url": "images/gk928.png"
+    "image_url": "images/gk928.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "basic"
   },
   {
     "id": 37,
@@ -552,7 +616,10 @@
     "ap": 3,
     "description": "Deal 350% Damage.",
     "description_cn": "伤害350%",
-    "image_url": "images/gk927.png"
+    "image_url": "images/gk927.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "basic"
   },
   {
     "id": 38,
@@ -567,7 +634,10 @@
     "ap": 3,
     "description": "Deal 350% Damage.",
     "description_cn": "伤害350%",
-    "image_url": "images/gk926.png"
+    "image_url": "images/gk926.png",
+    "combatant": "Rita",
+    "combatant_slug": "rita",
+    "kind": "basic"
   },
   {
     "id": 39,
@@ -582,7 +652,10 @@
     "ap": 2,
     "description": "[Unique/Form Upgrade (0/3)] 1 AP, Draw 1. +40% first-hit Damage to the next Attack Card used.",
     "description_cn": "[唯一] [强化形象 (0/3)] * AP 1，抽取1，接下来使用的攻击卡牌首次打击伤害量增加40%",
-    "image_url": "images/gk922.png"
+    "image_url": "images/gk922.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "unique"
   },
   {
     "id": 40,
@@ -597,7 +670,10 @@
     "ap": 1,
     "description": "[Unique] When 2 Archetype cards are created, create 1 identical card in Discard Pile.",
     "description_cn": "[唯一] 生成2张创造卡牌时，在弃牌堆中生成1张相同卡牌",
-    "image_url": "images/gk921.png"
+    "image_url": "images/gk921.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "unique"
   },
   {
     "id": 41,
@@ -612,7 +688,10 @@
     "ap": 1,
     "description": "Deal 120% Defense-based Damage. 80% Shield. Heal 80%. Harmonization: double all effects.",
     "description_cn": "造成基于防御的伤害120%，护盾80%，治愈80% 调节：所有效果提升2倍",
-    "image_url": "images/gk920.png"
+    "image_url": "images/gk920.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "unique"
   },
   {
     "id": 42,
@@ -627,7 +706,10 @@
     "ap": 1,
     "description": "[Retain] Draw 2 Archetype cards. Double a random effect on them for 1 turn.",
     "description_cn": "[保留] 抽取2张创造卡牌，持续1回合使这些卡牌的随机效果提升2倍",
-    "image_url": "images/gk919.png"
+    "image_url": "images/gk919.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "unique"
   },
   {
     "id": 43,
@@ -642,7 +724,10 @@
     "ap": 0,
     "description": "Heal 100%. Create 2 Archetype cards in Draw Pile and draw 1.",
     "description_cn": "治愈100% 在抽牌堆中生成2张创造卡牌，从中抽取1张",
-    "image_url": "images/gk918.png"
+    "image_url": "images/gk918.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "unique"
   },
   {
     "id": 44,
@@ -657,7 +742,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "治愈100%",
-    "image_url": "images/gk917.png"
+    "image_url": "images/gk917.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "basic"
   },
   {
     "id": 45,
@@ -672,7 +760,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "治愈100%",
-    "image_url": "images/gk916.png"
+    "image_url": "images/gk916.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "basic"
   },
   {
     "id": 46,
@@ -687,7 +778,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "造成基于防御的伤害100%",
-    "image_url": "images/gk915.png"
+    "image_url": "images/gk915.png",
+    "combatant": "Tiphera",
+    "combatant_slug": "tiphera",
+    "kind": "basic"
   },
   {
     "id": 47,
@@ -702,7 +796,8 @@
     "ap": 3,
     "description": "[Exhaust] Incinerate: Draw 3 and create 1 Broken Ebony Lumen.",
     "description_cn": "[消灭] 焚烧:抽取3，生成1张破碎的黑色流明",
-    "image_url": "images/gk911.png"
+    "image_url": "images/gk911.png",
+    "kind": "neutral"
   },
   {
     "id": 48,
@@ -717,7 +812,8 @@
     "ap": 1,
     "description": "[Exhaust] Heal 150%. Harmonization: 150% Shield.",
     "description_cn": "[消灭] 获得150%治愈 调节:护盾150%",
-    "image_url": "images/gk910.png"
+    "image_url": "images/gk910.png",
+    "kind": "neutral"
   },
   {
     "id": 49,
@@ -732,7 +828,8 @@
     "ap": 0,
     "description": "[Retain/Exhaust] Exhaust 1 Exhaust card in hand.",
     "description_cn": "[保留/消灭] 消灭手牌中1张消灭卡牌",
-    "image_url": "images/gk909.png"
+    "image_url": "images/gk909.png",
+    "kind": "neutral"
   },
   {
     "id": 50,
@@ -747,7 +844,8 @@
     "ap": 3,
     "description": "[Incinerate/Exhaust] Deal 300% Damage to all enemies.",
     "description_cn": "[点燃/消灭] 对所有敌人造成300%的伤害",
-    "image_url": "images/gk908.png"
+    "image_url": "images/gk908.png",
+    "kind": "neutral"
   },
   {
     "id": 51,
@@ -762,7 +860,8 @@
     "ap": 5,
     "description": "Deal 600% Defense-based Damage. Incinerate: activate this card.",
     "description_cn": "基于防御的伤害600% 焚烧:发动此卡牌",
-    "image_url": "images/gk907.png"
+    "image_url": "images/gk907.png",
+    "kind": "monster"
   },
   {
     "id": 52,
@@ -777,7 +876,8 @@
     "ap": 0,
     "description": "[Exhaust 3] Draw 2 self Exhaust cards.",
     "description_cn": "[消灭3] 抽取2张自身的消灭卡牌",
-    "image_url": "images/gk906.png"
+    "image_url": "images/gk906.png",
+    "kind": "monster"
   },
   {
     "id": 53,
@@ -792,7 +892,8 @@
     "ap": 1,
     "description": "[Exhaust] Heal 20% per card in hand. Harmonization: create 1 Contaminated Spore per card in hand.",
     "description_cn": "[消灭] 依手牌中的卡牌数量治愈20% 调节:依手牌中的卡牌数量生成1张被污染的孢子",
-    "image_url": "images/gk905.png"
+    "image_url": "images/gk905.png",
+    "kind": "neutral"
   },
   {
     "id": 54,
@@ -807,7 +908,8 @@
     "ap": -2,
     "description": "[Ultimate/Exhaust] Choose 1 card from hand, Draw Pile, or Discard Pile to activate for 1 turn; remove Unusable once damage, shield, and heal have all activated.",
     "description_cn": "[终极/消灭] 从手牌,抽牌堆与弃牌堆中选择1张发动持续1回合,透过卡牌造成伤害,护盾,治愈全部发动时，移除无法使用",
-    "image_url": "images/gk903.png"
+    "image_url": "images/gk903.png",
+    "kind": "neutral"
   },
   {
     "id": 55,
@@ -822,7 +924,8 @@
     "ap": 3,
     "description": "[Bullet/Exhaust] Deal 450% Damage. Double the effect of Spore Propagation.",
     "description_cn": "[弹药/消灭] 造成450%的伤害,孢子增殖效果2倍",
-    "image_url": "images/gk902.png"
+    "image_url": "images/gk902.png",
+    "kind": "neutral"
   },
   {
     "id": 56,
@@ -837,7 +940,8 @@
     "ap": 6,
     "description": "[Incinerate/Retain/Exhaust] When this card's cost is reduced, +10% Crit Chance for 1 turn. Incinerate: create 1 Contaminated Spore.",
     "description_cn": "[点燃/保留/消灭] 此卡牌费用减少时，持续1回合自身的暴击率+10% 焚烧:生成1张被污染的孢子",
-    "image_url": "images/gk901.png"
+    "image_url": "images/gk901.png",
+    "kind": "neutral"
   },
   {
     "id": 57,
@@ -852,7 +956,8 @@
     "ap": 2,
     "description": "Deal 300% Defense-based Damage. Exhaust all Exhaust cards in hand; +25% Damage per card.",
     "description_cn": "基于防御的伤害300% 消灭手牌中所有消灭卡牌，依其数量伤害量+25%",
-    "image_url": "images/gk900.png"
+    "image_url": "images/gk900.png",
+    "kind": "neutral"
   },
   {
     "id": 58,
@@ -867,7 +972,8 @@
     "ap": 0,
     "description": "[Retrieve 2/Exhaust 3] Gain 60% Shield. Incinerate: create 1 Contaminated Spore.",
     "description_cn": "[回收2/消灭3] 护盾60% 焚烧:生成1张被污染的孢子",
-    "image_url": "images/gk899.png"
+    "image_url": "images/gk899.png",
+    "kind": "neutral"
   },
   {
     "id": 59,
@@ -882,7 +988,8 @@
     "ap": 0,
     "description": "[Exhaust] Choose a card in hand to exhaust. Decrease the cost of 1 random card in hand by 1 for 1 turn per cost point.",
     "description_cn": "[消灭] 选择手牌中的1张卡牌消灭,按照该卡牌的费用使手牌中随机1张卡牌持续1回合费用减少1",
-    "image_url": "images/gk898.png"
+    "image_url": "images/gk898.png",
+    "kind": "neutral"
   },
   {
     "id": 60,
@@ -897,7 +1004,8 @@
     "ap": 0,
     "description": "[Retain/Exhaust] Incinerate: create 2 Contaminated Spore. Retain: create 1 Contaminated Spore.",
     "description_cn": "[保留/消灭] 焚烧:生成2张被污染的孢子 保留:生成1张被污染的孢子",
-    "image_url": "images/gk897.png"
+    "image_url": "images/gk897.png",
+    "kind": "neutral"
   },
   {
     "id": 61,
@@ -912,7 +1020,10 @@
     "ap": 1,
     "description": "Activate the highest-cost self Attack Card in hand and exhaust it.",
     "description_cn": "发动1张手牌中的费用最高的自身攻击卡牌，并消灭该卡牌",
-    "image_url": "images/gk876.png"
+    "image_url": "images/gk876.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "unique"
   },
   {
     "id": 62,
@@ -927,7 +1038,10 @@
     "ap": 0,
     "description": "[Unique] When gaining Shield through an ability, 1 Honed Edge.",
     "description_cn": "[唯一] 使用能力获得护盾时，磨利刀刃1",
-    "image_url": "images/gk875.png"
+    "image_url": "images/gk875.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "unique"
   },
   {
     "id": 63,
@@ -942,7 +1056,10 @@
     "ap": 1,
     "description": "Deal 140% Defense-based Damage. +20% Damage per cost of the highest-cost Exhaust card in hand; then exhaust this card.",
     "description_cn": "基于防御的伤害140% 依费用最高的消灭卡牌之费用，使伤害量增加20%，并消灭该卡牌",
-    "image_url": "images/gk874.png"
+    "image_url": "images/gk874.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "unique"
   },
   {
     "id": 64,
@@ -957,7 +1074,10 @@
     "ap": 1,
     "description": "Deal 140% Defense-based Damage. 20% Damage-based Shield. +20% Damage to Exhaust cards for 1 turn.",
     "description_cn": "基于防御的伤害140%基于伤害的护盾20% 持续1回合，消灭卡牌的伤害量增加20%",
-    "image_url": "images/gk873.png"
+    "image_url": "images/gk873.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "unique"
   },
   {
     "id": 65,
@@ -972,7 +1092,10 @@
     "ap": 3,
     "description": "[Unique/Initiation/Exhaust/Incinerate] Deal 350% Defense-based Damage. Incinerate: Create 1 Hew Lv.1.",
     "description_cn": "[唯一/开战/消灭/蒸发] 基于防御的伤害350% 焚烧：生成1张破碎Lv.1",
-    "image_url": "images/gk872.png"
+    "image_url": "images/gk872.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "unique"
   },
   {
     "id": 66,
@@ -987,7 +1110,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk871.png"
+    "image_url": "images/gk871.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "basic"
   },
   {
     "id": 67,
@@ -1002,7 +1128,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "基于防御的伤害100%",
-    "image_url": "images/gk870.png"
+    "image_url": "images/gk870.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "basic"
   },
   {
     "id": 68,
@@ -1017,7 +1146,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "基于防御的伤害100%",
-    "image_url": "images/gk869.png"
+    "image_url": "images/gk869.png",
+    "combatant": "Nine",
+    "combatant_slug": "nine",
+    "kind": "basic"
   },
   {
     "id": 69,
@@ -1032,7 +1164,10 @@
     "ap": 6,
     "description": "[Retain/Unique] If Voracity is decreased, until used, cost -1 and +30% Heal Amount (max 10). Deal 160% Defense-based Damage to all enemies. Heal 100%. 4 Predation.",
     "description_cn": "*yellow:【保留/唯一】* 若贪食减少，直到使用前费用减少1，治愈量+30%（最多10） 对所有敌人造成160%的基于防御的伤害 治愈100%，掠食4",
-    "image_url": "images/gk864.png"
+    "image_url": "images/gk864.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "unique"
   },
   {
     "id": 70,
@@ -1047,7 +1182,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage to all enemies. Until next Ravage, targets take +100% Tenacity Damage.",
     "description_cn": "对所有敌人造成100%的基于防御的伤害，目标直到下次击破前，受到的韧性伤害增加100%",
-    "image_url": "images/gk863.png"
+    "image_url": "images/gk863.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "unique"
   },
   {
     "id": 71,
@@ -1062,7 +1200,10 @@
     "ap": 1,
     "description": "If Voracity is below 6, set it to 6. If Voracity is 6 or above, gain 2 Predation.",
     "description_cn": "若贪食低于6，则贪食6，若在6以上，则掠食2",
-    "image_url": "images/gk862.png"
+    "image_url": "images/gk862.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "unique"
   },
   {
     "id": 72,
@@ -1077,7 +1218,10 @@
     "ap": 0,
     "description": "The next 2 times Voracity is consumed, 1 random card in hand costs -1 for 1 turn.",
     "description_cn": "接下来发动2次贪食时，手牌中的1张随机卡牌持续1回合费用减少1",
-    "image_url": "images/gk861.png"
+    "image_url": "images/gk861.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "unique"
   },
   {
     "id": 73,
@@ -1092,7 +1236,10 @@
     "ap": 1,
     "description": "Attunement: 4 Voracity. Deal 30% x 3 Defense-based Damage.",
     "description_cn": "感应：贪食4 造成基于防御的伤害30%×3",
-    "image_url": "images/gk860.png"
+    "image_url": "images/gk860.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "unique"
   },
   {
     "id": 74,
@@ -1107,7 +1254,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "治愈100%",
-    "image_url": "images/gk859.png"
+    "image_url": "images/gk859.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "basic"
   },
   {
     "id": 75,
@@ -1122,7 +1272,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "治愈100%",
-    "image_url": "images/gk858.png"
+    "image_url": "images/gk858.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "basic"
   },
   {
     "id": 76,
@@ -1137,7 +1290,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "造成基于防御的伤害100%",
-    "image_url": "images/gk857.png"
+    "image_url": "images/gk857.png",
+    "combatant": "Narja",
+    "combatant_slug": "narja",
+    "kind": "basic"
   },
   {
     "id": 77,
@@ -1152,7 +1308,8 @@
     "ap": 3,
     "description": "Deal 400% Defense-based Damage. If at full HP, cost -1.",
     "description_cn": "基于防御的伤害400% 若生命值已满、则此卡牌费用减少1",
-    "image_url": "images/gk842.png"
+    "image_url": "images/gk842.png",
+    "kind": "neutral"
   },
   {
     "id": 78,
@@ -1167,7 +1324,8 @@
     "ap": 0,
     "description": "[Remove] Recover 15% of Max HP. Gain 2 AP.",
     "description_cn": "[移除] 恢复HP上限的15%，获得2点AP",
-    "image_url": "images/gk841.png"
+    "image_url": "images/gk841.png",
+    "kind": "neutral"
   },
   {
     "id": 79,
@@ -1182,7 +1340,8 @@
     "ap": 1,
     "description": "When creating a card, randomly grant Flash of Insight (once per turn).",
     "description_cn": "生成卡牌时、随机赋予灵光一闪 （每回合1次）",
-    "image_url": "images/gk840.png"
+    "image_url": "images/gk840.png",
+    "kind": "neutral"
   },
   {
     "id": 80,
@@ -1197,7 +1356,8 @@
     "ap": 0,
     "description": "[Exhaust] Deal 100% x 3 Damage to all enemies. Create 2 Overload among drawn cards.",
     "description_cn": "[消灭] 所有敌人伤害100%×3 抽取卡牌中生成2张超出负荷",
-    "image_url": "images/gk839.png"
+    "image_url": "images/gk839.png",
+    "kind": "neutral"
   },
   {
     "id": 81,
@@ -1212,7 +1372,8 @@
     "ap": 0,
     "description": "[Exhaust] Weaken 1 to all enemies. +1 Weaken per additional enemy.",
     "description_cn": "[消灭] 所有敌人削弱1 按照敌人的数量追加削弱",
-    "image_url": "images/gk838.png"
+    "image_url": "images/gk838.png",
+    "kind": "neutral"
   },
   {
     "id": 82,
@@ -1227,7 +1388,8 @@
     "ap": 1,
     "description": "Deal 50% x 3 Damage.",
     "description_cn": "伤害50%×3",
-    "image_url": "images/gk837.png"
+    "image_url": "images/gk837.png",
+    "kind": "neutral"
   },
   {
     "id": 83,
@@ -1242,7 +1404,8 @@
     "ap": 1,
     "description": "[Exhaust] Draw 3.",
     "description_cn": "[消灭] 抽取3",
-    "image_url": "images/gk836.png"
+    "image_url": "images/gk836.png",
+    "kind": "neutral"
   },
   {
     "id": 84,
@@ -1257,7 +1420,8 @@
     "ap": 0,
     "description": "If there are no Attack Cards in hand, draw 2.",
     "description_cn": "手牌中无攻击卡牌时、抽取*blue:2*",
-    "image_url": "images/gk835.png"
+    "image_url": "images/gk835.png",
+    "kind": "neutral"
   },
   {
     "id": 85,
@@ -1272,7 +1436,8 @@
     "ap": 1,
     "description": "[Remove] Choose and exhaust up to 2 cards in hand. Gain Morale and AP based on the number exhausted.",
     "description_cn": "[移除] 选择并消灭手牌中最多2张卡牌 根据相应数量，获得士气、AP",
-    "image_url": "images/gk834.png"
+    "image_url": "images/gk834.png",
+    "kind": "neutral"
   },
   {
     "id": 86,
@@ -1287,7 +1452,8 @@
     "ap": 2,
     "description": "Deal 300% Damage. On Ravage, gain 2 AP.",
     "description_cn": "造成300%伤害 击破时获得2点AP",
-    "image_url": "images/gk833.png"
+    "image_url": "images/gk833.png",
+    "kind": "monster"
   },
   {
     "id": 87,
@@ -1302,7 +1468,8 @@
     "ap": 1,
     "description": "[Exhaust] 1 Morale. 1 Resolve.",
     "description_cn": "[消灭] 士气1 决心1",
-    "image_url": "images/gk832.png"
+    "image_url": "images/gk832.png",
+    "kind": "neutral"
   },
   {
     "id": 88,
@@ -1317,7 +1484,8 @@
     "ap": 1,
     "description": "[Initiation] When drawn by an ability, heal 40% and -1 Stress on a random Combatant.",
     "description_cn": "通过能力抽取时 治愈40% 随机战斗员压力减少1",
-    "image_url": "images/gk831.png"
+    "image_url": "images/gk831.png",
+    "kind": "forbidden"
   },
   {
     "id": 89,
@@ -1332,7 +1500,8 @@
     "ap": 0,
     "description": "[Retain] Gain 70% Shield. +25% Shield per card in hand.",
     "description_cn": "[保留] 护盾70% 按照手牌中的卡牌数量护盾+25%",
-    "image_url": "images/gk830.png"
+    "image_url": "images/gk830.png",
+    "kind": "neutral"
   },
   {
     "id": 90,
@@ -1347,7 +1516,8 @@
     "ap": 1,
     "description": "[Initiation] +25% Damage to targets with Shield (max 1 stack).",
     "description_cn": "[开战] 对持有护盾的目标造成的伤害量增加25%（最多1层）",
-    "image_url": "images/gk829.png"
+    "image_url": "images/gk829.png",
+    "kind": "neutral"
   },
   {
     "id": 91,
@@ -1362,7 +1532,8 @@
     "ap": 1,
     "description": "[Exhaust] Lose 10% HP. +30% Damage to the next Attack Card used. Cannot be used if HP below 10%.",
     "description_cn": "[消灭] HP减少10%，接下来使用的攻击卡牌伤害量增加30%，HP低于10%则无法使用",
-    "image_url": "images/gk828.png"
+    "image_url": "images/gk828.png",
+    "kind": "neutral"
   },
   {
     "id": 92,
@@ -1377,7 +1548,8 @@
     "ap": 1,
     "description": "When using a targeting Attack Card, inflict 1 Agony.",
     "description_cn": "使用锁定攻击卡牌，对目标赋予痛苦1",
-    "image_url": "images/gk827.png"
+    "image_url": "images/gk827.png",
+    "kind": "monster"
   },
   {
     "id": 93,
@@ -1392,7 +1564,8 @@
     "ap": 1,
     "description": "[Exhaust] Replace the Ego Skill slot with a different Ego Skill.",
     "description_cn": "[消灭] 将自我意识技能栏位、替换为其他自我意识技能",
-    "image_url": "images/gk826.png"
+    "image_url": "images/gk826.png",
+    "kind": "neutral"
   },
   {
     "id": 94,
@@ -1407,7 +1580,8 @@
     "ap": 0,
     "description": "Deal 120% Damage. Draw 1. Choose a card in hand and move it to the top of the Draw Pile.",
     "description_cn": "伤害120% 抽取1 在手牌选择1张卡牌、此卡牌移动至抽取卡牌顶端",
-    "image_url": "images/gk825.png"
+    "image_url": "images/gk825.png",
+    "kind": "neutral"
   },
   {
     "id": 95,
@@ -1422,7 +1596,8 @@
     "ap": 2,
     "description": "[Exhaust] Deal 200% Damage. 2 Tenacity Damage.",
     "description_cn": "[消灭] 伤害200% 韧性伤害2",
-    "image_url": "images/gk824.png"
+    "image_url": "images/gk824.png",
+    "kind": "neutral"
   },
   {
     "id": 96,
@@ -1437,7 +1612,8 @@
     "ap": 1,
     "description": "Gain 240% Shield. Inflict 1 Vulnerable. If target has not acted, +120% Shield and +1 Vulnerable.",
     "description_cn": "获得240%护盾、赋予脆弱1 若目标尚未行动，护盾获得量+120%，并额外赋予脆弱1",
-    "image_url": "images/gk823.png"
+    "image_url": "images/gk823.png",
+    "kind": "monster"
   },
   {
     "id": 97,
@@ -1452,7 +1628,8 @@
     "ap": 1,
     "description": "Deal 150% Damage. 4 Vulnerable.",
     "description_cn": "造成150%伤害 脆弱4",
-    "image_url": "images/gk822.png"
+    "image_url": "images/gk822.png",
+    "kind": "monster"
   },
   {
     "id": 98,
@@ -1467,7 +1644,8 @@
     "ap": 1,
     "description": "Pulse 1. At the start of each turn, Pulse 1 (max 4 stacks).",
     "description_cn": "脉动1 回合开始时，脉动1（最多叠加4层）",
-    "image_url": "images/gk821.png"
+    "image_url": "images/gk821.png",
+    "kind": "neutral"
   },
   {
     "id": 99,
@@ -1482,7 +1660,8 @@
     "ap": 2,
     "description": "Deal 200% Damage. 2 Vulnerable. 2 Weaken.",
     "description_cn": "伤害200% 脆弱2 削弱2",
-    "image_url": "images/gk820.png"
+    "image_url": "images/gk820.png",
+    "kind": "neutral"
   },
   {
     "id": 100,
@@ -1497,7 +1676,8 @@
     "ap": 3,
     "description": "At the start of each turn, deal 10% of Max HP as Fixed Damage to an ally. Gain 1 AP.",
     "description_cn": "每回合开始时、对友军造成HP上限10%的固定伤害、 获得1点AP",
-    "image_url": "images/gk819.png"
+    "image_url": "images/gk819.png",
+    "kind": "neutral"
   },
   {
     "id": 101,
@@ -1512,7 +1692,8 @@
     "ap": 1,
     "description": "[Exhaust] Gain 2 Resolve. Gain Shield equal to lost HP.",
     "description_cn": "[消灭] 获得决心2 并依减少的HP获得等量护盾",
-    "image_url": "images/gk818.png"
+    "image_url": "images/gk818.png",
+    "kind": "monster"
   },
   {
     "id": 102,
@@ -1527,7 +1708,8 @@
     "ap": 1,
     "description": "Deal 50% x 5 Damage.",
     "description_cn": "造成50%×5伤害",
-    "image_url": "images/gk817.png"
+    "image_url": "images/gk817.png",
+    "kind": "monster"
   },
   {
     "id": 103,
@@ -1542,7 +1724,8 @@
     "ap": 1,
     "description": "[Exhaust/Combo] Draw 2.",
     "description_cn": "[消灭/连击] 抽取2",
-    "image_url": "images/gk816.png"
+    "image_url": "images/gk816.png",
+    "kind": "neutral"
   },
   {
     "id": 104,
@@ -1557,7 +1740,8 @@
     "ap": 1,
     "description": "At the end of each turn, deal 200% Damage to a random enemy.",
     "description_cn": "回合结束时，对随机敌人造成200%的伤害",
-    "image_url": "images/gk815.png"
+    "image_url": "images/gk815.png",
+    "kind": "monster"
   },
   {
     "id": 105,
@@ -1572,7 +1756,8 @@
     "ap": 0,
     "description": "Deal 80% Damage. Draw 1.",
     "description_cn": "伤害80% 抽取1",
-    "image_url": "images/gk814.png"
+    "image_url": "images/gk814.png",
+    "kind": "neutral"
   },
   {
     "id": 106,
@@ -1587,7 +1772,8 @@
     "ap": 0,
     "description": "[Exhaust] Gain 100% Shield. 1 AP.",
     "description_cn": "[消灭] 护盾100% 获得1点AP",
-    "image_url": "images/gk813.png"
+    "image_url": "images/gk813.png",
+    "kind": "neutral"
   },
   {
     "id": 107,
@@ -1602,7 +1788,8 @@
     "ap": 0,
     "description": "-15% Damage taken (once per turn).",
     "description_cn": "所受伤害量-15%(每回合1次)",
-    "image_url": "images/gk812.png"
+    "image_url": "images/gk812.png",
+    "kind": "monster"
   },
   {
     "id": 108,
@@ -1617,7 +1804,8 @@
     "ap": 2,
     "description": "[Initiation] When 4 cards are used, draw 1 (once per turn).",
     "description_cn": "[主导] 使用4张卡牌时 抽取1 （每回合1次）",
-    "image_url": "images/gk811.png"
+    "image_url": "images/gk811.png",
+    "kind": "neutral"
   },
   {
     "id": 109,
@@ -1632,7 +1820,8 @@
     "ap": 0,
     "description": "[Exhaust 2] When this card is exhausted, draw 2.",
     "description_cn": "[消灭2] 此卡牌消灭时，抽取2",
-    "image_url": "images/gk810.png"
+    "image_url": "images/gk810.png",
+    "kind": "neutral"
   },
   {
     "id": 110,
@@ -1647,7 +1836,8 @@
     "ap": 2,
     "description": "Deal 120% Damage. Harmonization: +1 attack (max 5 stacks).",
     "description_cn": "伤害120%x1 感应：额外攻击1次 （最多叠加5层）",
-    "image_url": "images/gk809.png"
+    "image_url": "images/gk809.png",
+    "kind": "neutral"
   },
   {
     "id": 111,
@@ -1662,7 +1852,8 @@
     "ap": 2,
     "description": "Deal 100% x 4 Damage to random enemies. On targets hit: inflict 1 Vulnerable or 1 Weaken.",
     "description_cn": "对随机敌人造成伤害100%x4，对攻击的目标造成脆弱1或削弱1",
-    "image_url": "images/gk808.png"
+    "image_url": "images/gk808.png",
+    "kind": "neutral"
   },
   {
     "id": 112,
@@ -1677,7 +1868,8 @@
     "ap": 1,
     "description": "[Exhaust] Gain 2 Ego Points.",
     "description_cn": "[消灭] 获得2点自我意识点数",
-    "image_url": "images/gk807.png"
+    "image_url": "images/gk807.png",
+    "kind": "neutral"
   },
   {
     "id": 113,
@@ -1692,7 +1884,8 @@
     "ap": 2,
     "description": "At the start of each turn, gain 1 Morale.",
     "description_cn": "回合开始时获得士气1",
-    "image_url": "images/gk806.png"
+    "image_url": "images/gk806.png",
+    "kind": "monster"
   },
   {
     "id": 114,
@@ -1707,7 +1900,8 @@
     "ap": 1,
     "description": "Deal 400% Defense-based Damage. If at full HP, cost -1.",
     "description_cn": "基于防御的伤害400% 若生命值已满、则此卡牌费用减少1",
-    "image_url": "images/gk805.png"
+    "image_url": "images/gk805.png",
+    "kind": "neutral"
   },
   {
     "id": 115,
@@ -1722,7 +1916,8 @@
     "ap": 0,
     "description": "Choose 1 Attack Card from the Draw Pile to move to hand.",
     "description_cn": "从抽牌堆中选择1张攻击卡牌移动至手牌",
-    "image_url": "images/gk804.png"
+    "image_url": "images/gk804.png",
+    "kind": "neutral"
   },
   {
     "id": 116,
@@ -1737,7 +1932,8 @@
     "ap": 1,
     "description": "[Exhaust] Choose 1 card from the Draw Pile to draw; grant that card Retrieve.",
     "description_cn": "[消灭] 从抽取卡牌中选择1张抽取，并赋予该卡牌回收",
-    "image_url": "images/gk803.png"
+    "image_url": "images/gk803.png",
+    "kind": "monster"
   },
   {
     "id": 117,
@@ -1752,7 +1948,8 @@
     "ap": 0,
     "description": "[Exhaust] Change 1 Attack Card in hand to cost 0-1 for 1 turn.",
     "description_cn": "[消灭] 将手牌中1张攻击卡的费用于1回合内变更为0~1",
-    "image_url": "images/gk802.png"
+    "image_url": "images/gk802.png",
+    "kind": "neutral"
   },
   {
     "id": 118,
@@ -1767,7 +1964,8 @@
     "ap": 0,
     "description": "When Ego Points are 2 or more, gain 2 AP and -1 Ego Points.",
     "description_cn": "自我意识点数为2以上时、获得2点AP、自我意识点数减少1",
-    "image_url": "images/gk801.png"
+    "image_url": "images/gk801.png",
+    "kind": "neutral"
   },
   {
     "id": 119,
@@ -1782,7 +1980,8 @@
     "ap": 2,
     "description": "Deal 230% Piercing Damage to all enemies.",
     "description_cn": "所有敌人穿透伤害230%",
-    "image_url": "images/gk800.png"
+    "image_url": "images/gk800.png",
+    "kind": "neutral"
   },
   {
     "id": 120,
@@ -1797,7 +1996,8 @@
     "ap": 0,
     "description": "[Quick/Exhaust 2] Draw 1. +3 Action Count to all enemies.",
     "description_cn": "[快速/消灭2] 抽取1 所有敌人行动次数+3",
-    "image_url": "images/gk799.png"
+    "image_url": "images/gk799.png",
+    "kind": "neutral"
   },
   {
     "id": 121,
@@ -1812,7 +2012,8 @@
     "ap": 0,
     "description": "[Exhaust] Draw 1 self Attack Card. +50% Damage to that card for 1 turn.",
     "description_cn": "[消灭] 自身攻击卡牌抽取1 1回合内该卡牌伤害量+50%",
-    "image_url": "images/gk798.png"
+    "image_url": "images/gk798.png",
+    "kind": "neutral"
   },
   {
     "id": 122,
@@ -1827,7 +2028,8 @@
     "ap": 2,
     "description": "[Initiation] Draw 1. Activate 2 random cards from hand.",
     "description_cn": "[主导] 抽取1 随机发动手牌2张",
-    "image_url": "images/gk797.png"
+    "image_url": "images/gk797.png",
+    "kind": "forbidden"
   },
   {
     "id": 123,
@@ -1842,7 +2044,8 @@
     "ap": 1,
     "description": "Deal 50% x 4 Damage. 6 Agony.",
     "description_cn": "造成50%×4伤害 痛苦6",
-    "image_url": "images/gk796.png"
+    "image_url": "images/gk796.png",
+    "kind": "monster"
   },
   {
     "id": 124,
@@ -1857,7 +2060,8 @@
     "ap": 2,
     "description": "+40% Damage to Attack Cards of cost 1 or higher. Attack Card cost +1.",
     "description_cn": "费用为1以上的攻击卡牌伤害量增加40%，攻击卡牌费用增加1",
-    "image_url": "images/gk795.png"
+    "image_url": "images/gk795.png",
+    "kind": "neutral"
   },
   {
     "id": 125,
@@ -1872,7 +2076,8 @@
     "ap": 0,
     "description": "Draw 1. Move 1 random Forbidden card from the Draw Pile or Discard Pile to hand.",
     "description_cn": "抽取1 将1张抽牌堆或弃牌堆中的随机禁忌卡牌移动至手牌",
-    "image_url": "images/gk794.png"
+    "image_url": "images/gk794.png",
+    "kind": "neutral"
   },
   {
     "id": 126,
@@ -1887,7 +2092,8 @@
     "ap": 3,
     "description": "[Exhaust] Create 1 random Forbidden card in hand.",
     "description_cn": "[消灭] 手牌中生成1张随机禁忌卡牌",
-    "image_url": "images/gk793.png"
+    "image_url": "images/gk793.png",
+    "kind": "neutral"
   },
   {
     "id": 127,
@@ -1902,7 +2108,8 @@
     "ap": 1,
     "description": "[Exhaust] Draw 1. If hand is empty, draw 4 more.",
     "description_cn": "[消灭]﻿* 抽取1 手牌中无卡牌时追加抽取4",
-    "image_url": "images/gk792.png"
+    "image_url": "images/gk792.png",
+    "kind": "monster"
   },
   {
     "id": 128,
@@ -1917,7 +2124,8 @@
     "ap": 1,
     "description": "[Ultimate/Exhaust] -5 Stress on a random Combatant.",
     "description_cn": "[终极/消灭] 随机战斗员压力减少5",
-    "image_url": "images/gk791.png"
+    "image_url": "images/gk791.png",
+    "kind": "neutral"
   },
   {
     "id": 129,
@@ -1932,7 +2140,8 @@
     "ap": 0,
     "description": "[Initiation/Exhaust] Deal 200% Damage to all enemies.",
     "description_cn": "[开战/消灭] 所有敌人伤害200%",
-    "image_url": "images/gk790.png"
+    "image_url": "images/gk790.png",
+    "kind": "neutral"
   },
   {
     "id": 130,
@@ -1947,7 +2156,8 @@
     "ap": 0,
     "description": "[Exhaust] For 1 turn, target's Action Count does not decrease.",
     "description_cn": "[消灭] 1回合内目标的行动次数不会减少",
-    "image_url": "images/gk789.png"
+    "image_url": "images/gk789.png",
+    "kind": "neutral"
   },
   {
     "id": 131,
@@ -1962,7 +2172,8 @@
     "ap": 1,
     "description": "[Exhaust] At the start of next turn, heal 300%. Self: 1 Vulnerable.",
     "description_cn": "[消灭] 下一回合开始时，治愈300%，自身脆弱1",
-    "image_url": "images/gk788.png"
+    "image_url": "images/gk788.png",
+    "kind": "neutral"
   },
   {
     "id": 132,
@@ -1977,7 +2188,8 @@
     "ap": 2,
     "description": "Deal 100% x 2 Defense-based Damage. +20% Damage per Resolve.",
     "description_cn": "基于防御的伤害100%×2 按照决心的数量、伤害量+20%",
-    "image_url": "images/gk787.png"
+    "image_url": "images/gk787.png",
+    "kind": "neutral"
   },
   {
     "id": 133,
@@ -1992,7 +2204,8 @@
     "ap": 1,
     "description": "Create 1 random Drang Shop card. Change that card's cost to 0 for 1 turn.",
     "description_cn": "生成1张随机德朗商店卡牌 在1回合内该卡牌的费用变更为0",
-    "image_url": "images/gk786.png"
+    "image_url": "images/gk786.png",
+    "kind": "neutral"
   },
   {
     "id": 134,
@@ -2007,7 +2220,8 @@
     "ap": 1,
     "description": "[Exhaust 2] Draw 4.",
     "description_cn": "[消灭2]抽取4",
-    "image_url": "images/gk785.png"
+    "image_url": "images/gk785.png",
+    "kind": "monster"
   },
   {
     "id": 135,
@@ -2022,7 +2236,8 @@
     "ap": 2,
     "description": "[Retain] Gain 350% Shield.",
     "description_cn": "[保留] 护盾350%",
-    "image_url": "images/gk784.png"
+    "image_url": "images/gk784.png",
+    "kind": "neutral"
   },
   {
     "id": 136,
@@ -2037,7 +2252,8 @@
     "ap": 1,
     "description": "[Quick] Deal 120% Damage. If target's Action Count is 5 or more, gain 2 AP.",
     "description_cn": "【快速】造成120%伤害 若目标的行动次数为5以上时，获得2点AP",
-    "image_url": "images/gk782.png"
+    "image_url": "images/gk782.png",
+    "kind": "monster"
   },
   {
     "id": 137,
@@ -2052,7 +2268,8 @@
     "ap": 1,
     "description": "2 Immunity.",
     "description_cn": "免疫2",
-    "image_url": "images/gk781.png"
+    "image_url": "images/gk781.png",
+    "kind": "neutral"
   },
   {
     "id": 138,
@@ -2067,7 +2284,8 @@
     "ap": 2,
     "description": "[Initiation] When hand has 6 or more cards, change 1 random card's cost to 0 for 1 turn (once per turn).",
     "description_cn": "[主导] 当手牌中有6张以上卡牌时，随机使卡牌中的1张卡牌在1回合内费用变为0（每回合1次）",
-    "image_url": "images/gk780.png"
+    "image_url": "images/gk780.png",
+    "kind": "neutral"
   },
   {
     "id": 139,
@@ -2082,7 +2300,8 @@
     "ap": 2,
     "description": "Deal 250% Damage. If this is the only card in hand, cost -2.",
     "description_cn": "造成250%伤害 若手牌中只有此卡牌，费用减少2",
-    "image_url": "images/gk779.png"
+    "image_url": "images/gk779.png",
+    "kind": "monster"
   },
   {
     "id": 140,
@@ -2097,7 +2316,8 @@
     "ap": 1,
     "description": "Deal 200% Damage. Weakness Attack: +50% Damage.",
     "description_cn": "伤害200% 弱点攻击：伤害量+50%",
-    "image_url": "images/gk778.png"
+    "image_url": "images/gk778.png",
+    "kind": "neutral"
   },
   {
     "id": 141,
@@ -2112,7 +2332,8 @@
     "ap": 1,
     "description": "Gain 130% Shield. If not holding Shield, +100% Shield.",
     "description_cn": "护盾130% 若未持有护盾、护盾增加100%",
-    "image_url": "images/gk777.png"
+    "image_url": "images/gk777.png",
+    "kind": "neutral"
   },
   {
     "id": 142,
@@ -2127,7 +2348,8 @@
     "ap": 2,
     "description": "At the start of each turn, +50% Damage to 1 random Attack Card in hand for 1 turn.",
     "description_cn": "回合开始时、1张手牌的随机攻击卡牌在1回合内伤害量+50%",
-    "image_url": "images/gk776.png"
+    "image_url": "images/gk776.png",
+    "kind": "neutral"
   },
   {
     "id": 143,
@@ -2142,7 +2364,8 @@
     "ap": 1,
     "description": "[Ultimate/Exhaust] Draw 1 and activate it.",
     "description_cn": "[终极/消灭] 抽取1 发动该卡牌",
-    "image_url": "images/gk775.png"
+    "image_url": "images/gk775.png",
+    "kind": "neutral"
   },
   {
     "id": 144,
@@ -2157,7 +2380,8 @@
     "ap": 1,
     "description": "[Quick] Deal 160% Damage. +1 Action Count.",
     "description_cn": "[快速] 伤害160% 行动次数增加1",
-    "image_url": "images/gk774.png"
+    "image_url": "images/gk774.png",
+    "kind": "monster"
   },
   {
     "id": 145,
@@ -2172,7 +2396,8 @@
     "ap": 1,
     "description": "[Exhaust] Heal 200%. If at full HP, gain 30 Credit.",
     "description_cn": "[消灭] 治愈200% 若HP已满、则获得信用点数30",
-    "image_url": "images/gk773.png"
+    "image_url": "images/gk773.png",
+    "kind": "neutral"
   },
   {
     "id": 146,
@@ -2187,7 +2412,8 @@
     "ap": 1,
     "description": "Deal 80% x 2 Damage. Inspiration: +2 attacks.",
     "description_cn": "伤害80%x2 灵感：额外攻击2次",
-    "image_url": "images/gk772.png"
+    "image_url": "images/gk772.png",
+    "kind": "neutral"
   },
   {
     "id": 147,
@@ -2202,7 +2428,8 @@
     "ap": 1,
     "description": "Gain 150% Shield. Combo: at the start of next turn, 150% Shield.",
     "description_cn": "护盾150% 连击：下一回合开始时、护盾150%",
-    "image_url": "images/gk771.png"
+    "image_url": "images/gk771.png",
+    "kind": "neutral"
   },
   {
     "id": 148,
@@ -2217,7 +2444,8 @@
     "ap": 1,
     "description": "Deal 70% x 1 Damage. For every 4 cards in hand, +1 hit. Draw 1 per hit.",
     "description_cn": "伤害70%x1 手牌中每有4张卡牌，可额外攻击1次 按照攻击次数抽取1",
-    "image_url": "images/gk770.png"
+    "image_url": "images/gk770.png",
+    "kind": "forbidden"
   },
   {
     "id": 149,
@@ -2232,7 +2460,8 @@
     "ap": 1,
     "description": "[Exhaust] Next Ego Skill used costs -1.",
     "description_cn": "[消灭] 接下来使用的自我意识技能费用减少1",
-    "image_url": "images/gk769.png"
+    "image_url": "images/gk769.png",
+    "kind": "neutral"
   },
   {
     "id": 150,
@@ -2247,7 +2476,8 @@
     "ap": 2,
     "description": "[Exhaust] Gain 200% Shield. Deal Damage to all enemies equal to Shield gained.",
     "description_cn": "[消灭] 获得200%护盾 按照获得的护盾对所有敌人造成伤害",
-    "image_url": "images/gk768.png"
+    "image_url": "images/gk768.png",
+    "kind": "monster"
   },
   {
     "id": 151,
@@ -2262,7 +2492,8 @@
     "ap": 0,
     "description": "[Retain/Exhaust] Response: Draw 1 and gain 1 AP. (Note: no effect when used actively.)",
     "description_cn": "@[保留/消灭] 感应：抽取1并获得1点AP （注：主动使用本卡无任何效果）",
-    "image_url": "images/gk767.png"
+    "image_url": "images/gk767.png",
+    "kind": "forbidden"
   },
   {
     "id": 152,
@@ -2277,7 +2508,8 @@
     "ap": 2,
     "description": "[Exhaust] 1 Evasion. Next turn, draw 2.",
     "description_cn": "[消灭] 闪避1 下一回合抽取2",
-    "image_url": "images/gk766.png"
+    "image_url": "images/gk766.png",
+    "kind": "neutral"
   },
   {
     "id": 153,
@@ -2292,7 +2524,8 @@
     "ap": 1,
     "description": "Gain 140% Shield. At the start of next turn, all enemies +2 Action Count.",
     "description_cn": "获得140%护盾 下回合开始时，使所有敌人行动次数+2",
-    "image_url": "images/gk765.png"
+    "image_url": "images/gk765.png",
+    "kind": "monster"
   },
   {
     "id": 154,
@@ -2307,7 +2540,8 @@
     "ap": 1,
     "description": "2 Agony to all enemies. Choose and exhaust up to 2 Status Ailment or Curse cards in hand.",
     "description_cn": "所有敌人痛苦2可选择并消灭最多2张手牌中的状态异常或诅咒卡牌",
-    "image_url": "images/gk764.png"
+    "image_url": "images/gk764.png",
+    "kind": "neutral"
   },
   {
     "id": 155,
@@ -2322,7 +2556,8 @@
     "ap": 0,
     "description": "[Remove] Recover 12% of Max HP. At the start of next turn, -1 Morale.",
     "description_cn": "[移除] 恢复HP上限的12%，下一回合开始时，士气减少1",
-    "image_url": "images/gk763.png"
+    "image_url": "images/gk763.png",
+    "kind": "neutral"
   },
   {
     "id": 156,
@@ -2337,7 +2572,8 @@
     "ap": 1,
     "description": "Deal 120% x 2 Damage. On Ravage, deal 120% x 2 Damage to a random enemy.",
     "description_cn": "造成120%×2伤害 击杀:对随机敌人造成120%×2伤害",
-    "image_url": "images/gk762.png"
+    "image_url": "images/gk762.png",
+    "kind": "monster"
   },
   {
     "id": 157,
@@ -2352,7 +2588,8 @@
     "ap": 0,
     "description": "[Initiation/Exhaust] Deal 150% Damage. 1 Mark.",
     "description_cn": "[开战/消灭] 伤害150% 标记1",
-    "image_url": "images/gk761.png"
+    "image_url": "images/gk761.png",
+    "kind": "neutral"
   },
   {
     "id": 158,
@@ -2367,7 +2604,8 @@
     "ap": 1,
     "description": "Gain 5 Crystallization.",
     "description_cn": "获得结晶化5",
-    "image_url": "images/gk760.png"
+    "image_url": "images/gk760.png",
+    "kind": "monster"
   },
   {
     "id": 159,
@@ -2382,7 +2620,8 @@
     "ap": 2,
     "description": "[Celestial/Exhaust] Heal 250%.",
     "description_cn": "[天上/消灭] 治愈250%",
-    "image_url": "images/gk759.png"
+    "image_url": "images/gk759.png",
+    "kind": "neutral"
   },
   {
     "id": 160,
@@ -2397,7 +2636,8 @@
     "ap": 0,
     "description": "[Remove] Recover 20% of Max HP. At the start of next turn, -1 Morale.",
     "description_cn": "[移除] 恢复HP上限的20% 下一回合开始时，士气减少1",
-    "image_url": "images/gk758.png"
+    "image_url": "images/gk758.png",
+    "kind": "neutral"
   },
   {
     "id": 161,
@@ -2412,7 +2652,8 @@
     "ap": 0,
     "description": "[Exhaust] Absorb 2 Morale.",
     "description_cn": "[消灭] 吸收士气2",
-    "image_url": "images/gk757.png"
+    "image_url": "images/gk757.png",
+    "kind": "monster"
   },
   {
     "id": 162,
@@ -2427,7 +2668,8 @@
     "ap": 1,
     "description": "[Exhaust] Draw 1. Draw for each Cost of that card.",
     "description_cn": "[消灭] 抽取1，按照该卡牌的费用抽取",
-    "image_url": "images/gk756.png"
+    "image_url": "images/gk756.png",
+    "kind": "forbidden"
   },
   {
     "id": 163,
@@ -2442,7 +2684,8 @@
     "ap": 1,
     "description": "Deal 200% Damage. Inspiration: Cost -1, draw 1.",
     "description_cn": "伤害200% 灵感:费用-1，抽取1",
-    "image_url": "images/gk755.png"
+    "image_url": "images/gk755.png",
+    "kind": "neutral"
   },
   {
     "id": 164,
@@ -2457,7 +2700,8 @@
     "ap": 1,
     "description": "Deal 120% Damage to all enemies. 2 Weaken. 2 Impair.",
     "description_cn": "对所有敌人造成120%伤害 削弱2 损伤2",
-    "image_url": "images/gk754.png"
+    "image_url": "images/gk754.png",
+    "kind": "monster"
   },
   {
     "id": 165,
@@ -2472,7 +2716,8 @@
     "ap": 2,
     "description": "[Weakness Attack] Deal 150% x 2 Damage. Draw 1.",
     "description_cn": "[弱点攻击] 伤害150%×2 抽取1",
-    "image_url": "images/gk753.png"
+    "image_url": "images/gk753.png",
+    "kind": "neutral"
   },
   {
     "id": 166,
@@ -2487,7 +2732,8 @@
     "ap": 0,
     "description": "[Exhaust] -1 Morale. -3 Resolve.",
     "description_cn": "【消灭】 士气减少1 决心减少3",
-    "image_url": "images/gk752.png"
+    "image_url": "images/gk752.png",
+    "kind": "monster"
   },
   {
     "id": 167,
@@ -2502,7 +2748,8 @@
     "ap": 0,
     "description": "[Exhaust] 1 random card in hand: Cost -1.",
     "description_cn": "[消灭] 手牌中的1张 随机卡牌费用减少1",
-    "image_url": "images/gk751.png"
+    "image_url": "images/gk751.png",
+    "kind": "forbidden"
   },
   {
     "id": 168,
@@ -2517,7 +2764,8 @@
     "ap": 0,
     "description": "[Exhaust] Exhaust 1 card in hand. Heal 100%.",
     "description_cn": "[消灭] 消灭手牌中的1张卡牌，治愈100%",
-    "image_url": "images/gk750.png"
+    "image_url": "images/gk750.png",
+    "kind": "neutral"
   },
   {
     "id": 169,
@@ -2532,7 +2780,8 @@
     "ap": 1,
     "description": "[Initiation] 1 Vulnerable to all enemies. 1 random Attack Card in hand: cost -1 for 1 turn.",
     "description_cn": "[主导] 所有敌人脆弱1 1回合内手牌中1张随机攻击卡牌费用减少1",
-    "image_url": "images/gk749.png"
+    "image_url": "images/gk749.png",
+    "kind": "neutral"
   },
   {
     "id": 170,
@@ -2547,7 +2796,8 @@
     "ap": 0,
     "description": "Deal 80% Damage. On Ravage, return this card from Graveyard to hand.",
     "description_cn": "伤害80% 击破时、坟墓中的此卡牌移动至手牌",
-    "image_url": "images/gk748.png"
+    "image_url": "images/gk748.png",
+    "kind": "neutral"
   },
   {
     "id": 171,
@@ -2562,7 +2812,8 @@
     "ap": 2,
     "description": "Deal 200% Damage to all enemies. 2 Vulnerable.",
     "description_cn": "所有敌人伤害200% 脆弱2",
-    "image_url": "images/gk747.png"
+    "image_url": "images/gk747.png",
+    "kind": "neutral"
   },
   {
     "id": 172,
@@ -2577,7 +2828,8 @@
     "ap": 0,
     "description": "[Retain/Exhaust] Deal 100% Damage. Retain: +50% Damage.",
     "description_cn": "[保留/消灭] 伤害100% 保留：伤害量+50%",
-    "image_url": "images/gk746.png"
+    "image_url": "images/gk746.png",
+    "kind": "neutral"
   },
   {
     "id": 173,
@@ -2592,7 +2844,8 @@
     "ap": 1,
     "description": "[Retain/Exhaust] 2 Morale. 2 Morale to all enemies.",
     "description_cn": "[保留/消灭] 士气2 所有敌人士气2",
-    "image_url": "images/gk745.png"
+    "image_url": "images/gk745.png",
+    "kind": "neutral"
   },
   {
     "id": 174,
@@ -2607,7 +2860,8 @@
     "ap": 2,
     "description": "Deal 350% Damage. At the start of next turn, draw 1.",
     "description_cn": "伤害350% 下一回合开始时、抽取1",
-    "image_url": "images/gk744.png"
+    "image_url": "images/gk744.png",
+    "kind": "neutral"
   },
   {
     "id": 175,
@@ -2622,7 +2876,8 @@
     "ap": 1,
     "description": "Deal 70% Damage. 4 Agony.",
     "description_cn": "伤害70% 痛苦4",
-    "image_url": "images/gk743.png"
+    "image_url": "images/gk743.png",
+    "kind": "neutral"
   },
   {
     "id": 176,
@@ -2637,7 +2892,8 @@
     "ap": 9,
     "description": "[Retain] Deal 150% x 4 Damage. When drawn by an ability, cost of this card permanently -1.",
     "description_cn": "[保留] 伤害150%x4 通过能力抽取时，此卡牌费用永久减少1",
-    "image_url": "images/gk742.png"
+    "image_url": "images/gk742.png",
+    "kind": "forbidden"
   },
   {
     "id": 177,
@@ -2652,7 +2908,8 @@
     "ap": 1,
     "description": "[Initiation] 1 Resolve. 1 Unyielding.",
     "description_cn": "[开战] 决心1 不屈1",
-    "image_url": "images/gk741.png"
+    "image_url": "images/gk741.png",
+    "kind": "neutral"
   },
   {
     "id": 178,
@@ -2667,7 +2924,8 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage to all enemies. Break: +1 attack.",
     "description_cn": "所有敌人基于防御的伤害100% 破坏：额外攻击1次",
-    "image_url": "images/gk740.png"
+    "image_url": "images/gk740.png",
+    "kind": "neutral"
   },
   {
     "id": 179,
@@ -2682,7 +2940,8 @@
     "ap": -2,
     "description": "[Retain/Remove] While this card is in hand, +20% Damage in Mutant battles.",
     "description_cn": "[保留/移除] 此卡牌在手牌时，变异体战斗中伤害增加20%",
-    "image_url": "images/gk739.png"
+    "image_url": "images/gk739.png",
+    "kind": "neutral"
   },
   {
     "id": 180,
@@ -2697,7 +2956,8 @@
     "ap": 0,
     "description": "[Retrieve/Exhaust] 3 Impair to all enemies.",
     "description_cn": "[回收/消灭] 所有敌人损伤3",
-    "image_url": "images/gk738.png"
+    "image_url": "images/gk738.png",
+    "kind": "neutral"
   },
   {
     "id": 181,
@@ -2712,7 +2972,8 @@
     "ap": 3,
     "description": "Deal 350% Damage. If the target has Shield, +50% Damage.",
     "description_cn": "造成350%伤害 若目标持有护盾，伤害量+50%",
-    "image_url": "images/gk737.png"
+    "image_url": "images/gk737.png",
+    "kind": "monster"
   },
   {
     "id": 182,
@@ -2727,7 +2988,8 @@
     "ap": 1,
     "description": "[Exhaust] Deal 200% Defense-based Damage. 2 Crystallization.",
     "description_cn": "[消灭] 基于防御的伤害200% 结晶化2",
-    "image_url": "images/gk736.png"
+    "image_url": "images/gk736.png",
+    "kind": "neutral"
   },
   {
     "id": 183,
@@ -2742,7 +3004,8 @@
     "ap": 2,
     "description": "Deal 400% Damage. On Ravage: gain 20 Credit.",
     "description_cn": "伤害400% 击杀：获得20信用点数",
-    "image_url": "images/gk735.png"
+    "image_url": "images/gk735.png",
+    "kind": "neutral"
   },
   {
     "id": 184,
@@ -2757,7 +3020,8 @@
     "ap": 0,
     "description": "Activate the bottom card of the Draw Pile. Choose 1 card in hand and move it to the bottom of the Draw Pile.",
     "description_cn": "发动1张抽牌堆最底部的卡牌，选择手牌中的1张卡牌，将其移至抽牌堆最底部",
-    "image_url": "images/gk734.png"
+    "image_url": "images/gk734.png",
+    "kind": "monster"
   },
   {
     "id": 185,
@@ -2772,7 +3036,8 @@
     "ap": 2,
     "description": "[Exhaust] Create 2 Contamination. Deal 200% Fixed Damage. +30% Damage per card in hand.",
     "description_cn": "[消灭] 生成2张污染，固定伤害200%，按照手牌中的卡牌数量，伤害量+30%",
-    "image_url": "images/gk733.png"
+    "image_url": "images/gk733.png",
+    "kind": "neutral"
   },
   {
     "id": 186,
@@ -2787,7 +3052,8 @@
     "ap": 1,
     "description": "Deal 50% x 4 Damage. 3 Mark.",
     "description_cn": "造成50%×4伤害 标记3",
-    "image_url": "images/gk732.png"
+    "image_url": "images/gk732.png",
+    "kind": "monster"
   },
   {
     "id": 187,
@@ -2802,7 +3068,8 @@
     "ap": 2,
     "description": "Deal 300% Damage. If no other Combatant cards in hand, cost -2.",
     "description_cn": "伤害300% 手牌中没有其他战斗员卡牌时、此卡牌费用减少2",
-    "image_url": "images/gk731.png"
+    "image_url": "images/gk731.png",
+    "kind": "neutral"
   },
   {
     "id": 188,
@@ -2817,7 +3084,10 @@
     "ap": 1,
     "description": "[Retain] Deal 150% (+0%) Damage. Discard all Dirge Bullets and increase Damage by 50% for each discarded.",
     "description_cn": "@[保留]﻿* 造成150%（+0%）伤害﻿ ﻿将所有镇魂子弹丢弃，依丢弃的数量使伤害量提升50%",
-    "image_url": "images/gk729.png"
+    "image_url": "images/gk729.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "unique"
   },
   {
     "id": 189,
@@ -2832,7 +3102,10 @@
     "ap": 0,
     "description": "Discard up to 2 cards from hand. Generate Dirge Bullets equal to the number discarded.",
     "description_cn": "最多丢弃2张手牌 按照其数量生成镇魂子弹",
-    "image_url": "images/gk728.png"
+    "image_url": "images/gk728.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "unique"
   },
   {
     "id": 190,
@@ -2847,7 +3120,10 @@
     "ap": 1,
     "description": "Deal 50% x 3 Damage. +20% Damage for each Dirge Bullet in hand.",
     "description_cn": "伤害50%×3﻿ ﻿按照手牌中镇魂子弹的数量，伤害量+20%",
-    "image_url": "images/gk727.png"
+    "image_url": "images/gk727.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "unique"
   },
   {
     "id": 191,
@@ -2862,7 +3138,10 @@
     "ap": 1,
     "description": "Deal 180% Damage. If hand contains a Dirge Bullet, discard 1 and +100% Damage.",
     "description_cn": "造成180%伤害﻿ ﻿若手牌中有镇魂子弹，丢弃1张且伤害量+100%",
-    "image_url": "images/gk726.png"
+    "image_url": "images/gk726.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "unique"
   },
   {
     "id": 192,
@@ -2877,7 +3156,10 @@
     "ap": 1,
     "description": "Deal 140% Damage. Create 1 Dirge Bullet.",
     "description_cn": "造成140%伤害 ﻿生成1张镇魂子弹",
-    "image_url": "images/gk725.png"
+    "image_url": "images/gk725.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "unique"
   },
   {
     "id": 193,
@@ -2892,7 +3174,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk724.png"
+    "image_url": "images/gk724.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "basic"
   },
   {
     "id": 194,
@@ -2907,7 +3192,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk723.png"
+    "image_url": "images/gk723.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "basic"
   },
   {
     "id": 195,
@@ -2922,7 +3210,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk722.png"
+    "image_url": "images/gk722.png",
+    "combatant": "Leona",
+    "combatant_slug": "leona",
+    "kind": "basic"
   },
   {
     "id": 196,
@@ -2937,7 +3228,10 @@
     "ap": 1,
     "description": "Reveal 3 random cards from the Draw Pile. Choose 1 to Draw, discard the rest.",
     "description_cn": "确认抽取卡牌中的3张随机卡牌，﻿ ﻿选择其中1张抽取其余丢弃",
-    "image_url": "images/gk716.png"
+    "image_url": "images/gk716.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "unique"
   },
   {
     "id": 197,
@@ -2952,7 +3246,10 @@
     "ap": 0,
     "description": "Draw 1. Discard 1. Move the discarded card to the top of the Draw Pile.",
     "description_cn": "抽取1﻿ ﻿丢弃1﻿ ﻿将使用此效果丢弃的卡牌移动至抽取卡牌顶端",
-    "image_url": "images/gk715.png"
+    "image_url": "images/gk715.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "unique"
   },
   {
     "id": 198,
@@ -2967,7 +3264,10 @@
     "ap": 1,
     "description": "[Retain] Heal 120%. For 1 turn, when discarding a card, 1 Decibel and 1 Elasticity.",
     "description_cn": "[保留]﻿* ﻿获得120%﻿治愈 ﻿1回合内丢弃卡牌时，分贝1，弹力1",
-    "image_url": "images/gk714.png"
+    "image_url": "images/gk714.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "unique"
   },
   {
     "id": 199,
@@ -2982,7 +3282,10 @@
     "ap": 1,
     "description": "Discard the highest-cost card. Its owner performs a 150% Extra Attack on a random enemy.",
     "description_cn": "丢弃1张﻿费用最高的卡牌，拥有此卡牌的战斗员对随机敌人造成150%的额外攻击",
-    "image_url": "images/gk713.png"
+    "image_url": "images/gk713.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "unique"
   },
   {
     "id": 200,
@@ -2997,7 +3300,10 @@
     "ap": 1,
     "description": "Gain 2 Decibel. Activate the top card of the Draw Pile.",
     "description_cn": "获得分贝2 ﻿在抽取卡牌发动1张顶端的卡牌",
-    "image_url": "images/gk712.png"
+    "image_url": "images/gk712.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "unique"
   },
   {
     "id": 201,
@@ -3012,7 +3318,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk711.png"
+    "image_url": "images/gk711.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "basic"
   },
   {
     "id": 202,
@@ -3027,7 +3336,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk710.png"
+    "image_url": "images/gk710.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "basic"
   },
   {
     "id": 203,
@@ -3042,7 +3354,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk709.png"
+    "image_url": "images/gk709.png",
+    "combatant": "Nia",
+    "combatant_slug": "nia",
+    "kind": "basic"
   },
   {
     "id": 204,
@@ -3057,7 +3372,10 @@
     "ap": 1,
     "description": "Create 1 Opening Found or Charged Shot. Grant it Exhaust; cost -1 until used.",
     "description_cn": "生成1张破绽识破或充能弹，付与该卡牌消灭，使用前费用减少1",
-    "image_url": "images/gk707.png"
+    "image_url": "images/gk707.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "unique"
   },
   {
     "id": 205,
@@ -3072,7 +3390,10 @@
     "ap": 1,
     "description": "Gain 100% Shield. +80% Damage to the next self-used Attack Card.",
     "description_cn": "获得100%﻿护盾 ﻿接下来使用的自身攻击卡牌伤害量+80%",
-    "image_url": "images/gk706.png"
+    "image_url": "images/gk706.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "unique"
   },
   {
     "id": 206,
@@ -3087,7 +3408,10 @@
     "ap": 0,
     "description": "[Exhaust] Draw 3.",
     "description_cn": "[消灭] ﻿抽取3",
-    "image_url": "images/gk705.png"
+    "image_url": "images/gk705.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "unique"
   },
   {
     "id": 207,
@@ -3102,7 +3426,10 @@
     "ap": 2,
     "description": "[Retain] Deal 240% Damage. Retain: +120% Damage.",
     "description_cn": "[保留]﻿* ﻿造成240%伤害﻿ ﻿保留：伤害量+120%",
-    "image_url": "images/gk704.png"
+    "image_url": "images/gk704.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "unique"
   },
   {
     "id": 208,
@@ -3117,7 +3444,10 @@
     "ap": 1,
     "description": "[Retain] Deal 140% Damage. Retain: +1 hit for 1 turn.",
     "description_cn": "[保留] ﻿伤害140%﻿ ﻿保留：1回合内额外攻击1次",
-    "image_url": "images/gk703.png"
+    "image_url": "images/gk703.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "unique"
   },
   {
     "id": 209,
@@ -3132,7 +3462,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk702.png"
+    "image_url": "images/gk702.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "basic"
   },
   {
     "id": 210,
@@ -3147,7 +3480,10 @@
     "ap": 2,
     "description": "Deal 220% Damage.",
     "description_cn": "造成220%伤害",
-    "image_url": "images/gk701.png"
+    "image_url": "images/gk701.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "basic"
   },
   {
     "id": 211,
@@ -3162,7 +3498,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk700.png"
+    "image_url": "images/gk700.png",
+    "combatant": "Beryl",
+    "combatant_slug": "beryl",
+    "kind": "basic"
   },
   {
     "id": 212,
@@ -3177,7 +3516,10 @@
     "ap": 1,
     "description": "[Bind 1/Retain] Deal 80% Damage. +40% Damage for each Bind stack.",
     "description_cn": "*yellow:【凝聚1/保留】* 造成80%伤害 依凝聚叠加数伤害量+40%",
-    "image_url": "images/gk697.png"
+    "image_url": "images/gk697.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "unique"
   },
   {
     "id": 213,
@@ -3192,7 +3534,10 @@
     "ap": 1,
     "description": "[Quick] Deal 60% x 3 Damage. +80% Damage to the next Bind card used.",
     "description_cn": "*yellow:【快速】* 造成60%×3伤害 接下来使用的凝聚卡牌伤害量+80%",
-    "image_url": "images/gk696.png"
+    "image_url": "images/gk696.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "unique"
   },
   {
     "id": 214,
@@ -3207,7 +3552,10 @@
     "ap": 1,
     "description": "[Initiation/Unique] At the start of the turn, gain Inhibit. Until 1 random card of another Combatant is used, decrease cost by 1.",
     "description_cn": "@*yellow:【开战/唯一】* 回合开始时，获得束缚 手牌中随机2张其他战斗员的卡牌的费用直到下次使用前减少1",
-    "image_url": "images/gk695.png"
+    "image_url": "images/gk695.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "unique"
   },
   {
     "id": 215,
@@ -3222,7 +3570,10 @@
     "ap": 0,
     "description": "Gain 3 Will-O'-Wisp for each hit of the next self-used Attack Card.",
     "description_cn": "接下来使用的自身的攻击卡牌打击数，获得鬼火3",
-    "image_url": "images/gk694.png"
+    "image_url": "images/gk694.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "unique"
   },
   {
     "id": 216,
@@ -3237,7 +3588,10 @@
     "ap": 1,
     "description": "[Initiation] Deal 100% Damage. 1 Cursed Shackles. Cursed Shackles: +2 hits.",
     "description_cn": "*yellow:【开战】* 造成100%伤害 咒缚术1  咒缚术：额外打击2次",
-    "image_url": "images/gk693.png"
+    "image_url": "images/gk693.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "unique"
   },
   {
     "id": 217,
@@ -3252,7 +3606,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "护盾100%",
-    "image_url": "images/gk692.png"
+    "image_url": "images/gk692.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "basic"
   },
   {
     "id": 218,
@@ -3267,7 +3624,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk691.png"
+    "image_url": "images/gk691.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "basic"
   },
   {
     "id": 219,
@@ -3282,7 +3642,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk690.png"
+    "image_url": "images/gk690.png",
+    "combatant": "Chizuru",
+    "combatant_slug": "chizuru",
+    "kind": "basic"
   },
   {
     "id": 220,
@@ -3297,7 +3660,10 @@
     "ap": 2,
     "description": "Deal 150% Damage. Activate 3 Tracking Lasers from the Draw Pile and Graveyard.",
     "description_cn": "伤害150% 发动3张抽牌堆与坟墓的定位雷射L",
-    "image_url": "images/gk686.png"
+    "image_url": "images/gk686.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "unique"
   },
   {
     "id": 221,
@@ -3312,7 +3678,10 @@
     "ap": 3,
     "description": "Deal 120% x 4 Damage to random enemies. Each hit inflicts 1 Tenacity Damage.",
     "description_cn": "对随机敌人造成120%×4伤害 每次打击造成韧性伤害1",
-    "image_url": "images/gk685.png"
+    "image_url": "images/gk685.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "unique"
   },
   {
     "id": 222,
@@ -3327,7 +3696,10 @@
     "ap": 1,
     "description": "Create 2 Tracking Laser L.",
     "description_cn": "生成2张定位雷射L",
-    "image_url": "images/gk684.png"
+    "image_url": "images/gk684.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "unique"
   },
   {
     "id": 223,
@@ -3342,7 +3714,10 @@
     "ap": 1,
     "description": "Deal 120% Damage. 0.5 Tenacity Damage. If the target is not Ravaged, activate once more.",
     "description_cn": "造成120%伤害 韧性伤害0.5 若对象未被击破，则再发动1次",
-    "image_url": "images/gk683.png"
+    "image_url": "images/gk683.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "unique"
   },
   {
     "id": 224,
@@ -3357,7 +3732,10 @@
     "ap": 0,
     "description": "Deal 100% Damage. 2 Residual. On Ravage, return this card from Graveyard to hand.",
     "description_cn": "造成100%伤害 残光2 击破时，从坟墓移动至手牌",
-    "image_url": "images/gk682.png"
+    "image_url": "images/gk682.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "unique"
   },
   {
     "id": 225,
@@ -3372,7 +3750,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk681.png"
+    "image_url": "images/gk681.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "basic"
   },
   {
     "id": 226,
@@ -3387,7 +3768,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk680.png"
+    "image_url": "images/gk680.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "basic"
   },
   {
     "id": 227,
@@ -3402,7 +3786,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk679.png"
+    "image_url": "images/gk679.png",
+    "combatant": "Sereniel",
+    "combatant_slug": "sereniel",
+    "kind": "basic"
   },
   {
     "id": 228,
@@ -3417,7 +3804,10 @@
     "ap": 0,
     "description": "[Unique] +80% Mark Damage.",
     "description_cn": "[唯一] ﻿标记伤害量＋80%",
-    "image_url": "images/gk677.png"
+    "image_url": "images/gk677.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "unique"
   },
   {
     "id": 229,
@@ -3432,7 +3822,10 @@
     "ap": 1,
     "description": "Gain 150% Shield. Inflict 2 Tenacity Damage.",
     "description_cn": "获得150%﻿护盾 造成韧性伤害2",
-    "image_url": "images/gk676.png"
+    "image_url": "images/gk676.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "unique"
   },
   {
     "id": 230,
@@ -3447,7 +3840,10 @@
     "ap": 1,
     "description": "Deal 120% Damage to all enemies. 1 Passion Weakness.",
     "description_cn": "对所有敌人﻿造成120%伤害， 热情弱点1",
-    "image_url": "images/gk675.png"
+    "image_url": "images/gk675.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "unique"
   },
   {
     "id": 231,
@@ -3462,7 +3858,10 @@
     "ap": 1,
     "description": "Deal 150% Damage. Harmonization: 1 Mark to a random enemy.",
     "description_cn": "造成150%﻿伤害 ﻿感应：随机敌人标记1",
-    "image_url": "images/gk674.png"
+    "image_url": "images/gk674.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "unique"
   },
   {
     "id": 232,
@@ -3477,7 +3876,10 @@
     "ap": 1,
     "description": "2 Mark.",
     "description_cn": "标记2",
-    "image_url": "images/gk673.png"
+    "image_url": "images/gk673.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "unique"
   },
   {
     "id": 233,
@@ -3492,7 +3894,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk672.png"
+    "image_url": "images/gk672.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "basic"
   },
   {
     "id": 234,
@@ -3507,7 +3912,10 @@
     "ap": 1,
     "description": "Deal 100% Piercing Damage.",
     "description_cn": "造成100%穿透伤害",
-    "image_url": "images/gk671.png"
+    "image_url": "images/gk671.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "basic"
   },
   {
     "id": 235,
@@ -3522,7 +3930,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk670.png"
+    "image_url": "images/gk670.png",
+    "combatant": "Selena",
+    "combatant_slug": "selena",
+    "kind": "basic"
   },
   {
     "id": 236,
@@ -3537,7 +3948,10 @@
     "ap": 1,
     "description": "[Unique] 1 Wave. At the start of each turn, gain 1 Wave.",
     "description_cn": "*yellow:【唯一】﻿* ﻿水波1﻿ ﻿每回合开始时，水波1",
-    "image_url": "images/gk669.png"
+    "image_url": "images/gk669.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "unique"
   },
   {
     "id": 237,
@@ -3552,7 +3966,10 @@
     "ap": 2,
     "description": "Deal 200% Damage to all enemies. Heal 50% per target hit.",
     "description_cn": "对所有敌人造成200%﻿伤害 ﻿按照攻击的目标数量治愈50%",
-    "image_url": "images/gk668.png"
+    "image_url": "images/gk668.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "unique"
   },
   {
     "id": 238,
@@ -3567,7 +3984,10 @@
     "ap": 0,
     "description": "1 Wave. +50% Healing for 1 turn.",
     "description_cn": "水波1 ﻿1回合内治愈量+50%",
-    "image_url": "images/gk667.png"
+    "image_url": "images/gk667.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "unique"
   },
   {
     "id": 239,
@@ -3582,7 +4002,10 @@
     "ap": 1,
     "description": "[Retain] Heal 100%. +30% Healing per AP.",
     "description_cn": "[保留] ﻿获得100%﻿治愈 ﻿按照AP数量，治愈量增加30%",
-    "image_url": "images/gk666.png"
+    "image_url": "images/gk666.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "unique"
   },
   {
     "id": 240,
@@ -3597,7 +4020,10 @@
     "ap": 0,
     "description": "Heal 100%. Gain 1 AP.",
     "description_cn": "获得100%﻿治愈 ﻿获得1点AP",
-    "image_url": "images/gk665.png"
+    "image_url": "images/gk665.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "unique"
   },
   {
     "id": 241,
@@ -3612,7 +4038,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk664.png"
+    "image_url": "images/gk664.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "basic"
   },
   {
     "id": 242,
@@ -3627,7 +4056,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk663.png"
+    "image_url": "images/gk663.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "basic"
   },
   {
     "id": 243,
@@ -3642,7 +4074,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk662.png"
+    "image_url": "images/gk662.png",
+    "combatant": "Mika",
+    "combatant_slug": "mika",
+    "kind": "basic"
   },
   {
     "id": 244,
@@ -3657,7 +4092,10 @@
     "ap": 1,
     "description": "[Initiation] When gaining Shield via an ability, 1 Counterattack.",
     "description_cn": "[主导]﻿* ﻿使用能力获得护盾时，反击1",
-    "image_url": "images/gk661.png"
+    "image_url": "images/gk661.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "unique"
   },
   {
     "id": 245,
@@ -3672,7 +4110,10 @@
     "ap": 1,
     "description": "Gain 100% Shield. 2 Vulnerable to all enemies.",
     "description_cn": "获得100%护盾 ﻿所有敌人脆弱2",
-    "image_url": "images/gk660.png"
+    "image_url": "images/gk660.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "unique"
   },
   {
     "id": 246,
@@ -3687,7 +4128,10 @@
     "ap": 2,
     "description": "Gain 180% Shield. 2 Counterattack. For 1 turn, Counterattack applies to all enemies.",
     "description_cn": "获得180%护盾 ﻿反击2﻿ ﻿1回合内反击目标变更为所有敌人",
-    "image_url": "images/gk659.png"
+    "image_url": "images/gk659.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "unique"
   },
   {
     "id": 247,
@@ -3702,7 +4146,10 @@
     "ap": 2,
     "description": "Deal 300% Defense-based Damage. Gain Fixed Shield equal to 50% of Damage dealt (cannot exceed 20% of Max HP).",
     "description_cn": "@造成基于防御的伤害300%﻿ ﻿获得相当于造成伤害量50%的固定护盾（无法超过HP上限的20%）",
-    "image_url": "images/gk658.png"
+    "image_url": "images/gk658.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "unique"
   },
   {
     "id": 248,
@@ -3717,7 +4164,10 @@
     "ap": 1,
     "description": "[Initiation] 2 Crystallization. At the start of each turn, 1 Counterattack.",
     "description_cn": "[主导]﻿* ﻿结晶化2﻿ ﻿回合开始时，反击1",
-    "image_url": "images/gk657.png"
+    "image_url": "images/gk657.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "unique"
   },
   {
     "id": 249,
@@ -3732,7 +4182,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk656.png"
+    "image_url": "images/gk656.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "basic"
   },
   {
     "id": 250,
@@ -3747,7 +4200,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk655.png"
+    "image_url": "images/gk655.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "basic"
   },
   {
     "id": 251,
@@ -3762,7 +4218,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "造成基于防御的伤害100%",
-    "image_url": "images/gk654.png"
+    "image_url": "images/gk654.png",
+    "combatant": "Magna",
+    "combatant_slug": "magna",
+    "kind": "basic"
   },
   {
     "id": 252,
@@ -3777,7 +4236,10 @@
     "ap": 1,
     "description": "Deal 180% Damage to all enemies. Inspiration: +1 hit, -20% Damage.",
     "description_cn": "对所有敌人造成180%伤害 灵感：追加1次打击，伤害量减少20%",
-    "image_url": "images/gk653.png"
+    "image_url": "images/gk653.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "unique"
   },
   {
     "id": 253,
@@ -3792,7 +4254,10 @@
     "ap": 1,
     "description": "[Unique] When using a self card whose Inspiration effect has triggered, deal 90% Damage to all enemies.",
     "description_cn": "[唯一] 使用自身已启动灵感效果的卡牌时，对所有敌人造成90%伤害",
-    "image_url": "images/gk652.png"
+    "image_url": "images/gk652.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "unique"
   },
   {
     "id": 254,
@@ -3807,7 +4272,10 @@
     "ap": 1,
     "description": "[Retain] Deal 180% Damage. Trigger the Inspiration effect of 1 random self card in hand.",
     "description_cn": "[保留] 造成180%伤害 启动手牌中随机1张自身卡牌的灵感效果",
-    "image_url": "images/gk651.png"
+    "image_url": "images/gk651.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "unique"
   },
   {
     "id": 255,
@@ -3822,7 +4290,10 @@
     "ap": 2,
     "description": "Deal 200% Damage to all enemies. Inspiration: -1 Cost.",
     "description_cn": "对所有敌人造成200%伤害 灵感：费用减少1",
-    "image_url": "images/gk650.png"
+    "image_url": "images/gk650.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "unique"
   },
   {
     "id": 256,
@@ -3837,7 +4308,10 @@
     "ap": 0,
     "description": "Draw 1 self Attack Card. +20% Damage to that card for 1 turn.",
     "description_cn": "抽取1张自身的攻击卡牌 1回合内该卡牌伤害量增加20%",
-    "image_url": "images/gk649.png"
+    "image_url": "images/gk649.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "unique"
   },
   {
     "id": 257,
@@ -3852,7 +4326,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk648.png"
+    "image_url": "images/gk648.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "basic"
   },
   {
     "id": 258,
@@ -3867,7 +4344,10 @@
     "ap": 2,
     "description": "Deal 200% Damage.",
     "description_cn": "造成200%伤害",
-    "image_url": "images/gk647.png"
+    "image_url": "images/gk647.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "basic"
   },
   {
     "id": 259,
@@ -3882,7 +4362,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk646.png"
+    "image_url": "images/gk646.png",
+    "combatant": "Yuki",
+    "combatant_slug": "yuki",
+    "kind": "basic"
   },
   {
     "id": 260,
@@ -3897,7 +4380,10 @@
     "ap": 2,
     "description": "Deal 300% Damage. Gain 130% Shield.",
     "description_cn": "造成300%伤害 ﻿护盾130%",
-    "image_url": "images/gk645.png"
+    "image_url": "images/gk645.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "unique"
   },
   {
     "id": 261,
@@ -3912,7 +4398,10 @@
     "ap": 1,
     "description": "Gain 150% Shield. Move a discarded Wind Charge back to hand.",
     "description_cn": "获得150%﻿护盾 ﻿将丢弃卡牌的*blue:风能充﻿电*移动至手牌",
-    "image_url": "images/gk644.png"
+    "image_url": "images/gk644.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "unique"
   },
   {
     "id": 262,
@@ -3927,7 +4416,10 @@
     "ap": 1,
     "description": "Deal 140% Damage. 2 Vulnerable.",
     "description_cn": "造成140% 伤害 脆弱2",
-    "image_url": "images/gk643.png"
+    "image_url": "images/gk643.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "unique"
   },
   {
     "id": 263,
@@ -3942,7 +4434,10 @@
     "ap": 2,
     "description": "Deal 240% Damage to all enemies.",
     "description_cn": "对所有敌人造成240%伤害",
-    "image_url": "images/gk642.png"
+    "image_url": "images/gk642.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "unique"
   },
   {
     "id": 264,
@@ -3957,7 +4452,10 @@
     "ap": 1,
     "description": "The next self-used Attack Card attacks 1 additional time.",
     "description_cn": "接下来使用的自身攻击卡牌额外攻击1次",
-    "image_url": "images/gk641.png"
+    "image_url": "images/gk641.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "unique"
   },
   {
     "id": 265,
@@ -3972,7 +4470,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk640.png"
+    "image_url": "images/gk640.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "basic"
   },
   {
     "id": 266,
@@ -3987,7 +4488,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk639.png"
+    "image_url": "images/gk639.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "basic"
   },
   {
     "id": 267,
@@ -4002,7 +4506,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk638.png"
+    "image_url": "images/gk638.png",
+    "combatant": "Owen",
+    "combatant_slug": "owen",
+    "kind": "basic"
   },
   {
     "id": 268,
@@ -4017,7 +4524,10 @@
     "ap": 1,
     "description": "[Pulverize] Deal Fixed Damage equal to Shield held.",
     "description_cn": "[粉碎]﻿* ﻿按照拥有的护盾造成固定伤害",
-    "image_url": "images/gk636.png"
+    "image_url": "images/gk636.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "unique"
   },
   {
     "id": 269,
@@ -4032,7 +4542,10 @@
     "ap": 1,
     "description": "Gain 100% Shield. 1 Counterattack. 1 Weaken to all enemies.",
     "description_cn": "获得100%﻿护盾 反击1﻿ ﻿所有敌人削弱1",
-    "image_url": "images/gk635.png"
+    "image_url": "images/gk635.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "unique"
   },
   {
     "id": 270,
@@ -4047,7 +4560,10 @@
     "ap": 1,
     "description": "2 Counterattack. At the start of each turn, 1 Counterattack.",
     "description_cn": "反击2﻿ ﻿回合开始时反击1",
-    "image_url": "images/gk634.png"
+    "image_url": "images/gk634.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "unique"
   },
   {
     "id": 271,
@@ -4062,7 +4578,10 @@
     "ap": 1,
     "description": "[Pulverize] Deal 100% Defense-based Damage. Gain Fixed Shield equal to Damage dealt (cannot exceed 20% of Max HP).",
     "description_cn": "[粉碎]﻿* 基于防御的伤害100%﻿ ﻿获得相当于造成伤害量的固定护盾（无法超过HP上限的20%）",
-    "image_url": "images/gk633.png"
+    "image_url": "images/gk633.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "unique"
   },
   {
     "id": 272,
@@ -4077,7 +4596,10 @@
     "ap": 1,
     "description": "[Pulverize] Deal 140% Defense-based Damage. 1 Counterattack.",
     "description_cn": "[粉碎]﻿* ﻿基于防御的伤害140%﻿ 反击1",
-    "image_url": "images/gk632.png"
+    "image_url": "images/gk632.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "unique"
   },
   {
     "id": 273,
@@ -4092,7 +4614,10 @@
     "ap": 2,
     "description": "Gain 220% Shield.",
     "description_cn": "获得220%护盾",
-    "image_url": "images/gk631.png"
+    "image_url": "images/gk631.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "basic"
   },
   {
     "id": 274,
@@ -4107,7 +4632,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk630.png"
+    "image_url": "images/gk630.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "basic"
   },
   {
     "id": 275,
@@ -4122,7 +4650,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "基于防御的伤害100%",
-    "image_url": "images/gk629.png"
+    "image_url": "images/gk629.png",
+    "combatant": "Maribelle",
+    "combatant_slug": "maribelle",
+    "kind": "basic"
   },
   {
     "id": 276,
@@ -4137,7 +4668,10 @@
     "ap": 0,
     "description": "[Retain] +80% Damage to Anchor Shot in hand for 1 turn.",
     "description_cn": "[保留]﻿* ﻿手牌的锚砲持续1回合伤害量增加80%",
-    "image_url": "images/gk628.png"
+    "image_url": "images/gk628.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "unique"
   },
   {
     "id": 277,
@@ -4152,7 +4686,10 @@
     "ap": 1,
     "description": "[Retain] +30% Damage to self Attack Cards for 1 turn.",
     "description_cn": "[保留]﻿* ﻿1 回合内﻿﻿自己的攻击卡牌伤害量﻿增加 30%",
-    "image_url": "images/gk627.png"
+    "image_url": "images/gk627.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "unique"
   },
   {
     "id": 278,
@@ -4167,7 +4704,10 @@
     "ap": 2,
     "description": "Deal 180% Damage to all enemies. Single target: +80% Damage.",
     "description_cn": "对所有敌人造成180%﻿伤害 ﻿为单一目标时伤害量+80%",
-    "image_url": "images/gk626.png"
+    "image_url": "images/gk626.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "unique"
   },
   {
     "id": 279,
@@ -4182,7 +4722,10 @@
     "ap": 0,
     "description": "Move an Anchor Shot from the Draw Pile or Graveyard to hand.",
     "description_cn": "抽取卡牌或坟墓中的锚炮移动至手牌",
-    "image_url": "images/gk625.png"
+    "image_url": "images/gk625.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "unique"
   },
   {
     "id": 280,
@@ -4197,7 +4740,10 @@
     "ap": 2,
     "description": "[Pulverize] Deal 300% Damage. +80% Damage per use of this card (max 5).",
     "description_cn": "@[粉碎] ﻿造成300%﻿伤害 ﻿按照此卡牌使用的数量，伤害量 + 80%(最多 5)",
-    "image_url": "images/gk624.png"
+    "image_url": "images/gk624.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "unique"
   },
   {
     "id": 281,
@@ -4212,7 +4758,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "护盾100%",
-    "image_url": "images/gk623.png"
+    "image_url": "images/gk623.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "basic"
   },
   {
     "id": 282,
@@ -4227,7 +4776,10 @@
     "ap": 2,
     "description": "Deal 240% Damage.",
     "description_cn": "伤害240%",
-    "image_url": "images/gk622.png"
+    "image_url": "images/gk622.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "basic"
   },
   {
     "id": 283,
@@ -4242,7 +4794,10 @@
     "ap": 1,
     "description": "Deal 120% Damage.",
     "description_cn": "伤害120%",
-    "image_url": "images/gk621.png"
+    "image_url": "images/gk621.png",
+    "combatant": "Koharu",
+    "combatant_slug": "koharu",
+    "kind": "basic"
   },
   {
     "id": 284,
@@ -4257,7 +4812,10 @@
     "ap": 2,
     "description": "[Weakness Attack] Deal 300% Damage. On Ravage, retain Embers.",
     "description_cn": "[弱点攻击]﻿* 造成300%伤害﻿ ﻿破坏：保留余烬",
-    "image_url": "images/gk618.png"
+    "image_url": "images/gk618.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "unique"
   },
   {
     "id": 285,
@@ -4272,7 +4830,10 @@
     "ap": 1,
     "description": "[Retain] When using a self card, +20% self Damage for 1 turn.",
     "description_cn": "[保留]﻿* ﻿1回合内使用自己的卡牌时，自己的伤害量＋20%",
-    "image_url": "images/gk617.png"
+    "image_url": "images/gk617.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "unique"
   },
   {
     "id": 286,
@@ -4287,7 +4848,10 @@
     "ap": 0,
     "description": "Draw 2 of your Basic cards. Those cards cost -1 for 1 turn.",
     "description_cn": "自己的基本卡牌抽取2，1回合内该卡牌费用减少1",
-    "image_url": "images/gk616.png"
+    "image_url": "images/gk616.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "unique"
   },
   {
     "id": 287,
@@ -4302,7 +4866,10 @@
     "ap": 1,
     "description": "Deal 100% Damage. 2 Embers. Combo: +1 hit.",
     "description_cn": "造成100%伤害﻿ 余烬2﻿ ﻿连续：额外攻击1次",
-    "image_url": "images/gk615.png"
+    "image_url": "images/gk615.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "unique"
   },
   {
     "id": 288,
@@ -4317,7 +4884,10 @@
     "ap": 1,
     "description": "[Unique/Initiation] +20% Attack Card Damage. When using an Attack Card, 1 Passion Weakness to the target.",
     "description_cn": "@[唯一/开战]﻿* ﻿攻击卡牌的伤害量增加20%﻿ ﻿使用攻击卡牌时，对目标﻿﻿热情弱点1",
-    "image_url": "images/gk614.png"
+    "image_url": "images/gk614.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "unique"
   },
   {
     "id": 289,
@@ -4332,7 +4902,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk613.png"
+    "image_url": "images/gk613.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "basic"
   },
   {
     "id": 290,
@@ -4347,7 +4920,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk612.png"
+    "image_url": "images/gk612.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "basic"
   },
   {
     "id": 291,
@@ -4362,7 +4938,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk611.png"
+    "image_url": "images/gk611.png",
+    "combatant": "Mei Lin",
+    "combatant_slug": "mei-lin",
+    "kind": "basic"
   },
   {
     "id": 292,
@@ -4377,7 +4956,10 @@
     "ap": 1,
     "description": "Choose 1 card from the Draw Pile to move to hand.",
     "description_cn": "从抽取卡牌中选择1张，该卡牌移动至手牌",
-    "image_url": "images/gk608.png"
+    "image_url": "images/gk608.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "unique"
   },
   {
     "id": 293,
@@ -4392,7 +4974,10 @@
     "ap": 2,
     "description": "Deal 240% Damage. For 1 turn, -1 Morale. Cost decreases by the number of completed Quests.",
     "description_cn": "造成240%﻿伤害，持续1回合士气减少1，按照完成的任务数量使费用减少",
-    "image_url": "images/gk607.png"
+    "image_url": "images/gk607.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "unique"
   },
   {
     "id": 294,
@@ -4407,7 +4992,10 @@
     "ap": 1,
     "description": "[Exhaust] Discard all cards in hand and draw the same number.",
     "description_cn": "[消灭] ﻿丢弃手牌中所有的卡牌 并抽取相同数量的卡牌",
-    "image_url": "images/gk606.png"
+    "image_url": "images/gk606.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "unique"
   },
   {
     "id": 295,
@@ -4422,7 +5010,10 @@
     "ap": 1,
     "description": "Deal 160% Damage. Draw 1.",
     "description_cn": "造成160%﻿伤害 ﻿抽取1",
-    "image_url": "images/gk605.png"
+    "image_url": "images/gk605.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "unique"
   },
   {
     "id": 296,
@@ -4437,7 +5028,10 @@
     "ap": 1,
     "description": "Start 1 random Quest out of 4.",
     "description_cn": "从4个任务中随机开始1个",
-    "image_url": "images/gk604.png"
+    "image_url": "images/gk604.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "unique"
   },
   {
     "id": 297,
@@ -4452,7 +5046,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk603.png"
+    "image_url": "images/gk603.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "basic"
   },
   {
     "id": 298,
@@ -4467,7 +5064,10 @@
     "ap": 2,
     "description": "Deal 220% Damage.",
     "description_cn": "造成220%伤害",
-    "image_url": "images/gk602.png"
+    "image_url": "images/gk602.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "basic"
   },
   {
     "id": 299,
@@ -4482,7 +5082,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk601.png"
+    "image_url": "images/gk601.png",
+    "combatant": "Cassius",
+    "combatant_slug": "cassius",
+    "kind": "basic"
   },
   {
     "id": 300,
@@ -4497,7 +5100,10 @@
     "ap": -2,
     "description": "[Unique/Bullet] Deal 200% Damage. After using 5 Handgun Bullet cards, remove Unusable.",
     "description_cn": "@[唯一/弹药] ﻿造成200%伤害﻿ ﻿使用5张手枪弹药卡牌时，移除无法使用。",
-    "image_url": "images/gk592.png"
+    "image_url": "images/gk592.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "unique"
   },
   {
     "id": 301,
@@ -4512,7 +5118,10 @@
     "ap": 1,
     "description": "Deal 50% Damage. +1 hit per Bullet card used this turn.",
     "description_cn": "造成50%伤害﻿ ﻿﻿按照本回合使用的弹药卡牌数量，额外攻击1次",
-    "image_url": "images/gk591.png"
+    "image_url": "images/gk591.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "unique"
   },
   {
     "id": 302,
@@ -4527,7 +5136,10 @@
     "ap": 1,
     "description": "[Initiation] Gain 100% Shield. +120% Damage to the next Bullet card used.",
     "description_cn": "[主导]﻿* ﻿获得100%护盾﻿ ﻿接下来使用的弹药卡牌伤害量+120%",
-    "image_url": "images/gk590.png"
+    "image_url": "images/gk590.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "unique"
   },
   {
     "id": 303,
@@ -4542,7 +5154,10 @@
     "ap": 1,
     "description": "Create 2 Handgun Bullet.",
     "description_cn": "生成2张手枪弹药",
-    "image_url": "images/gk589.png"
+    "image_url": "images/gk589.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "unique"
   },
   {
     "id": 304,
@@ -4557,7 +5172,10 @@
     "ap": 1,
     "description": "Deal 50% x 2 Damage. Create a Handgun Bullet per critical hit. +50% Critical Chance.",
     "description_cn": "造成50%×2﻿伤害 ﻿按照暴击次数生成手枪弹药 ﻿暴击率+50%",
-    "image_url": "images/gk588.png"
+    "image_url": "images/gk588.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "unique"
   },
   {
     "id": 305,
@@ -4572,7 +5190,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk587.png"
+    "image_url": "images/gk587.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "basic"
   },
   {
     "id": 306,
@@ -4587,7 +5208,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk586.png"
+    "image_url": "images/gk586.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "basic"
   },
   {
     "id": 307,
@@ -4602,7 +5226,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk585.png"
+    "image_url": "images/gk585.png",
+    "combatant": "Luke",
+    "combatant_slug": "luke",
+    "kind": "basic"
   },
   {
     "id": 308,
@@ -4617,7 +5244,10 @@
     "ap": 1,
     "description": "[Exhaust/Ultimate] For 1 turn, -20% Damage taken. Up to 4 Metalization is consumed to reduce incoming Damage by an additional 20% per stack.",
     "description_cn": "@[消灭/终极]﻿* ﻿持续1回合，所受伤害量减少20%﻿ ﻿金属化最多减少4﻿ ﻿按照相应数量，所受伤害量额外减少20%",
-    "image_url": "images/gk576.png"
+    "image_url": "images/gk576.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "unique"
   },
   {
     "id": 309,
@@ -4632,7 +5262,10 @@
     "ap": 2,
     "description": "Deal 200% Defense-based Damage to all enemies. For 1 turn, all enemies are targeted by Metalization effects; +20% Damage.",
     "description_cn": "所有敌人基于防御的伤害200%  持续1回合，金属化的目标套用至所有敌人，伤害量+20%",
-    "image_url": "images/gk575.png"
+    "image_url": "images/gk575.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "unique"
   },
   {
     "id": 310,
@@ -4647,7 +5280,10 @@
     "ap": 1,
     "description": "2 Metalization. 2 Resolve for 1 turn.",
     "description_cn": "金属化2 1回合内决心2",
-    "image_url": "images/gk574.png"
+    "image_url": "images/gk574.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "unique"
   },
   {
     "id": 311,
@@ -4662,7 +5298,10 @@
     "ap": 1,
     "description": "Deal 90% x 2 Defense-based Damage. If in Metalization state, -1 Metalization and 2 Vulnerable.",
     "description_cn": "基于防御的伤害90%×2﻿ ﻿若为金属化状态，金属化减少1、脆弱2",
-    "image_url": "images/gk573.png"
+    "image_url": "images/gk573.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "unique"
   },
   {
     "id": 312,
@@ -4677,7 +5316,10 @@
     "ap": 1,
     "description": "3 Damage Reduction. 2 Metalization.",
     "description_cn": "伤害减少3﻿ ﻿金属化2",
-    "image_url": "images/gk572.png"
+    "image_url": "images/gk572.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "unique"
   },
   {
     "id": 313,
@@ -4692,7 +5334,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk571.png"
+    "image_url": "images/gk571.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "basic"
   },
   {
     "id": 314,
@@ -4707,7 +5352,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "基于防御的伤害100%",
-    "image_url": "images/gk570.png"
+    "image_url": "images/gk570.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "basic"
   },
   {
     "id": 315,
@@ -4722,7 +5370,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "基于防御的伤害100%",
-    "image_url": "images/gk569.png"
+    "image_url": "images/gk569.png",
+    "combatant": "Amy",
+    "combatant_slug": "amy",
+    "kind": "basic"
   },
   {
     "id": 316,
@@ -4737,7 +5388,10 @@
     "ap": 1,
     "description": "[Unique] Max Reload stacks +1. 2 Reload.",
     "description_cn": "[唯一]﻿ ﻿上膛叠加上限增加1 上膛2",
-    "image_url": "images/gk568.png"
+    "image_url": "images/gk568.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "unique"
   },
   {
     "id": 317,
@@ -4752,7 +5406,10 @@
     "ap": 1,
     "description": "Choose 1 Ballista in hand; +100% Damage until used. Draw 1.",
     "description_cn": "选择1张手牌的投射机，在使用前伤害量+100%﻿ ﻿抽取1",
-    "image_url": "images/gk567.png"
+    "image_url": "images/gk567.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "unique"
   },
   {
     "id": 318,
@@ -4767,7 +5424,10 @@
     "ap": 1,
     "description": "When another Combatant uses a Skill Card, 1 Reload.",
     "description_cn": "使用其他战斗员的技能卡牌时﻿ ﻿上膛1",
-    "image_url": "images/gk566.png"
+    "image_url": "images/gk566.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "unique"
   },
   {
     "id": 319,
@@ -4782,7 +5442,10 @@
     "ap": 1,
     "description": "Gain 100% Shield. Draw 2 other Combatant cards.",
     "description_cn": "获得100%护盾 ﻿其他战斗员的卡牌抽取2",
-    "image_url": "images/gk565.png"
+    "image_url": "images/gk565.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "unique"
   },
   {
     "id": 320,
@@ -4797,7 +5460,10 @@
     "ap": 1,
     "description": "[Unique/Initiation] Create 1 Ballista. At the start of each turn, create 1 Ballista.",
     "description_cn": "[唯一/开战]﻿* ﻿生成1张投射机 回合开始时，生成1张投射机",
-    "image_url": "images/gk564.png"
+    "image_url": "images/gk564.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "unique"
   },
   {
     "id": 321,
@@ -4812,7 +5478,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk563.png"
+    "image_url": "images/gk563.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "basic"
   },
   {
     "id": 322,
@@ -4827,7 +5496,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk562.png"
+    "image_url": "images/gk562.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "basic"
   },
   {
     "id": 323,
@@ -4842,7 +5514,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk561.png"
+    "image_url": "images/gk561.png",
+    "combatant": "Veronica",
+    "combatant_slug": "veronica",
+    "kind": "basic"
   },
   {
     "id": 324,
@@ -4857,7 +5532,10 @@
     "ap": 1,
     "description": "Heal 200%. Trigger the Retain effect of all cards in hand.",
     "description_cn": "获得200%治愈﻿ ﻿手牌中的所有卡牌发动保留效果",
-    "image_url": "images/gk537.png"
+    "image_url": "images/gk537.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "unique"
   },
   {
     "id": 325,
@@ -4872,7 +5550,10 @@
     "ap": 1,
     "description": "[Retain] Create 1 Archetype Star. Retain: this card becomes Archetype Three-Star.",
     "description_cn": "[保留]﻿ ﻿生成1张创造物★ 保留：此卡牌变更为创造物★★★",
-    "image_url": "images/gk536.png"
+    "image_url": "images/gk536.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "unique"
   },
   {
     "id": 326,
@@ -4887,7 +5568,10 @@
     "ap": 0,
     "description": "Fixed Damage 40% per card in hand.",
     "description_cn": "按照手牌中的卡牌数量，固定伤害40%",
-    "image_url": "images/gk535.png"
+    "image_url": "images/gk535.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "unique"
   },
   {
     "id": 327,
@@ -4902,7 +5586,10 @@
     "ap": 1,
     "description": "Heal 100%. Trigger the Retain effect of a chosen self card 2 times.",
     "description_cn": "获得100%治愈 ﻿从手牌中选择1张自己的卡牌，发动保留效果2次",
-    "image_url": "images/gk534.png"
+    "image_url": "images/gk534.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "unique"
   },
   {
     "id": 328,
@@ -4917,7 +5604,10 @@
     "ap": 1,
     "description": "[Initiation] Create 2 Archetype Star.",
     "description_cn": "[开战]﻿* ﻿生成2张创造物★",
-    "image_url": "images/gk533.png"
+    "image_url": "images/gk533.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "unique"
   },
   {
     "id": 329,
@@ -4932,7 +5622,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk532.png"
+    "image_url": "images/gk532.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "basic"
   },
   {
     "id": 330,
@@ -4947,7 +5640,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk531.png"
+    "image_url": "images/gk531.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "basic"
   },
   {
     "id": 331,
@@ -4962,7 +5658,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk530.png"
+    "image_url": "images/gk530.png",
+    "combatant": "Orlea",
+    "combatant_slug": "orlea",
+    "kind": "basic"
   },
   {
     "id": 332,
@@ -4977,7 +5676,10 @@
     "ap": 1,
     "description": "Deal 250% Damage. 2 Morale for 1 turn.",
     "description_cn": "造成250%﻿的伤害 ﻿1回合内士气2",
-    "image_url": "images/gk517.png"
+    "image_url": "images/gk517.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "unique"
   },
   {
     "id": 333,
@@ -4992,7 +5694,10 @@
     "ap": 1,
     "description": "Choose 1 Attack Card in hand; +100% Damage for 1 turn.",
     "description_cn": "从手牌中选择1张攻击卡牌，持续1回合，伤害量+100%",
-    "image_url": "images/gk516.png"
+    "image_url": "images/gk516.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "unique"
   },
   {
     "id": 334,
@@ -5007,7 +5712,10 @@
     "ap": 0,
     "description": "[Exhaust] Choose and exhaust 1 card in hand. Heal 200%. Draw 1.",
     "description_cn": "@[消灭]﻿* ﻿选择并消灭1张手牌，获得200%治愈 抽取1",
-    "image_url": "images/gk515.png"
+    "image_url": "images/gk515.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "unique"
   },
   {
     "id": 335,
@@ -5022,7 +5730,10 @@
     "ap": 1,
     "description": "[Unique] +40% Damage to Cost-1 cards.",
     "description_cn": "[唯一]﻿* ﻿费用1的卡牌伤害量+40%",
-    "image_url": "images/gk514.png"
+    "image_url": "images/gk514.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "unique"
   },
   {
     "id": 336,
@@ -5037,7 +5748,10 @@
     "ap": 1,
     "description": "[Initiation] Deal 100% Damage. +100% Damage to Basic Attack Cards for 1 turn.",
     "description_cn": "[主导]﻿* 造成100%的伤害 1﻿回合内基本攻击卡牌的伤害量增加100%",
-    "image_url": "images/gk513.png"
+    "image_url": "images/gk513.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "unique"
   },
   {
     "id": 337,
@@ -5052,7 +5766,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk512.png"
+    "image_url": "images/gk512.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "basic"
   },
   {
     "id": 338,
@@ -5067,7 +5784,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk511.png"
+    "image_url": "images/gk511.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "basic"
   },
   {
     "id": 339,
@@ -5082,7 +5802,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk510.png"
+    "image_url": "images/gk510.png",
+    "combatant": "Rey",
+    "combatant_slug": "rey",
+    "kind": "basic"
   },
   {
     "id": 340,
@@ -5097,7 +5820,10 @@
     "ap": -1,
     "description": "[Ultimate] +X100% Shield. Grant Retain to all cards in hand for 1 turn.",
     "description_cn": "[终极] ﻿按照X护盾100%﻿ ﻿1回合内保留手牌中的所有卡牌",
-    "image_url": "images/gk509.png"
+    "image_url": "images/gk509.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "unique"
   },
   {
     "id": 341,
@@ -5112,7 +5838,10 @@
     "ap": 1,
     "description": "Gain 120% Shield. Draw 1 highest-cost card.",
     "description_cn": "护盾120%﻿ ﻿费用最高的卡牌抽取1",
-    "image_url": "images/gk508.png"
+    "image_url": "images/gk508.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "unique"
   },
   {
     "id": 342,
@@ -5127,7 +5856,10 @@
     "ap": 2,
     "description": "Gain 250% Shield. 1 Tenacity Damage to all enemies.",
     "description_cn": "护盾250%﻿ ﻿所有敌人韧性伤害1",
-    "image_url": "images/gk507.png"
+    "image_url": "images/gk507.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "unique"
   },
   {
     "id": 343,
@@ -5142,7 +5874,10 @@
     "ap": 1,
     "description": "Deal 150% Defense-based Damage to all enemies. If Vulture Ejection is in hand, +1 Cost and +100% Damage.",
     "description_cn": "@对所有敌人造成基于防御的伤害150%﻿﻿ ﻿若手牌中有$4:秃鹰发射$，费用增加1，伤害量+100%",
-    "image_url": "images/gk506.png"
+    "image_url": "images/gk506.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "unique"
   },
   {
     "id": 344,
@@ -5157,7 +5892,10 @@
     "ap": 3,
     "description": "[Celestial/Retain] Deal 120% Defense-based Damage to all enemies. Gain 100% Shield. 1 Silver Veil.",
     "description_cn": "@[天上/保留]﻿* 对所有敌人造成基于防御的伤害120% ﻿护盾100%﻿ ﻿银色之幕1",
-    "image_url": "images/gk505.png"
+    "image_url": "images/gk505.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "unique"
   },
   {
     "id": 345,
@@ -5172,7 +5910,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk504.png"
+    "image_url": "images/gk504.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "basic"
   },
   {
     "id": 346,
@@ -5187,7 +5928,10 @@
     "ap": 2,
     "description": "Deal 220% Defense-based Damage.",
     "description_cn": "造成基于防御的伤害220%",
-    "image_url": "images/gk503.png"
+    "image_url": "images/gk503.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "basic"
   },
   {
     "id": 347,
@@ -5202,7 +5946,10 @@
     "ap": 1,
     "description": "Deal 100% Defense-based Damage.",
     "description_cn": "造成基于防御的伤害100%",
-    "image_url": "images/gk502.png"
+    "image_url": "images/gk502.png",
+    "combatant": "Khalipe",
+    "combatant_slug": "khalipe",
+    "kind": "basic"
   },
   {
     "id": 348,
@@ -5217,7 +5964,10 @@
     "ap": 1,
     "description": "When Bullet cards are exhausted, deal 40% Fixed Damage to all enemies.",
     "description_cn": "消灭弹药卡牌时，使所有敌人固定伤害40%",
-    "image_url": "images/gk501.png"
+    "image_url": "images/gk501.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "unique"
   },
   {
     "id": 349,
@@ -5232,7 +5982,10 @@
     "ap": 1,
     "description": "Deal 120% Damage to all enemies. 2 Weaken. If target has Shield, +50% Damage.",
     "description_cn": "对所有敌人造成120%伤害 削弱2﻿ ﻿若目标持有护盾，伤害量+50%",
-    "image_url": "images/gk500.png"
+    "image_url": "images/gk500.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "unique"
   },
   {
     "id": 350,
@@ -5247,7 +6000,10 @@
     "ap": 2,
     "description": "Deal 180% Damage to all enemies. Draw 1. Discard 1.",
     "description_cn": "对所有敌人造成180%伤害 抽取1 丢弃1",
-    "image_url": "images/gk499.png"
+    "image_url": "images/gk499.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "unique"
   },
   {
     "id": 351,
@@ -5262,7 +6018,10 @@
     "ap": 1,
     "description": "Deal 100% Damage. +40% Bullet card Damage for 1 turn.",
     "description_cn": "造成100%伤害﻿ ﻿1回合内弹药卡牌的伤害量+40%",
-    "image_url": "images/gk498.png"
+    "image_url": "images/gk498.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "unique"
   },
   {
     "id": 352,
@@ -5277,7 +6036,10 @@
     "ap": 1,
     "description": "[Initiation] At the start of each turn, create 1 Launcher Bullet.",
     "description_cn": "[主导] 回合开始时，生成1张发射器弹药",
-    "image_url": "images/gk497.png"
+    "image_url": "images/gk497.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "unique"
   },
   {
     "id": 353,
@@ -5292,7 +6054,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk496.png"
+    "image_url": "images/gk496.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "basic"
   },
   {
     "id": 354,
@@ -5307,7 +6072,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk495.png"
+    "image_url": "images/gk495.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "basic"
   },
   {
     "id": 355,
@@ -5322,7 +6090,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%的伤害",
-    "image_url": "images/gk494.png"
+    "image_url": "images/gk494.png",
+    "combatant": "Lucas",
+    "combatant_slug": "lucas",
+    "kind": "basic"
   },
   {
     "id": 356,
@@ -5337,7 +6108,10 @@
     "ap": 1,
     "description": "Activate the self Agony applied to the target.",
     "description_cn": "发动目标持有自身的痛苦",
-    "image_url": "images/gk488.png"
+    "image_url": "images/gk488.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "unique"
   },
   {
     "id": 357,
@@ -5352,7 +6126,10 @@
     "ap": 2,
     "description": "Deal 80% x 3 Damage. If target has Agony, +50% Damage.",
     "description_cn": "造成80%x3伤害 目标若处于痛苦状态，使伤害量+50%",
-    "image_url": "images/gk487.png"
+    "image_url": "images/gk487.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "unique"
   },
   {
     "id": 358,
@@ -5367,7 +6144,10 @@
     "ap": 1,
     "description": "Heal 100%. Create 1 Advanced Shadow Dagger.",
     "description_cn": "获得100%﻿治愈 ﻿生成1张高阶暗影匕首",
-    "image_url": "images/gk486.png"
+    "image_url": "images/gk486.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "unique"
   },
   {
     "id": 359,
@@ -5382,7 +6162,10 @@
     "ap": 0,
     "description": "For 1 turn, when using an Attack Card, inflict 1 Agony on the target.",
     "description_cn": "持续1回合，使用攻击卡牌时，赋予目标痛苦1",
-    "image_url": "images/gk485.png"
+    "image_url": "images/gk485.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "unique"
   },
   {
     "id": 360,
@@ -5397,7 +6180,10 @@
     "ap": 1,
     "description": "Create 2 Shadow Dagger.",
     "description_cn": "生成2张暗影匕首",
-    "image_url": "images/gk484.png"
+    "image_url": "images/gk484.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "unique"
   },
   {
     "id": 361,
@@ -5412,7 +6198,10 @@
     "ap": 1,
     "description": "Heal 100%.",
     "description_cn": "获得100%治愈",
-    "image_url": "images/gk483.png"
+    "image_url": "images/gk483.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "basic"
   },
   {
     "id": 362,
@@ -5427,7 +6216,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk482.png"
+    "image_url": "images/gk482.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "basic"
   },
   {
     "id": 363,
@@ -5442,7 +6234,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk481.png"
+    "image_url": "images/gk481.png",
+    "combatant": "Tressa",
+    "combatant_slug": "tressa",
+    "kind": "basic"
   },
   {
     "id": 364,
@@ -5457,7 +6252,10 @@
     "ap": 1,
     "description": "Deal 80% Damage. Dark Cloud Stance: +1 hit per Skill card in hand.",
     "description_cn": "造成80%伤害 黑云态势：按照手牌的技能卡牌数量，额外攻击1次",
-    "image_url": "images/gk477.png"
+    "image_url": "images/gk477.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "unique"
   },
   {
     "id": 365,
@@ -5472,7 +6270,10 @@
     "ap": 1,
     "description": "Retain Dark Cloud Stance for 1 turn. Dark Cloud Stance: +40% self Attack Card Damage for 1 turn.",
     "description_cn": "1回合内保留黑云态势 黑云态势：1回合内自己的攻击卡牌伤害量+40%",
-    "image_url": "images/gk476.png"
+    "image_url": "images/gk476.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "unique"
   },
   {
     "id": 366,
@@ -5487,7 +6288,10 @@
     "ap": 1,
     "description": "[Quick] Deal 150% Damage. Dark Cloud Stance: +1 hit.",
     "description_cn": "[快速] 造成150%伤害 黑云态势：打击次数增加1次",
-    "image_url": "images/gk475.png"
+    "image_url": "images/gk475.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "unique"
   },
   {
     "id": 367,
@@ -5502,7 +6306,10 @@
     "ap": 0,
     "description": "Draw 1 self card. Gain Dark Cloud Stance.",
     "description_cn": "自己的抽取卡牌1﻿ ﻿获得黑云态势",
-    "image_url": "images/gk474.png"
+    "image_url": "images/gk474.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "unique"
   },
   {
     "id": 368,
@@ -5517,7 +6324,10 @@
     "ap": 0,
     "description": "[Quick] Deal 120% Damage. Gain Dark Cloud Stance. Dark Cloud Stance: +50% Damage.",
     "description_cn": "@[快速] 造成120%伤害 获得黑云态势 ﻿黑云态势：伤害量增加50%",
-    "image_url": "images/gk473.png"
+    "image_url": "images/gk473.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "unique"
   },
   {
     "id": 369,
@@ -5532,7 +6342,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk472.png"
+    "image_url": "images/gk472.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "basic"
   },
   {
     "id": 370,
@@ -5547,7 +6360,10 @@
     "ap": 2,
     "description": "Deal 220% Damage.",
     "description_cn": "造成220%伤害",
-    "image_url": "images/gk471.png"
+    "image_url": "images/gk471.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "basic"
   },
   {
     "id": 371,
@@ -5562,7 +6378,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk470.png"
+    "image_url": "images/gk470.png",
+    "combatant": "Rin",
+    "combatant_slug": "rin",
+    "kind": "basic"
   },
   {
     "id": 372,
@@ -5577,7 +6396,10 @@
     "ap": 2,
     "description": "Deal 240% Damage. Create 3 Futility. +40% Damage per Futility created.",
     "description_cn": "造成240%伤害﻿ ﻿生成3张虚无 ﻿按照相应数量伤害量+40%",
-    "image_url": "images/gk469.png"
+    "image_url": "images/gk469.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "unique"
   },
   {
     "id": 373,
@@ -5592,7 +6414,10 @@
     "ap": 1,
     "description": "[Unique] When a Futility is created, change it to an Attack Card with 100% Damage and Heal, cost 1.",
     "description_cn": "@[唯一] 生成虚无时，变更为具备伤害、治愈100%效果且费用为1的攻击卡牌",
-    "image_url": "images/gk468.png"
+    "image_url": "images/gk468.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "unique"
   },
   {
     "id": 374,
@@ -5607,7 +6432,10 @@
     "ap": 2,
     "description": "Deal 240% Damage. +40% Damage per Futility exhausted.",
     "description_cn": "造成240%﻿伤害 ﻿按照消灭的虚无数量，伤害量+40%",
-    "image_url": "images/gk467.png"
+    "image_url": "images/gk467.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "unique"
   },
   {
     "id": 375,
@@ -5622,7 +6450,10 @@
     "ap": 3,
     "description": "Deal 300% Damage to all enemies. When a card is exhausted, this card's cost -1 for 1 turn.",
     "description_cn": "对所有敌人造成300%﻿伤害 消灭卡牌时，此卡牌1回合内费用减少1",
-    "image_url": "images/gk466.png"
+    "image_url": "images/gk466.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "unique"
   },
   {
     "id": 376,
@@ -5637,7 +6468,10 @@
     "ap": 1,
     "description": "Deal 240% Damage. Create 2 Futility.",
     "description_cn": "造成240%伤害 ﻿生成2张虚无",
-    "image_url": "images/gk465.png"
+    "image_url": "images/gk465.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "unique"
   },
   {
     "id": 377,
@@ -5652,7 +6486,10 @@
     "ap": 1,
     "description": "Heal 100%. Create 1 Futility.",
     "description_cn": "获得100%治愈 生成1张虚无卡牌",
-    "image_url": "images/gk464.png"
+    "image_url": "images/gk464.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "basic"
   },
   {
     "id": 378,
@@ -5667,7 +6504,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk463.png"
+    "image_url": "images/gk463.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "basic"
   },
   {
     "id": 379,
@@ -5682,7 +6522,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk462.png"
+    "image_url": "images/gk462.png",
+    "combatant": "Kayron",
+    "combatant_slug": "kayron",
+    "kind": "basic"
   },
   {
     "id": 380,
@@ -5697,7 +6540,10 @@
     "ap": 1,
     "description": "[Unique] +40% Commence the Hunt Extra Attack Damage.",
     "description_cn": "[唯一] ﻿开始狩猎的额外攻击伤害量增加40%",
-    "image_url": "images/gk458.png"
+    "image_url": "images/gk458.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "unique"
   },
   {
     "id": 381,
@@ -5712,7 +6558,10 @@
     "ap": 1,
     "description": "Gain 100% Shield. 2 Commence the Hunt.",
     "description_cn": "获得100%护盾 ﻿开始狩猎2",
-    "image_url": "images/gk457.png"
+    "image_url": "images/gk457.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "unique"
   },
   {
     "id": 382,
@@ -5727,7 +6576,10 @@
     "ap": 1,
     "description": "[Quick] Deal 80% x 2 Damage. If in Commence the Hunt, draw 1 Attack Card.",
     "description_cn": "@[快速]﻿* ﻿造成80%×2﻿伤害 ﻿若处于开始狩猎状态，抽取1张攻击卡牌",
-    "image_url": "images/gk456.png"
+    "image_url": "images/gk456.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "unique"
   },
   {
     "id": 383,
@@ -5742,7 +6594,10 @@
     "ap": 1,
     "description": "[Quick] Deal 60% x 3 Damage to random enemies. Commence the Hunt for each target hit.",
     "description_cn": "@[快速]﻿* ﻿对随机敌人造成60%×3﻿伤害 ﻿按照攻击的目标数量开始狩猎",
-    "image_url": "images/gk455.png"
+    "image_url": "images/gk455.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "unique"
   },
   {
     "id": 384,
@@ -5757,7 +6612,10 @@
     "ap": 1,
     "description": "[Initiation] When another Combatant uses an Upgrade or Skill Card, 1 Commence the Hunt.",
     "description_cn": "[开战] ﻿使用其他战斗员的强化或技能卡牌时，开始狩猎1",
-    "image_url": "images/gk454.png"
+    "image_url": "images/gk454.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "unique"
   },
   {
     "id": 385,
@@ -5772,7 +6630,10 @@
     "ap": 1,
     "description": "Gain 100% Shield.",
     "description_cn": "获得100%护盾",
-    "image_url": "images/gk453.png"
+    "image_url": "images/gk453.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "basic"
   },
   {
     "id": 386,
@@ -5787,7 +6648,10 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk452.png"
+    "image_url": "images/gk452.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "basic"
   },
   {
     "id": 387,
@@ -5802,6 +6666,9 @@
     "ap": 1,
     "description": "Deal 100% Damage.",
     "description_cn": "造成100%伤害",
-    "image_url": "images/gk451.png"
+    "image_url": "images/gk451.png",
+    "combatant": "Hugo",
+    "combatant_slug": "hugo",
+    "kind": "basic"
   }
 ]

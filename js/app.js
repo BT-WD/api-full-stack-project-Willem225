@@ -6,12 +6,15 @@ import { renderSignup }  from './views/signup.js';
 import { renderCards }   from './views/cards.js';
 import { renderDecks }   from './views/decks.js';
 import { renderBuilder } from './views/builder.js';
+import { renderCombatants, renderCombatantDetail } from './views/combatants.js';
 
 const routes = [
   { pattern: /^\/?$/,                   redirect: '#/cards' },
   { pattern: /^\/login$/,               handler: renderLogin,   auth: false },
   { pattern: /^\/signup$/,              handler: renderSignup,  auth: false },
   { pattern: /^\/cards$/,               handler: renderCards,   auth: false },
+  { pattern: /^\/combatants$/,          handler: renderCombatants, auth: false },
+  { pattern: /^\/combatants\/([^/]+)$/, handler: (ctx, m) => renderCombatantDetail(ctx, m[1]), auth: false },
   { pattern: /^\/decks$/,               handler: renderDecks,   auth: true  },
   { pattern: /^\/decks\/new$/,          handler: (ctx) => renderBuilder(ctx, { mode: 'new' }),        auth: true  },
   { pattern: /^\/decks\/(\d+)$/,        handler: (ctx, m) => renderBuilder(ctx, { mode: 'edit', id: m[1] }), auth: true },
@@ -23,12 +26,13 @@ function parseHash() {
 }
 
 const ICONS = {
-  cards:    '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>',
-  decks:    '<svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v5H4zM4 11h16v5H4zM4 18h16v2H4z"/></svg>',
-  builder:  '<svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
-  login:    '<svg class="icon" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>',
-  signup:   '<svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1M19 8v6M16 11h6"/></svg>',
-  logout:   '<svg class="icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>',
+  cards:      '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>',
+  combatants: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>',
+  decks:      '<svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v5H4zM4 11h16v5H4zM4 18h16v2H4z"/></svg>',
+  builder:    '<svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+  login:      '<svg class="icon" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>',
+  signup:     '<svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1M19 8v6M16 11h6"/></svg>',
+  logout:     '<svg class="icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>',
 };
 
 function navItem(href, icon, label, active) {
@@ -46,15 +50,18 @@ function renderNav() {
   const current = parseHash();
 
   const items = [
-    { href: '#/cards',      icon: ICONS.cards,   label: 'Cards' },
+    { href: '#/cards',       icon: ICONS.cards,      label: 'Cards' },
+    { href: '#/combatants',  icon: ICONS.combatants, label: 'Combatants' },
   ];
   if (loggedIn) {
     items.push({ href: '#/decks',     icon: ICONS.decks,   label: 'Decks' });
     items.push({ href: '#/decks/new', icon: ICONS.builder, label: 'New' });
   }
   for (const it of items) {
-    const isActive = current === it.href.replace(/^#/, '')
-      || (it.href === '#/decks' && current.startsWith('/decks/') && current !== '/decks/new');
+    const path = it.href.replace(/^#/, '');
+    const isActive = current === path
+      || (path === '/combatants' && current.startsWith('/combatants/'))
+      || (path === '/decks' && current.startsWith('/decks/') && current !== '/decks/new');
     nav.appendChild(navItem(it.href, it.icon, it.label, isActive));
   }
 

@@ -503,6 +503,109 @@ p { color: var(--text-dim); margin: 0 0 12px; }
 .tag-rarity-legendary { background: rgba(245, 158, 11, 0.22); color: var(--accent-4); }
 .tag-rarity-mythic    { background: rgba(167, 139, 250, 0.22); color: var(--accent); }
 
+/* ─── combatants ─────────────────────────────── */
+
+.combatant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.combatant-tile {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+.combatant-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.combatant-portrait {
+  position: relative;
+  aspect-ratio: 195 / 300;
+  background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-1) 100%);
+  overflow: hidden;
+}
+.combatant-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.combatant-portrait .card-rarity-pips {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.combatant-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+}
+.combatant-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+.combatant-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ─── combatant detail ─────────────────────────────── */
+
+.combatant-detail {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .combatant-detail { grid-template-columns: 1fr; }
+  .combatant-detail-left { max-width: 280px; margin: 0 auto; }
+}
+
+.combatant-detail-left {
+  position: sticky;
+  top: 32px;
+}
+.combatant-detail-portrait {
+  width: 100%;
+  aspect-ratio: 195 / 300;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  box-shadow: var(--shadow);
+}
+
+.combatant-detail-header { margin-bottom: 4px; }
+.combatant-detail-header h1 { margin-bottom: 10px; }
+
+.combatant-name-cn {
+  font-size: 18px;
+  color: var(--muted);
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-family: "Noto Sans SC", -apple-system, sans-serif;
+}
+
+.card-grid-compact {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 14px;
+}
+
 /* ─── deck list ─────────────────────────────── */
 
 .deck-list { display: grid; gap: 12px; }
