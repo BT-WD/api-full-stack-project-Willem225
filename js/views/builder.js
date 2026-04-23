@@ -12,18 +12,19 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     id: null,
     name: 'New Deck',
     description: '',
-    character: '',
+    character: '',       // combatant name (e.g. "Diana")
     tier: 1,
     nightmare: false,
-    cards: [],       // [{ card, flag, epiphany, is_starter }]
-    equipment: [     // three slots by default
+    cards: [],           // [{ card, flag, epiphany, is_starter }]
+    equipment: [
       { slot: 'weapon',    level: 0 },
       { slot: 'armor',     level: 0 },
       { slot: 'accessory', level: 0 },
     ],
   };
 
-  let allCards = [];
+  let allCards   = [];
+  let combatants = [];
 
   // header + containers
   view.appendChild(el('div', { class: 'view-header' }, [
@@ -38,13 +39,15 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   const sidebar = el('div', { class: 'fm-sidebar' });
   layout.append(main, sidebar);
 
-  // load deck if editing + load card catalog in parallel
+  // load deck + card catalog + combatants in parallel
   try {
-    const [deckRes, cardsRes] = await Promise.all([
+    const [deckRes, cardsRes, combatantsRes] = await Promise.all([
       mode === 'edit' ? api.deck(id) : Promise.resolve(null),
       api.cards({ limit: 5000, include_character_cards: true }),
+      fetch('combatants.json?v=4').then(r => r.json()),
     ]);
     allCards = cardsRes.cards;
+    combatants = combatantsRes.sort((a, b) => a.name.localeCompare(b.name));
     if (deckRes) Object.assign(deck, {
       id: deckRes.deck.id,
       name: deckRes.deck.name,
@@ -80,10 +83,17 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     class: 'textarea', placeholder: 'Description (optional)', value: deck.description,
     oninput: () => { deck.description = descInput.value; },
   });
-  const charInput = el('input', {
-    class: 'input', type: 'text', placeholder: 'Main combatant', value: deck.character,
-    oninput: () => { deck.character = charInput.value; },
-  });
+
+  // combatant picker (replaces free-text character field)
+  const combatantSelect = el('select', {
+    class: 'select',
+    onchange: () => { deck.character = combatantSelect.value; renderCharacterCards(); refreshSidebar(); },
+  }, [el('option', { value: '' }, 'No combatant')]);
+  for (const c of combatants) {
+    combatantSelect.appendChild(el('option', {
+      value: c.name, selected: c.name === deck.character,
+    }, `${c.name} — ${c.element || ''} · ${c.combatant_class || ''}`));
+  }
 
   main.appendChild(el('div', { class: 'builder-header' }, [
     el('div', { class: 'field' }, [el('label', {}, 'Name'), nameInput]),
@@ -93,11 +103,18 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       el('label', { class: 'row', style: { gap: '6px' } }, [nmCheck, el('span', {}, 'Mode')]),
     ]),
   ]));
-  main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Character'), charInput]));
+  main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Combatant'), combatantSelect]));
   main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Description'), descInput]));
 
-  // ── cards list ──
-  main.appendChild(el('h2', { class: 'mt-2' }, 'Cards'));
+  // ── character cards (starters) ──
+  main.appendChild(el('h2', { class: 'mt-2' }, 'Character Cards'));
+  main.appendChild(el('p', { class: 'builder-hint' },
+    'The starter cards from your chosen combatant. Toggling Remove applies the starter-removal rules (+20 FM surcharge on top of the removal cost ladder).'));
+  const starterWrap = el('div', { class: 'deck-cards' });
+  main.appendChild(starterWrap);
+
+  // ── deck cards ──
+  main.appendChild(el('h2', { class: 'mt-3' }, 'Deck Cards'));
   const cardsWrap = el('div', { class: 'deck-cards' });
   main.appendChild(cardsWrap);
 
@@ -118,13 +135,70 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(actions);
 
   // ── renderers ──
+
+  function starterCards() {
+    // Return the basic cards of the selected combatant (empty if none selected).
+    if (!deck.character) return [];
+    return allCards.filter(c => c.combatant === deck.character && c.kind === 'basic');
+  }
+
+  function findRemovedStarter(cardId) {
+    return deck.cards.findIndex(e =>
+      e.flag === 'removed' && e.is_starter === true && e.card?.id === cardId);
+  }
+
+  function toggleStarterRemoval(card) {
+    const idx = findRemovedStarter(card.id);
+    if (idx >= 0) deck.cards.splice(idx, 1);
+    else deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: true });
+    renderCharacterCards();
+    renderCardList();
+    refreshSidebar();
+  }
+
+  function renderCharacterCards() {
+    clear(starterWrap);
+    const starters = starterCards();
+    if (!starters.length) {
+      starterWrap.appendChild(el('div', { class: 'empty' },
+        deck.character ? `${deck.character} has no starter cards in the data.` : 'Pick a combatant above to see their starter cards.'));
+      return;
+    }
+    for (const card of starters) {
+      const removed = findRemovedStarter(card.id) >= 0;
+      starterWrap.appendChild(el('div', { class: `deck-card-row starter-row${removed ? ' is-removed' : ''}` }, [
+        miniArt(card),
+        el('div', {}, [
+          el('div', { class: 'card-label' }, card.name),
+          el('div', { class: 'card-sublabel' }, [
+            card.category || '',
+            ' · Starter',
+            removed ? ' · removed (+20 FM surcharge)' : '',
+          ].join('')),
+        ]),
+        el('div', {}),
+        el('div', {}),
+        el('button', {
+          class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
+          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (costs FM)',
+          onclick: () => toggleStarterRemoval(card),
+        }, removed ? 'Removed' : 'Remove'),
+      ]));
+    }
+  }
+
   function renderCardList() {
     clear(cardsWrap);
-    if (!deck.cards.length) {
+    // Exclude starter removals from the "deck cards" list — they render in the starter section.
+    const nonStarter = deck.cards.filter(e => !(e.flag === 'removed' && e.is_starter));
+    if (!nonStarter.length) {
       cardsWrap.appendChild(el('div', { class: 'empty' }, 'No cards yet. Add one to get started.'));
       return;
     }
-    deck.cards.forEach((entry, idx) => cardsWrap.appendChild(cardRow(entry, idx)));
+    nonStarter.forEach((entry) => {
+      const idx = deck.cards.indexOf(entry);
+      cardsWrap.appendChild(cardRow(entry, idx));
+    });
   }
 
   function cardRow(entry, idx) {
@@ -145,7 +219,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         el('div', { class: 'card-sublabel' }, [
           entry.card.card_type || '',
           entry.card.monster_rarity ? ` · ${entry.card.monster_rarity}` : '',
-          entry.card.character ? ` · ${entry.card.character}` : '',
+          entry.card.combatant ? ` · ${entry.card.combatant}` : (entry.card.character ? ` · ${entry.card.character}` : ''),
         ].join('')),
       ]),
       flagSelect,
@@ -301,6 +375,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     } catch (err) { toast(err.message, 'error'); }
   }
 
+  renderCharacterCards();
   renderCardList();
   renderEquipment();
   refreshSidebar();
