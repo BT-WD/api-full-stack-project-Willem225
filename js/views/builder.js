@@ -42,7 +42,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   try {
     const [deckRes, cardsRes] = await Promise.all([
       mode === 'edit' ? api.deck(id) : Promise.resolve(null),
-      api.cards({ limit: 5000 }),
+      api.cards({ limit: 5000, include_character_cards: true }),
     ]);
     allCards = cardsRes.cards;
     if (deckRes) Object.assign(deck, {

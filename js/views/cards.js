@@ -1,20 +1,25 @@
 import { el, clear, cardTile } from '../ui.js';
 import { api } from '../api.js';
 
-export async function renderCards({ view, toast }) {
+export async function renderCards({ view, navigate, toast }) {
   clear(view);
 
   view.appendChild(el('div', { class: 'view-header' }, [
     el('h1', {}, 'Cards'),
     el('div', { class: 'row' }, [
-      el('span', { class: 'tag tag-character' }, 'Character'),
       el('span', { class: 'tag tag-neutral' },   'Neutral'),
       el('span', { class: 'tag tag-forbidden' }, 'Forbidden'),
       el('span', { class: 'tag tag-monster' },   'Monster'),
     ]),
   ]));
 
-  const state = { q: '', character: '', category: '', card_type: '', combatant: '' };
+  view.appendChild(el('p', { class: 'view-subtitle' }, [
+    'Character-specific cards live on the ',
+    el('a', { href: '#/combatants' }, 'Combatants'),
+    ' page.',
+  ]));
+
+  const state = { q: '', category: '', card_type: '' };
 
   const filtersBar = el('div', { class: 'filters' });
   view.appendChild(filtersBar);
@@ -29,11 +34,6 @@ export async function renderCards({ view, toast }) {
     oninput: debounce(() => { state.q = searchInput.value.trim(); reload(); }, 200),
   });
 
-  const combatantSelect = el('select', {
-    class: 'select',
-    onchange: () => { state.combatant = combatantSelect.value; reload(); },
-  }, [el('option', { value: '' }, 'All combatants')]);
-
   const typeSelect = el('select', {
     class: 'select',
     onchange: () => { state.card_type = typeSelect.value; reload(); },
@@ -44,20 +44,15 @@ export async function renderCards({ view, toast }) {
     onchange: () => { state.category = catSelect.value; reload(); },
   }, [el('option', { value: '' }, 'All categories')]);
 
-  filtersBar.append(searchInput, combatantSelect, typeSelect, catSelect);
-
-  // Populate combatants from combatants.json
-  try {
-    const res = await fetch('combatants.json?v=3');
-    const combatants = await res.json();
-    combatants.sort((a, b) => a.name.localeCompare(b.name));
-    for (const c of combatants) combatantSelect.appendChild(el('option', { value: c.name }, c.name));
-  } catch { /* ignore */ }
+  filtersBar.append(searchInput, typeSelect, catSelect);
 
   try {
     const f = await api.cardFilters();
     for (const c of f.categories)  catSelect.appendChild(el('option',  { value: c }, c));
-    for (const t of f.card_types)  typeSelect.appendChild(el('option', { value: t }, t));
+    // Skip 'character' type in the type dropdown
+    for (const t of f.card_types.filter(t => t !== 'character')) {
+      typeSelect.appendChild(el('option', { value: t }, t));
+    }
   } catch { /* filter load is best-effort */ }
 
   async function reload() {

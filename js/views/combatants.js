@@ -115,25 +115,36 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
     el('button', { class: 'btn btn-ghost', onclick: () => navigate('#/combatants') }, '← Combatants'),
   ]));
 
-  view.appendChild(el('div', { class: 'combatant-detail' }, [
-    el('div', { class: 'combatant-detail-left' }, [
-      el('img', { class: 'combatant-detail-portrait', src: combatant.portrait_url, alt: combatant.name,
+  // Compact header: portrait thumbnail + name + class/rarity tags
+  const rarityPips = combatant.rarity === 'mythic' ? 5 : combatant.rarity === 'legendary' ? 4 : combatant.rarity === 'rare' ? 3 : 2;
+  view.appendChild(el('div', { class: 'combatant-hero' }, [
+    el('div', { class: 'combatant-hero-portrait' }, [
+      el('img', { src: combatant.portrait_url, alt: combatant.name,
         onerror: (e) => { e.target.remove(); } }),
     ]),
-    el('div', { class: 'combatant-detail-right' }, [
-      el('div', { class: 'combatant-detail-header' }, [
-        el('h1', {}, combatant.name),
-        el('div', { class: 'row' }, [
-          el('span', { class: 'tag tag-character' }, combatant.combatant_class || 'Combatant'),
-          el('span', { class: `tag tag-rarity-${combatant.rarity || 'common'}` }, combatant.rarity || 'common'),
-        ]),
+    el('div', { class: 'combatant-hero-info' }, [
+      el('div', { class: `combatant-hero-stars rarity-${combatant.rarity || 'common'}` },
+        Array.from({ length: rarityPips }, () => el('span', { class: 'star' }, '★'))),
+      el('h1', { class: 'combatant-hero-name' }, combatant.name),
+      el('div', { class: 'combatant-hero-tags' }, [
+        el('span', { class: 'tag tag-character' }, combatant.combatant_class || 'Combatant'),
+        el('span', { class: `tag tag-rarity-${combatant.rarity || 'common'}` }, combatant.rarity || 'common'),
       ]),
-      el('h2', { class: 'section-title' }, 'Start Cards'),
-      el('div', { class: 'card-grid card-grid-compact' }, startCards.map(c => cardTile(c))),
-      uniqueCards.length ? el('h2', { class: 'section-title' }, 'Unique Cards') : null,
-      uniqueCards.length ? el('div', { class: 'card-grid card-grid-compact' }, uniqueCards.map(c => cardTile(c))) : null,
-    ].filter(Boolean)),
+    ]),
   ]));
+
+  // Cards sections, each as a horizontal grid row
+  view.appendChild(el('section', { class: 'combatant-section' }, [
+    el('h2', { class: 'section-title' }, 'Start Cards'),
+    el('div', { class: 'card-grid card-grid-compact' }, startCards.map(c => cardTile(c))),
+  ]));
+
+  if (uniqueCards.length) {
+    view.appendChild(el('section', { class: 'combatant-section' }, [
+      el('h2', { class: 'section-title' }, 'Unique Cards'),
+      el('div', { class: 'card-grid card-grid-compact' }, uniqueCards.map(c => cardTile(c))),
+    ]));
+  }
 }
 
 function debounce(fn, ms) {

@@ -127,7 +127,11 @@ async function cards(query = {}) {
   const cat     = query.category;
   const type    = query.card_type;
   const comb    = query.combatant;
+  const includeCharacterCards = Boolean(query.include_character_cards);
+
   const filtered = all.filter(c => {
+    // Character-specific cards are browseable via the Combatants page, not here.
+    if (!includeCharacterCards && c.card_type === 'character') return false;
     if (q) {
       const hay = `${c.name || ''} ${c.description || ''} ${c.combatant || ''}`.toLowerCase();
       if (!hay.includes(q)) return false;
