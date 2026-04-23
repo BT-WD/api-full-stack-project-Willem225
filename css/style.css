@@ -536,7 +536,9 @@ p { color: var(--text-dim); margin: 0 0 12px; }
 
 .combatant-portrait {
   position: relative;
-  aspect-ratio: 195 / 300;
+  /* Gamekee portraits bake the Chinese name into the bottom ~20% of the PNG.
+     Shrinking the container aspect ratio crops that strip cleanly. */
+  aspect-ratio: 195 / 240;
   background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-1) 100%);
   overflow: hidden;
 }
@@ -544,9 +546,18 @@ p { color: var(--text-dim); margin: 0 0 12px; }
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: 125%;          /* slightly scale up so we don't lose the face */
   object-fit: cover;
   object-position: center top;
+}
+/* soft bottom fade into the body for a clean edge */
+.combatant-portrait::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 28%;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-1) 95%);
+  pointer-events: none;
 }
 .combatant-portrait .card-rarity-pips {
   position: absolute;
