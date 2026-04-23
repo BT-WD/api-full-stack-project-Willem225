@@ -11,7 +11,7 @@ const TOKEN_KEY = 'czn_token';
 const USER_KEY  = 'czn_user';
 const USERS_KEY = 'czn_users_v1';     // [{id, username, email, password, created_at}]
 const DECKS_KEY = 'czn_decks_v2';     // { [userId]: [deck, deck, ...] } — v2 = post-catalog-expansion
-const DATA_VERSION = '3';              // bump on every data schema change to bust caches
+const DATA_VERSION = '4';              // bump on every data schema change to bust caches
 const CARDS_URL = `cards.json?v=${DATA_VERSION}`;
 
 export function getToken() { return localStorage.getItem(TOKEN_KEY); }

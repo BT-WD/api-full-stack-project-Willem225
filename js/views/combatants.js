@@ -3,7 +3,7 @@ import { el, clear, cardTile } from '../ui.js';
 let _combatantsCache = null;
 async function loadCombatants() {
   if (_combatantsCache) return _combatantsCache;
-  const res = await fetch('combatants.json?v=3');
+  const res = await fetch('combatants.json?v=4');
   if (!res.ok) throw new Error('Failed to load combatants.json');
   _combatantsCache = await res.json();
   return _combatantsCache;
@@ -69,19 +69,20 @@ export async function renderCombatants({ view, navigate, toast }) {
 }
 
 function combatantTile(c, onClick) {
-  const rarityPips = c.rarity === 'mythic' ? 4 : c.rarity === 'legendary' ? 3 : c.rarity === 'rare' ? 2 : 1;
+  const stars = c.stars || (c.rarity === 'mythic' ? 5 : c.rarity === 'legendary' ? 4 : 3);
   return el('div', { class: 'combatant-tile', onclick: onClick, title: c.name }, [
     el('div', { class: 'combatant-portrait' }, [
       el('img', { src: c.portrait_url, alt: c.name, loading: 'lazy',
         onerror: (e) => { e.target.remove(); } }),
-      el('div', { class: `card-rarity-pips rarity-${c.rarity || 'common'}` },
-        Array.from({ length: rarityPips }, () => el('span', { class: 'pip' }))),
+      el('div', { class: `combatant-stars rarity-${c.rarity || 'common'}` },
+        Array.from({ length: stars }, () => el('span', { class: 'star' }, '★'))),
     ]),
     el('div', { class: 'combatant-body' }, [
       el('div', { class: 'combatant-name' }, c.name),
       el('div', { class: 'combatant-meta' }, [
+        c.element ? el('span', { class: `tag tag-element tag-element-${c.element.toLowerCase()}` }, c.element) : null,
         el('span', { class: 'tag tag-character' }, c.combatant_class || 'Combatant'),
-      ]),
+      ].filter(Boolean)),
     ]),
   ]);
 }
@@ -95,7 +96,7 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
   try {
     combatants = await loadCombatants();
     combatant = combatants.find(c => c.slug === slug);
-    const cardsRes = await fetch('cards.json?v=3');
+    const cardsRes = await fetch('cards.json?v=4');
     allCards = await cardsRes.json();
   } catch (err) {
     view.appendChild(el('div', { class: 'empty' }, `Failed: ${err.message}`));
@@ -116,7 +117,7 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
   ]));
 
   // Compact header: portrait thumbnail + name + class/rarity tags
-  const rarityPips = combatant.rarity === 'mythic' ? 5 : combatant.rarity === 'legendary' ? 4 : combatant.rarity === 'rare' ? 3 : 2;
+  const stars = combatant.stars || (combatant.rarity === 'mythic' ? 5 : combatant.rarity === 'legendary' ? 4 : 3);
   view.appendChild(el('div', { class: 'combatant-hero' }, [
     el('div', { class: 'combatant-hero-portrait' }, [
       el('img', { src: combatant.portrait_url, alt: combatant.name,
@@ -124,12 +125,12 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
     ]),
     el('div', { class: 'combatant-hero-info' }, [
       el('div', { class: `combatant-hero-stars rarity-${combatant.rarity || 'common'}` },
-        Array.from({ length: rarityPips }, () => el('span', { class: 'star' }, '★'))),
+        Array.from({ length: stars }, () => el('span', { class: 'star' }, '★'))),
       el('h1', { class: 'combatant-hero-name' }, combatant.name),
       el('div', { class: 'combatant-hero-tags' }, [
+        combatant.element ? el('span', { class: `tag tag-element tag-element-${combatant.element.toLowerCase()}` }, combatant.element) : null,
         el('span', { class: 'tag tag-character' }, combatant.combatant_class || 'Combatant'),
-        el('span', { class: `tag tag-rarity-${combatant.rarity || 'common'}` }, combatant.rarity || 'common'),
-      ]),
+      ].filter(Boolean)),
     ]),
   ]));
 

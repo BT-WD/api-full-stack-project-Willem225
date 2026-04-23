@@ -16,8 +16,10 @@
       315
     ],
     "combatant_class": "Vanguard",
-    "rarity": "mythic",
-    "portrait_url": "combatants/amy.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/amy.png",
+    "element": "Order",
+    "stars": 4
   },
   {
     "id": 194797,
@@ -35,9 +37,11 @@
       210,
       211
     ],
-    "combatant_class": "Hunter",
-    "rarity": "mythic",
-    "portrait_url": "combatants/beryl.png"
+    "combatant_class": "Ranger",
+    "rarity": "legendary",
+    "portrait_url": "combatants/beryl.png",
+    "element": "Justice",
+    "stars": 4
   },
   {
     "id": 194798,
@@ -56,8 +60,10 @@
       299
     ],
     "combatant_class": "Controller",
-    "rarity": "mythic",
-    "portrait_url": "combatants/cassius.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/cassius.png",
+    "element": "Instinct",
+    "stars": 4
   },
   {
     "id": 199239,
@@ -77,7 +83,9 @@
     ],
     "combatant_class": "Psychic",
     "rarity": "mythic",
-    "portrait_url": "combatants/chizuru.png"
+    "portrait_url": "combatants/chizuru.png",
+    "element": "Void",
+    "stars": 5
   },
   {
     "id": 213029,
@@ -97,7 +105,9 @@
     ],
     "combatant_class": "Hunter",
     "rarity": "mythic",
-    "portrait_url": "combatants/diana.png"
+    "portrait_url": "combatants/diana.png",
+    "element": "Passion",
+    "stars": 5
   },
   {
     "id": 194788,
@@ -117,7 +127,9 @@
     ],
     "combatant_class": "Ranger",
     "rarity": "mythic",
-    "portrait_url": "combatants/hugo.png"
+    "portrait_url": "combatants/hugo.png",
+    "element": "Order",
+    "stars": 5
   },
   {
     "id": 194789,
@@ -137,7 +149,9 @@
     ],
     "combatant_class": "Psychic",
     "rarity": "mythic",
-    "portrait_url": "combatants/kayron.png"
+    "portrait_url": "combatants/kayron.png",
+    "element": "Void",
+    "stars": 5
   },
   {
     "id": 194782,
@@ -157,7 +171,9 @@
     ],
     "combatant_class": "Vanguard",
     "rarity": "mythic",
-    "portrait_url": "combatants/khalipe.png"
+    "portrait_url": "combatants/khalipe.png",
+    "element": "Instinct",
+    "stars": 5
   },
   {
     "id": 196768,
@@ -177,7 +193,9 @@
     ],
     "combatant_class": "Duelist",
     "rarity": "mythic",
-    "portrait_url": "combatants/koharu.png"
+    "portrait_url": "combatants/koharu.png",
+    "element": "Justice",
+    "stars": 5
   },
   {
     "id": 194787,
@@ -197,7 +215,9 @@
     ],
     "combatant_class": "Hunter",
     "rarity": "mythic",
-    "portrait_url": "combatants/leona.png"
+    "portrait_url": "combatants/leona.png",
+    "element": "Void",
+    "stars": 5
   },
   {
     "id": 194794,
@@ -216,8 +236,10 @@
       355
     ],
     "combatant_class": "Hunter",
-    "rarity": "mythic",
-    "portrait_url": "combatants/lucas.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/lucas.png",
+    "element": "Passion",
+    "stars": 4
   },
   {
     "id": 194781,
@@ -237,7 +259,9 @@
     ],
     "combatant_class": "Hunter",
     "rarity": "mythic",
-    "portrait_url": "combatants/luke.png"
+    "portrait_url": "combatants/luke.png",
+    "element": "Order",
+    "stars": 5
   },
   {
     "id": 194783,
@@ -257,7 +281,9 @@
     ],
     "combatant_class": "Vanguard",
     "rarity": "mythic",
-    "portrait_url": "combatants/magna.png"
+    "portrait_url": "combatants/magna.png",
+    "element": "Justice",
+    "stars": 5
   },
   {
     "id": 194795,
@@ -276,8 +302,10 @@
       275
     ],
     "combatant_class": "Vanguard",
-    "rarity": "mythic",
-    "portrait_url": "combatants/maribelle.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/maribelle.png",
+    "element": "Passion",
+    "stars": 4
   },
   {
     "id": 194785,
@@ -295,9 +323,11 @@
       290,
       291
     ],
-    "combatant_class": "Controller",
+    "combatant_class": "Duelist",
     "rarity": "mythic",
-    "portrait_url": "combatants/mei-lin.png"
+    "portrait_url": "combatants/mei-lin.png",
+    "element": "Passion",
+    "stars": 5
   },
   {
     "id": 194796,
@@ -316,8 +346,10 @@
       243
     ],
     "combatant_class": "Controller",
-    "rarity": "mythic",
-    "portrait_url": "combatants/mika.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/mika.png",
+    "element": "Justice",
+    "stars": 4
   },
   {
     "id": 203179,
@@ -337,7 +369,9 @@
     ],
     "combatant_class": "Controller",
     "rarity": "mythic",
-    "portrait_url": "combatants/narja.png"
+    "portrait_url": "combatants/narja.png",
+    "element": "Instinct",
+    "stars": 5
   },
   {
     "id": 194790,
@@ -356,8 +390,10 @@
       203
     ],
     "combatant_class": "Controller",
-    "rarity": "mythic",
-    "portrait_url": "combatants/nia.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/nia.png",
+    "element": "Instinct",
+    "stars": 4
   },
   {
     "id": 204639,
@@ -377,7 +413,9 @@
     ],
     "combatant_class": "Vanguard",
     "rarity": "mythic",
-    "portrait_url": "combatants/nine.png"
+    "portrait_url": "combatants/nine.png",
+    "element": "Order",
+    "stars": 5
   },
   {
     "id": 194784,
@@ -397,7 +435,9 @@
     ],
     "combatant_class": "Controller",
     "rarity": "mythic",
-    "portrait_url": "combatants/orlea.png"
+    "portrait_url": "combatants/orlea.png",
+    "element": "Instinct",
+    "stars": 5
   },
   {
     "id": 194799,
@@ -416,8 +456,10 @@
       267
     ],
     "combatant_class": "Duelist",
-    "rarity": "mythic",
-    "portrait_url": "combatants/owen.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/owen.png",
+    "element": "Passion",
+    "stars": 4
   },
   {
     "id": 194800,
@@ -436,8 +478,10 @@
       339
     ],
     "combatant_class": "Controller",
-    "rarity": "mythic",
-    "portrait_url": "combatants/rey.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/rey.png",
+    "element": "Void",
+    "stars": 4
   },
   {
     "id": 194744,
@@ -457,7 +501,9 @@
     ],
     "combatant_class": "Duelist",
     "rarity": "mythic",
-    "portrait_url": "combatants/rin.png"
+    "portrait_url": "combatants/rin.png",
+    "element": "Void",
+    "stars": 5
   },
   {
     "id": 211071,
@@ -477,7 +523,9 @@
     ],
     "combatant_class": "Psychic",
     "rarity": "mythic",
-    "portrait_url": "combatants/rita.png"
+    "portrait_url": "combatants/rita.png",
+    "element": "Justice",
+    "stars": 5
   },
   {
     "id": 194791,
@@ -496,8 +544,10 @@
       235
     ],
     "combatant_class": "Ranger",
-    "rarity": "mythic",
-    "portrait_url": "combatants/selena.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/selena.png",
+    "element": "Passion",
+    "stars": 4
   },
   {
     "id": 201374,
@@ -517,7 +567,9 @@
     ],
     "combatant_class": "Hunter",
     "rarity": "mythic",
-    "portrait_url": "combatants/sereniel.png"
+    "portrait_url": "combatants/sereniel.png",
+    "element": "Instinct",
+    "stars": 5
   },
   {
     "id": 207470,
@@ -537,7 +589,9 @@
     ],
     "combatant_class": "Controller",
     "rarity": "mythic",
-    "portrait_url": "combatants/tiphera.png"
+    "portrait_url": "combatants/tiphera.png",
+    "element": "Order",
+    "stars": 5
   },
   {
     "id": 194792,
@@ -556,8 +610,10 @@
       363
     ],
     "combatant_class": "Psychic",
-    "rarity": "mythic",
-    "portrait_url": "combatants/tressa.png"
+    "rarity": "legendary",
+    "portrait_url": "combatants/tressa.png",
+    "element": "Void",
+    "stars": 4
   },
   {
     "id": 194786,
@@ -577,7 +633,9 @@
     ],
     "combatant_class": "Ranger",
     "rarity": "mythic",
-    "portrait_url": "combatants/veronica.png"
+    "portrait_url": "combatants/veronica.png",
+    "element": "Passion",
+    "stars": 5
   },
   {
     "id": 197855,
@@ -597,6 +655,8 @@
     ],
     "combatant_class": "Duelist",
     "rarity": "mythic",
-    "portrait_url": "combatants/yuki.png"
+    "portrait_url": "combatants/yuki.png",
+    "element": "Order",
+    "stars": 5
   }
 ]

@@ -510,6 +510,15 @@ p { color: var(--text-dim); margin: 0 0 12px; }
 .tag-rarity-legendary { background: rgba(245, 158, 11, 0.22); color: var(--accent-4); }
 .tag-rarity-mythic    { background: rgba(167, 139, 250, 0.22); color: var(--accent); }
 
+/* element tags — CZN elements with themed colors */
+.tag-element-justice  { background: rgba(96, 165, 250, 0.20); color: #7cc0ff; }
+.tag-element-passion  { background: rgba(248, 113, 113, 0.20); color: #ff8a8a; }
+.tag-element-void     { background: rgba(167, 139, 250, 0.22); color: var(--accent); }
+.tag-element-order    { background: rgba(52, 211, 153, 0.20); color: #5eecb3; }
+.tag-element-instinct { background: rgba(245, 158, 11, 0.22); color: var(--accent-4); }
+.tag-element-reason   { background: rgba(34, 211, 238, 0.20); color: var(--accent-3); }
+.tag-element-calm     { background: rgba(148, 163, 184, 0.20); color: #cbd5e1; }
+
 /* ─── combatants ─────────────────────────────── */
 
 .combatant-grid {
@@ -559,12 +568,24 @@ p { color: var(--text-dim); margin: 0 0 12px; }
   background: linear-gradient(to bottom, transparent 0%, var(--bg-1) 95%);
   pointer-events: none;
 }
-.combatant-portrait .card-rarity-pips {
+.combatant-portrait .card-rarity-pips,
+.combatant-portrait .combatant-stars {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 2;
+  display: flex;
+  gap: 1px;
 }
+.combatant-portrait .combatant-stars .star {
+  font-size: 12px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+.combatant-stars.rarity-mythic    .star { color: var(--accent); }
+.combatant-stars.rarity-legendary .star { color: var(--accent-4); }
+.combatant-stars.rarity-rare      .star { color: var(--accent-2); }
+.combatant-stars.rarity-common    .star { color: var(--text-dim); }
 
 .combatant-body {
   padding: 12px 14px 14px;
