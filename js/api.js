@@ -11,7 +11,8 @@ const TOKEN_KEY = 'czn_token';
 const USER_KEY  = 'czn_user';
 const USERS_KEY = 'czn_users_v1';     // [{id, username, email, password, created_at}]
 const DECKS_KEY = 'czn_decks_v2';     // { [userId]: [deck, deck, ...] } — v2 = post-catalog-expansion
-const CARDS_URL = 'cards.json';       // static file, relative to index.html
+const DATA_VERSION = '3';              // bump on every data schema change to bust caches
+const CARDS_URL = `cards.json?v=${DATA_VERSION}`;
 
 export function getToken() { return localStorage.getItem(TOKEN_KEY); }
 export function getUser()  {
@@ -35,7 +36,7 @@ let _cardsPromise = null;
 async function loadCards() {
   if (_cardsCache) return _cardsCache;
   if (!_cardsPromise) {
-    _cardsPromise = fetch(CARDS_URL, { cache: 'force-cache' }).then(r => {
+    _cardsPromise = fetch(CARDS_URL).then(r => {
       if (!r.ok) throw new Error(`Failed to load ${CARDS_URL} (${r.status})`);
       return r.json();
     }).then(rows => {

@@ -3,7 +3,7 @@ import { el, clear, cardTile } from '../ui.js';
 let _combatantsCache = null;
 async function loadCombatants() {
   if (_combatantsCache) return _combatantsCache;
-  const res = await fetch('combatants.json', { cache: 'force-cache' });
+  const res = await fetch('combatants.json?v=3');
   if (!res.ok) throw new Error('Failed to load combatants.json');
   _combatantsCache = await res.json();
   return _combatantsCache;
@@ -95,7 +95,7 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
   try {
     combatants = await loadCombatants();
     combatant = combatants.find(c => c.slug === slug);
-    const cardsRes = await fetch('cards.json', { cache: 'force-cache' });
+    const cardsRes = await fetch('cards.json?v=3');
     allCards = await cardsRes.json();
   } catch (err) {
     view.appendChild(el('div', { class: 'empty' }, `Failed: ${err.message}`));
@@ -128,7 +128,6 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
           el('span', { class: `tag tag-rarity-${combatant.rarity || 'common'}` }, combatant.rarity || 'common'),
         ]),
       ]),
-      combatant.name_cn ? el('div', { class: 'combatant-name-cn' }, combatant.name_cn) : null,
       el('h2', { class: 'section-title' }, 'Start Cards'),
       el('div', { class: 'card-grid card-grid-compact' }, startCards.map(c => cardTile(c))),
       uniqueCards.length ? el('h2', { class: 'section-title' }, 'Unique Cards') : null,

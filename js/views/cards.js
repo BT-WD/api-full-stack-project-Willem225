@@ -48,7 +48,7 @@ export async function renderCards({ view, toast }) {
 
   // Populate combatants from combatants.json
   try {
-    const res = await fetch('combatants.json', { cache: 'force-cache' });
+    const res = await fetch('combatants.json?v=3');
     const combatants = await res.json();
     combatants.sort((a, b) => a.name.localeCompare(b.name));
     for (const c of combatants) combatantSelect.appendChild(el('option', { value: c.name }, c.name));
