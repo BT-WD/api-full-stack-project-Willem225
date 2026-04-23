@@ -109,7 +109,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   // ── character cards (starters) ──
   main.appendChild(el('h2', { class: 'mt-2' }, 'Character Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'The starter cards from your chosen combatant. Toggling Remove applies the starter-removal rules (+20 FM surcharge on top of the removal cost ladder).'));
+    'The starter cards from your chosen combatant. Each one costs a flat 20 Faint Memory to remove.'));
   const starterWrap = el('div', { class: 'deck-cards' });
   main.appendChild(starterWrap);
 
@@ -173,7 +173,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
           el('div', { class: 'card-sublabel' }, [
             card.category || '',
             ' · Starter',
-            removed ? ' · removed (+20 FM surcharge)' : '',
+            removed ? ' · removed (20 FM)' : '',
           ].join('')),
         ]),
         el('div', {}),

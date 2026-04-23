@@ -11,7 +11,8 @@ export const DUPLICATE_COSTS  = [0, 0, 40, 40];
 export const MAX_COPIES       = 4;
 export const REMOVAL_COSTS    = [0, 10, 30, 50, 70];
 export const MAX_REMOVALS     = 5;
-export const STARTER_REMOVAL_SURCHARGE = 20;
+export const STARTER_REMOVAL_COST = 20;     // flat cost per starter removed
+export const STARTER_REMOVAL_SURCHARGE = 20; // legacy alias, kept for compatibility
 export const EQUIPMENT_PER_LEVEL = 10;
 export const MAX_EQUIPMENT_LEVEL = 2;
 export const TIER_MIN = 1;
@@ -90,11 +91,17 @@ export function calculateFaintMemory({ entries = [], equipment = [], tier = 1, n
     breakdown.epiphany += epiphanyCost(e.epiphany, false);
   }
 
-  removed.forEach((e, i) => {
+  // Starter removals are flat-cost (20 each) and tracked separately from the
+  // removal ladder. Non-starter removals still follow 0 / 10 / 30 / 50 / 70.
+  const nonStarterRemovals = removed.filter(e => !(entryIsStarter(e) || e.wasStarter === true));
+  const starterRemovals    = removed.filter(e =>  (entryIsStarter(e) || e.wasStarter === true));
+
+  nonStarterRemovals.forEach((e, i) => {
     if (i >= MAX_REMOVALS) { warnings.push(`Too many removals (max ${MAX_REMOVALS}).`); return; }
-    let cost = REMOVAL_COSTS[i];
-    if (entryIsStarter(e) || e.wasStarter === true) cost += STARTER_REMOVAL_SURCHARGE;
-    breakdown.removals += cost;
+    breakdown.removals += REMOVAL_COSTS[i];
+  });
+  starterRemovals.forEach(() => {
+    breakdown.removals += STARTER_REMOVAL_COST;
   });
 
   for (const eq of equipment) {
