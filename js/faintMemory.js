@@ -1,6 +1,4 @@
-// Client-side MIRROR of server/lib/faintMemory.js.
-// Keep the two in sync — same rules, same return shape.
-// The server copy is authoritative; this exists purely for instant UI feedback.
+// Faint Memory rules engine — shared between the browser UI and the REST API.
 
 export const CARD_TYPES       = ['character', 'neutral', 'forbidden', 'monster'];
 export const MONSTER_RARITIES = ['common', 'rare', 'legendary'];
@@ -9,13 +7,10 @@ export const FLAGS            = ['normal', 'starter', 'duplicate', 'removed'];
 
 export const DUPLICATE_COSTS  = [0, 0, 40, 40];
 export const MAX_COPIES       = 4;
-// CZN's post-update removal rules:
+// CZN's current removal rules:
 //   - Removing a starter card costs a flat 20 FM each.
 //   - Removing any non-starter card is free.
-// (Older builds used a 0/10/30/50/70 ladder; that's no longer in effect.)
 export const STARTER_REMOVAL_COST = 20;
-export const EQUIPMENT_PER_LEVEL = 10;
-export const MAX_EQUIPMENT_LEVEL = 2;
 export const TIER_MIN = 1;
 export const TIER_MAX = 15;
 
@@ -57,10 +52,10 @@ function entryCardId(e) {
   return c.id ?? c.name ?? JSON.stringify(c);
 }
 
-export function calculateFaintMemory({ entries = [], equipment = [], tier = 1, nightmare = false } = {}) {
+export function calculateFaintMemory({ entries = [], tier = 1, nightmare = false } = {}) {
   const breakdown = {
     byType: { character: 0, neutral: 0, forbidden: 0, monster: 0 },
-    epiphany: 0, duplicates: 0, removals: 0, equipment: 0,
+    epiphany: 0, duplicates: 0, removals: 0,
   };
   const warnings = [];
 
@@ -92,20 +87,14 @@ export function calculateFaintMemory({ entries = [], equipment = [], tier = 1, n
     breakdown.epiphany += epiphanyCost(e.epiphany, false);
   }
 
-  // Starter removals are a flat 20 FM each. Non-starter removals are free.
   for (const e of removed) {
     if (entryIsStarter(e) || e.wasStarter === true) {
       breakdown.removals += STARTER_REMOVAL_COST;
     }
   }
 
-  for (const eq of equipment) {
-    const lvl = clamp(Number(eq?.level) || 0, 0, MAX_EQUIPMENT_LEVEL);
-    breakdown.equipment += lvl * EQUIPMENT_PER_LEVEL;
-  }
-
   const categoryTotal = Object.values(breakdown.byType).reduce((a, b) => a + b, 0);
-  const total = categoryTotal + breakdown.epiphany + breakdown.duplicates + breakdown.removals + breakdown.equipment;
+  const total = categoryTotal + breakdown.epiphany + breakdown.duplicates + breakdown.removals;
   const cap = tierCap(tier, nightmare);
   const overCap = total > cap;
   if (overCap) warnings.push(`Deck exceeds Faint Memory cap: ${total} / ${cap}.`);

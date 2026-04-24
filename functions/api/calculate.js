@@ -1,5 +1,5 @@
 // POST /api/calculate
-// Body: { entries: [...], equipment?: [...], tier?, nightmare? }
+// Body: { entries: [...], tier?, nightmare? }
 // Returns: { total, cap, overCap, breakdown, warnings }
 
 import { json, jsonError, onRequestOptions } from './_helpers.js';
@@ -15,12 +15,11 @@ export async function onRequestPost({ request }) {
     return jsonError(400, 'Invalid JSON body.');
   }
   if (!body || typeof body !== 'object') {
-    return jsonError(400, 'Body must be a JSON object with { entries, equipment?, tier?, nightmare? }.');
+    return jsonError(400, 'Body must be a JSON object with { entries, tier?, nightmare? }.');
   }
   try {
     const result = calculateFaintMemory({
-      entries:   Array.isArray(body.entries)   ? body.entries   : [],
-      equipment: Array.isArray(body.equipment) ? body.equipment : [],
+      entries:   Array.isArray(body.entries) ? body.entries : [],
       tier:      body.tier ?? 1,
       nightmare: Boolean(body.nightmare),
     });
@@ -31,5 +30,5 @@ export async function onRequestPost({ request }) {
 }
 
 export function onRequestGet() {
-  return jsonError(405, 'POST only. Body: { entries, equipment, tier, nightmare }.');
+  return jsonError(405, 'POST only. Body: { entries, tier, nightmare }.');
 }

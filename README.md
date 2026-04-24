@@ -94,9 +94,6 @@ Stateless Faint Memory calculation.
     { "card": { "id": 12, "card_type": "monster", "monster_rarity": "legendary" }, "flag": "normal", "epiphany": "none" },
     { "card": { "id": 15, "card_type": "neutral" }, "flag": "removed", "isStarter": true }
   ],
-  "equipment": [
-    { "slot": "weapon", "level": 1 }
-  ],
   "tier": 5,
   "nightmare": false
 }
@@ -106,14 +103,14 @@ Stateless Faint Memory calculation.
 
 ```json
 {
-  "total": 110,
+  "total": 100,
   "cap": 70,
   "overCap": true,
   "breakdown": {
     "byType": { "character": 0, "neutral": 20, "forbidden": 0, "monster": 80 },
-    "epiphany": 0, "duplicates": 0, "removals": 20, "equipment": 10
+    "epiphany": 0, "duplicates": 0, "removals": 20
   },
-  "warnings": ["Deck exceeds Faint Memory cap: 110 / 70."]
+  "warnings": ["Deck exceeds Faint Memory cap: 100 / 70."]
 }
 ```
 
@@ -177,7 +174,6 @@ Encoded in `js/faintMemory.js` (shared with `POST /api/calculate`).
 | Duplicates (copy 1→4)         | 0 / 0 / 40 / 40, max 4 copies                     |
 | Starter card removal          | 20 FM (flat, per starter)                         |
 | Non-starter card removal      | 0 FM (free)                                       |
-| Equipment per level           | +10 pts (0/10/20 for off/upgrade 1/upgrade 2)     |
 | Tier cap                      | 30 + 10 × (tier − 1), tiers 1..15; Nightmare +10  |
 
 ## Data

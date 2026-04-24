@@ -1,7 +1,7 @@
 import { el, clear, cardTile, miniArt } from '../ui.js';
 import { api, getToken } from '../api.js';
 import {
-  calculateFaintMemory, FLAGS, EPIPHANIES, TIER_MIN, TIER_MAX, MAX_EQUIPMENT_LEVEL,
+  calculateFaintMemory, FLAGS, EPIPHANIES, TIER_MIN, TIER_MAX,
 } from '../faintMemory.js';
 
 export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
@@ -16,11 +16,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     tier: 1,
     nightmare: false,
     cards: [],           // [{ card, flag, epiphany, is_starter }]
-    equipment: [
-      { slot: 'weapon',    level: 0 },
-      { slot: 'armor',     level: 0 },
-      { slot: 'accessory', level: 0 },
-    ],
   };
 
   let allCards   = [];
@@ -62,7 +57,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         epiphany: c.epiphany,
         is_starter: c.is_starter,
       })),
-      equipment: deckRes.deck.equipment.length ? deckRes.deck.equipment : deck.equipment,
     });
   } catch (err) {
     toast(err.message, 'error');
@@ -137,11 +131,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(el('button', {
     class: 'btn mt-2', onclick: () => openAddModal(),
   }, '+ Add Card'));
-
-  // ── equipment ──
-  main.appendChild(el('h2', { class: 'mt-3' }, 'Equipment'));
-  const eqWrap = el('div', { class: 'deck-cards' });
-  main.appendChild(eqWrap);
 
   // ── save / delete ──
   const loggedIn = Boolean(getToken());
@@ -336,33 +325,13 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     ]);
   }
 
-  function renderEquipment() {
-    clear(eqWrap);
-    deck.equipment.forEach((eq, idx) => {
-      const levelSelect = el('select', {
-        class: 'select',
-        onchange: () => { eq.level = Number(levelSelect.value); refreshSidebar(); },
-      });
-      for (let l = 0; l <= MAX_EQUIPMENT_LEVEL; l++) {
-        levelSelect.appendChild(el('option', { value: l, selected: l === eq.level }, `Lv ${l}`));
-      }
-      eqWrap.appendChild(el('div', { class: 'deck-card-row' }, [
-        el('div', {}),
-        el('div', { class: 'card-label' }, capitalize(eq.slot)),
-        levelSelect,
-        el('div', { style: { color: 'var(--muted)', fontSize: '13px' } }, `+${eq.level * 10} pts`),
-        el('span', {}),
-      ]));
-    });
-  }
-
   function refreshSidebar() {
     clear(sidebar);
     const entries = deck.cards.map(c => ({
       card: c.card, flag: c.flag, epiphany: c.epiphany, isStarter: Boolean(c.is_starter),
     }));
     const result = calculateFaintMemory({
-      entries, equipment: deck.equipment, tier: deck.tier, nightmare: deck.nightmare,
+      entries, tier: deck.tier, nightmare: deck.nightmare,
     });
 
     const ratio = result.cap > 0 ? Math.min(1, result.total / result.cap) : 0;
@@ -386,7 +355,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       ['Epiphany',  result.breakdown.epiphany],
       ['Duplicates',result.breakdown.duplicates],
       ['Removals',  result.breakdown.removals],
-      ['Equipment', result.breakdown.equipment],
     ];
     for (const [label, value] of rows) {
       br.appendChild(el('div', { class: 'fm-breakdown-row' }, [
@@ -461,7 +429,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
           card_id: c.card.id, flag: c.flag, epiphany: c.epiphany,
           is_starter: Boolean(c.is_starter), position: i,
         })),
-        equipment: deck.equipment,
       };
       if (mode === 'edit') {
         await api.updateDeck(deck.id, payload);
@@ -486,11 +453,8 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   renderCharacterCards();
   renderUniqueCards();
   renderCardList();
-  renderEquipment();
   refreshSidebar();
 }
-
-function capitalize(s) { return s ? s[0].toUpperCase() + s.slice(1) : ''; }
 
 // Display labels for epiphany dropdowns.
 // For starter cards: normal is free, divine is +20.

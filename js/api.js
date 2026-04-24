@@ -257,11 +257,10 @@ async function createDeck(body) {
     name: (body.name || 'Untitled').trim(),
     description: body.description || '',
     character: body.character || '',
-    tier: clamp(Number(body.tier) || 1, 1, 13),
+    tier: clamp(Number(body.tier) || 1, 1, 15),
     nightmare: Boolean(body.nightmare),
     created_at: now, updated_at: now,
     cards: normalizeStoredEntries(body.cards),
-    equipment: normalizeStoredEquipment(body.equipment),
   };
   list.push(newDeck);
   all[uid] = list;
@@ -282,10 +281,9 @@ async function updateDeck(id, body) {
     name:        body.name !== undefined        ? String(body.name).trim()             : existing.name,
     description: body.description !== undefined ? body.description                     : existing.description,
     character:   body.character !== undefined   ? body.character                       : existing.character,
-    tier:        body.tier !== undefined        ? clamp(Number(body.tier) || 1, 1, 13) : existing.tier,
+    tier:        body.tier !== undefined        ? clamp(Number(body.tier) || 1, 1, 15) : existing.tier,
     nightmare:   body.nightmare !== undefined   ? Boolean(body.nightmare)              : existing.nightmare,
     cards:       Array.isArray(body.cards)      ? normalizeStoredEntries(body.cards)   : existing.cards,
-    equipment:   Array.isArray(body.equipment)  ? normalizeStoredEquipment(body.equipment) : existing.equipment,
     updated_at:  new Date().toISOString(),
   };
   list[idx] = updated;
@@ -316,13 +314,6 @@ function normalizeStoredEntries(entries = []) {
     is_starter: Boolean(e.is_starter),
     position:   e.position ?? i,
   })).filter(e => Number.isInteger(e.card_id));
-}
-
-function normalizeStoredEquipment(equipment = []) {
-  return equipment.map(eq => ({
-    slot:  String(eq.slot || ''),
-    level: clamp(Number(eq.level) || 0, 0, 2),
-  })).filter(eq => eq.slot);
 }
 
 function rehydrateCards(storedEntries = [], allCards = []) {
