@@ -117,14 +117,14 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(el('h2', { class: 'mt-2' }, 'Start Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
     'Starter cards are free. Adding an Epiphany upgrade is free; Divine Epiphany is +20. Removing a starter costs a flat 20 FM.'));
-  const starterWrap = el('div', { class: 'deck-cards' });
+  const starterWrap = el('div', { class: 'starter-grid' });
   main.appendChild(starterWrap);
 
   // ── unique cards ──
   main.appendChild(el('h2', { class: 'mt-3' }, 'Unique Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
     'Unique cards are also free. Epiphany = +10 FM, Divine Epiphany = +30 FM each.'));
-  const uniqueWrap = el('div', { class: 'deck-cards' });
+  const uniqueWrap = el('div', { class: 'starter-grid' });
   main.appendChild(uniqueWrap);
 
   // ── other cards (neutrals / forbiddens / monsters) ──
@@ -238,6 +238,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         deck.character ? `${deck.character} has no starter cards in the data.` : 'Pick a combatant above to see their starter cards.'));
       return;
     }
+    starterWrap.classList.add('starter-grid');
     for (const card of starters) {
       const idx = findStarterEntry(card.id);
       const entry = idx >= 0 ? deck.cards[idx] : null;
@@ -249,23 +250,15 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         onchange: () => setStarterEpiphany(card, epSelect.value),
       }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, true))));
 
-      starterWrap.appendChild(el('div', { class: `deck-card-row starter-row${removed ? ' is-removed' : ''}` }, [
-        miniArt(card),
-        el('div', {}, [
-          el('div', { class: 'card-label' }, card.name),
-          el('div', { class: 'card-sublabel' }, [
-            card.category || '',
-            ' · Starter',
-            removed ? ' · removed (20 FM)' : (currentEp !== 'none' ? ` · ${labelEpiphany(currentEp, true)}` : ''),
-          ].join('')),
-        ]),
-        el('div', {}),
-        epSelect,
-        el('button', {
-          class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
-          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
-          onclick: () => toggleStarterRemoval(card),
-        }, removed ? 'Removed' : 'Remove'),
+      const removeBtn = el('button', {
+        class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
+        title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
+        onclick: () => toggleStarterRemoval(card),
+      }, removed ? 'Put back' : 'Remove');
+
+      starterWrap.appendChild(el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [
+        cardTile(card),
+        el('div', { class: 'tile-controls' }, [epSelect, removeBtn]),
       ]));
     }
   }
@@ -278,6 +271,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         deck.character ? `${deck.character} has no unique cards in the data.` : 'Pick a combatant to see their unique cards.'));
       return;
     }
+    uniqueWrap.classList.add('starter-grid');
     for (const card of uniques) {
       const idx = findUniqueEpiphanyEntry(card.id);
       const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
@@ -286,19 +280,9 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
         onchange: () => setUniqueEpiphany(card, epSelect.value),
       }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, false))));
 
-      uniqueWrap.appendChild(el('div', { class: 'deck-card-row' }, [
-        miniArt(card),
-        el('div', {}, [
-          el('div', { class: 'card-label' }, card.name),
-          el('div', { class: 'card-sublabel' }, [
-            card.category || '',
-            ' · Unique',
-            currentEp !== 'none' ? ` · ${labelEpiphany(currentEp, false)}` : '',
-          ].join('')),
-        ]),
-        el('div', {}),
-        epSelect,
-        el('div', {}),
+      uniqueWrap.appendChild(el('div', { class: 'tile-slot' }, [
+        cardTile(card),
+        el('div', { class: 'tile-controls' }, [epSelect]),
       ]));
     }
   }

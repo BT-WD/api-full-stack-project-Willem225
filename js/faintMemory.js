@@ -17,7 +17,7 @@ export const STARTER_REMOVAL_COST = 20;
 export const EQUIPMENT_PER_LEVEL = 10;
 export const MAX_EQUIPMENT_LEVEL = 2;
 export const TIER_MIN = 1;
-export const TIER_MAX = 13;
+export const TIER_MAX = 15;
 
 function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
 
