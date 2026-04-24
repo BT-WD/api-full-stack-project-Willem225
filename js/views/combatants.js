@@ -3,7 +3,7 @@ import { el, clear, cardTile } from '../ui.js';
 let _combatantsCache = null;
 async function loadCombatants() {
   if (_combatantsCache) return _combatantsCache;
-  const res = await fetch('combatants.json?v=4');
+  const res = await fetch('combatants.json?v=5');
   if (!res.ok) throw new Error('Failed to load combatants.json');
   _combatantsCache = await res.json();
   return _combatantsCache;
@@ -96,7 +96,7 @@ export async function renderCombatantDetail({ view, navigate, toast }, slug) {
   try {
     combatants = await loadCombatants();
     combatant = combatants.find(c => c.slug === slug);
-    const cardsRes = await fetch('cards.json?v=4');
+    const cardsRes = await fetch('cards.json?v=5');
     allCards = await cardsRes.json();
   } catch (err) {
     view.appendChild(el('div', { class: 'empty' }, `Failed: ${err.message}`));

@@ -67,8 +67,8 @@ Encoded in `js/faintMemory.js`.
 | Epiphany (starter)         | 0 pts                                             |
 | Divine Epiphany (starter)  | +20 pts                                           |
 | Duplicates (copy 1→4)      | 0 / 0 / 40 / 40, max 4 copies                     |
-| Removals (1st→5th)         | 0 / 10 / 30 / 50 / 70, max 5                      |
-| Starter removal surcharge  | +20                                               |
+| Starter card removal       | 20 FM (flat, per starter)                         |
+| Non-starter card removal   | 0 FM (free)                                       |
 | Equipment per level        | +10 pts (0/10/20 for off/upgrade 1/upgrade 2)     |
 | Tier cap                   | 30 + 10 × (tier − 1), tiers 1..13; Nightmare +10  |
 
