@@ -3,12 +3,12 @@
 A deck builder for **Chaos Zero Nightmare** with a live **Faint Memory** calculator that mirrors the in-game rules, local "accounts" for saving decks, **and a JSON REST API** for programmatic access.
 
 - **Live site:** https://bt-wd.github.io/api-full-stack-project-Willem225/
-- **API base:** https://&lt;your-vercel-deployment&gt;.vercel.app/api/ (see *Deploying the API* below)
+- **API base:** https://&lt;your-cloudflare-pages-deployment&gt;.pages.dev/api/ (see *Deploying the API* below)
 
 ## Stack
 
 - **Frontend:** vanilla JS (ES modules), HTML + CSS, dark theme — statically hosted on GitHub Pages
-- **Backend:** serverless functions (Node 20) under `api/`, deployable to Vercel
+- **Backend:** serverless functions under `functions/api/`, deployable to Cloudflare Pages (V8 isolates, Web Standard Request/Response)
 - Card catalog + combatant data live as JSON files in the repo root (`cards.json`, `combatants.json`)
 - Accounts + saved decks persist to browser `localStorage` (client-side only)
 
@@ -30,10 +30,10 @@ Then open http://localhost:8000. (`file://` won't work — browsers block ES mod
 ### API locally
 
 ```bash
-npx vercel dev          # auto-installs Vercel CLI, runs the full stack at :3000
+npx wrangler pages dev .           # runs the full stack at :8788
 ```
 
-Then the static site AND the `/api/*` endpoints are both served at http://localhost:3000.
+Then the static site AND the `/api/*` endpoints are both served at http://localhost:8788. Wrangler auto-installs on first run; no account required for local dev.
 
 ## API reference
 
@@ -43,7 +43,7 @@ Base URL: `/api` (relative to your Vercel deployment).
 Service heartbeat. Returns `{ ok, service, version, now }`.
 
 ```bash
-curl https://<deployment>.vercel.app/api/health
+curl https://<deployment>.pages.dev/api/health
 ```
 
 ### `GET /api/cards`
@@ -64,7 +64,7 @@ Returns `{ cards: [...], total: number }`.
 Single card by numeric id or external_id.
 
 ```bash
-curl https://<deployment>.vercel.app/api/cards/gk715
+curl https://<deployment>.pages.dev/api/cards/gk715
 ```
 
 Returns `{ card }` or `404`.
@@ -73,14 +73,14 @@ Returns `{ card }` or `404`.
 List combatants with optional filters (`q`, `class`, `element`, `rarity`).
 
 ```bash
-curl 'https://<deployment>.vercel.app/api/combatants?class=Hunter'
+curl 'https://<deployment>.pages.dev/api/combatants?class=Hunter'
 ```
 
 ### `GET /api/combatants/:slug`
 Single combatant + their associated cards, grouped into `starters` (basic cards) and `unique`.
 
 ```bash
-curl https://<deployment>.vercel.app/api/combatants/diana
+curl https://<deployment>.pages.dev/api/combatants/diana
 ```
 
 ### `POST /api/calculate`
@@ -119,12 +119,18 @@ Stateless Faint Memory calculation.
 
 ## Deploying the API
 
-1. Go to https://vercel.com/new and sign in with GitHub.
-2. Pick **api-full-stack-project-Willem225** from your repo list → **Import**.
-3. Accept defaults (framework: Other; root directory: `.`) → **Deploy**.
-4. Vercel auto-builds on every push to `main`.
+Cloudflare Pages — free tier, no phone or card required, just email.
 
-Your API is now live at `https://<project>.vercel.app/api/<endpoint>`. The static site is also served from the same deployment (so visiting the root URL works too).
+1. Sign up / log in at https://dash.cloudflare.com/sign-up (or the main dashboard if you already have an account).
+2. Left sidebar → **Workers & Pages** → **Create application** → **Pages** tab → **Connect to Git**.
+3. Authorize Cloudflare to read your GitHub repos if prompted, then pick **api-full-stack-project-Willem225**.
+4. Build settings:
+   - **Framework preset:** None
+   - **Build command:** *(leave blank)*
+   - **Build output directory:** `/` (root)
+5. Click **Save and Deploy**. First build takes ~1 minute.
+
+Your API is now live at `https://<project>.pages.dev/api/<endpoint>`. The static site is served from the same deployment root. Every push to `main` auto-rebuilds.
 
 ## Layout
 
@@ -141,15 +147,15 @@ js/
 ├── faintMemory.js  🔑 Faint Memory rules engine (shared with API)
 ├── ui.js           el() / clear() / toast()
 └── views/          login, signup, cards, decks, builder, combatants
-api/
-├── _cors.js        Shared CORS helper
-├── health.js       GET /api/health
-├── calculate.js    POST /api/calculate
-├── cards.js        GET /api/cards
-├── cards/[id].js   GET /api/cards/:id
-├── combatants.js   GET /api/combatants
+functions/api/
+├── _helpers.js            Shared JSON + CORS helpers
+├── health.js              GET /api/health
+├── calculate.js           POST /api/calculate
+├── cards.js               GET /api/cards
+├── cards/[id].js          GET /api/cards/:id
+├── combatants.js          GET /api/combatants
 └── combatants/[slug].js   GET /api/combatants/:slug
-vercel.json         API runtime config + CORS headers
+_headers                   Cloudflare Pages CORS headers for /api/*
 ```
 
 ## Faint Memory rules
@@ -187,4 +193,4 @@ Clearing site data resets everything.
 ## Hosting
 
 - **Frontend**: GitHub Pages, from `main` / root. Pushes auto-rebuild in ~1 minute.
-- **API**: Vercel (optional — see *Deploying the API*). Both static site and API served from the Vercel domain after linking.
+- **API**: Cloudflare Pages (optional — see *Deploying the API*). Both static site and API served from the Cloudflare domain after linking.
