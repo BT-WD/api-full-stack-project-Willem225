@@ -38,11 +38,19 @@ export function baseCardCost(card) {
   return 0;
 }
 
-export function epiphanyCost(epiphany, isStarter) {
+// Epiphany cost depends on the card type, not on whether it's a starter:
+//   - Character cards (starters + uniques): Normal = 0 (free), Divine = +20
+//   - Neutral / Forbidden / Monster cards: Normal = +10, Divine = +30
+//
+// (In practice starter cards can't take epiphanies from the UI anymore, but we
+// still compute the cost correctly for any entry that happens to carry one.)
+export function epiphanyCost(epiphany, card) {
   const e = String(epiphany || 'none').toLowerCase();
   if (e === 'none' || e === '') return 0;
-  if (e === 'normal') return isStarter ? 0 : 10;
-  if (e === 'divine') return isStarter ? 20 : 30;
+  const type = String(card?.card_type || '').toLowerCase();
+  const isCharacter = (type === 'character' || type === 'unique');
+  if (e === 'normal') return isCharacter ? 0  : 10;
+  if (e === 'divine') return isCharacter ? 20 : 30;
   return 0;
 }
 
@@ -69,7 +77,7 @@ export function calculateFaintMemory({ entries = [], tier = 1, nightmare = false
     const typeKey = (type === 'unique') ? 'character' : type;
     if (breakdown.byType[typeKey] === undefined) breakdown.byType[typeKey] = 0;
     breakdown.byType[typeKey] += baseCardCost(e.card);
-    breakdown.epiphany += epiphanyCost(e.epiphany, entryIsStarter(e));
+    breakdown.epiphany += epiphanyCost(e.epiphany, e.card);
     const id = entryCardId(e);
     copyCounts.set(id, (copyCounts.get(id) || 0) + 1);
   }
@@ -84,7 +92,7 @@ export function calculateFaintMemory({ entries = [], tier = 1, nightmare = false
       continue;
     }
     breakdown.duplicates += DUPLICATE_COSTS[copyNum - 1] || 0;
-    breakdown.epiphany += epiphanyCost(e.epiphany, false);
+    breakdown.epiphany += epiphanyCost(e.epiphany, e.card);
   }
 
   for (const e of removed) {

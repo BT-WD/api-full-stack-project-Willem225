@@ -167,10 +167,11 @@ Encoded in `js/faintMemory.js` (shared with `POST /api/calculate`).
 | Monster Common                | 20 pts                                            |
 | Monster Rare                  | 50 pts                                            |
 | Monster Legendary             | 80 pts                                            |
-| Epiphany (non-starter)        | +10 pts                                           |
-| Divine Epiphany (non-starter) | +30 pts total                                     |
-| Epiphany (starter)            | 0 pts                                             |
-| Divine Epiphany (starter)     | +20 pts                                           |
+| Epiphany (unique card)        | 0 pts (free)                                      |
+| Divine Epiphany (unique card) | +20 pts                                           |
+| Epiphany (neutral/forbidden/monster)        | +10 pts                             |
+| Divine Epiphany (neutral/forbidden/monster) | +30 pts                             |
+| Epiphany on a starter card    | not allowed                                       |
 | Duplicates (copy 1→4)         | 0 / 0 / 40 / 40, max 4 copies                     |
 | Starter card removal          | 20 FM (flat, per starter)                         |
 | Non-starter card removal      | 0 FM (free)                                       |

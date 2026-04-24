@@ -110,14 +110,14 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   // ── start cards ──
   main.appendChild(el('h2', { class: 'mt-2' }, 'Start Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'Starter cards are free. Adding an Epiphany upgrade is free; Divine Epiphany is +20. Removing a starter costs a flat 20 FM.'));
+    'Starter cards are free. Epiphanies cannot be applied to starters. Removing a starter costs a flat 20 FM.'));
   const starterWrap = el('div', { class: 'starter-grid' });
   main.appendChild(starterWrap);
 
   // ── unique cards ──
   main.appendChild(el('h2', { class: 'mt-3' }, 'Unique Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'Unique cards are also free. Epiphany = +10 FM, Divine Epiphany = +30 FM each.'));
+    'Unique cards are free. A standard Epiphany is free too; only Divine Epiphany costs memory (+20 FM each).'));
   const uniqueWrap = el('div', { class: 'starter-grid' });
   main.appendChild(uniqueWrap);
 
@@ -154,10 +154,10 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     return allCards.filter(c => c.combatant === deck.character && c.kind === 'unique');
   }
 
-  // Find entry index for a starter card (either flag='removed' or flag='starter').
-  function findStarterEntry(cardId) {
+  // Starter cards can only be removed (or not). No epiphany state.
+  function findRemovedStarter(cardId) {
     return deck.cards.findIndex(e =>
-      e.is_starter === true && e.card?.id === cardId && (e.flag === 'starter' || e.flag === 'removed'));
+      e.flag === 'removed' && e.is_starter === true && e.card?.id === cardId);
   }
 
   function findUniqueEpiphanyEntry(cardId) {
@@ -166,43 +166,11 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   function toggleStarterRemoval(card) {
-    const idx = findStarterEntry(card.id);
-    if (idx >= 0) {
-      const entry = deck.cards[idx];
-      if (entry.flag === 'removed') {
-        // un-remove: drop the entry; if it had an epiphany, bring it back as flag=starter
-        deck.cards.splice(idx, 1);
-      } else {
-        // flag was 'starter' — switch to 'removed', drop epiphany
-        entry.flag = 'removed';
-        entry.epiphany = 'none';
-      }
-    } else {
-      deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: true });
-    }
+    const idx = findRemovedStarter(card.id);
+    if (idx >= 0) deck.cards.splice(idx, 1);
+    else deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: true });
     renderCharacterCards();
-    renderUniqueCards();
     renderCardList();
-    refreshSidebar();
-  }
-
-  function setStarterEpiphany(card, epiphany) {
-    const idx = findStarterEntry(card.id);
-    if (epiphany === 'none') {
-      // remove entry if it exists and isn't a removal
-      if (idx >= 0 && deck.cards[idx].flag === 'starter') deck.cards.splice(idx, 1);
-    } else {
-      if (idx >= 0 && deck.cards[idx].flag === 'removed') {
-        // user picked an epiphany on a card they had removed — un-remove it
-        deck.cards[idx].flag = 'starter';
-        deck.cards[idx].epiphany = epiphany;
-      } else if (idx >= 0) {
-        deck.cards[idx].epiphany = epiphany;
-      } else {
-        deck.cards.push({ card, flag: 'starter', epiphany, is_starter: true });
-      }
-    }
-    renderCharacterCards();
     refreshSidebar();
   }
 
@@ -229,15 +197,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     }
     starterWrap.classList.add('starter-grid');
     for (const card of starters) {
-      const idx = findStarterEntry(card.id);
-      const entry = idx >= 0 ? deck.cards[idx] : null;
-      const removed = entry?.flag === 'removed';
-      const currentEp = entry?.flag === 'starter' ? entry.epiphany : 'none';
-
-      const epSelect = el('select', {
-        class: 'select', disabled: removed,
-        onchange: () => setStarterEpiphany(card, epSelect.value),
-      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, true))));
+      const removed = findRemovedStarter(card.id) >= 0;
 
       const removeBtn = el('button', {
         class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
@@ -247,7 +207,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 
       starterWrap.appendChild(el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [
         cardTile(card),
-        el('div', { class: 'tile-controls' }, [epSelect, removeBtn]),
+        el('div', { class: 'tile-controls' }, [removeBtn]),
       ]));
     }
   }
@@ -267,7 +227,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       const epSelect = el('select', {
         class: 'select',
         onchange: () => setUniqueEpiphany(card, epSelect.value),
-      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, false))));
+      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, 'unique'))));
 
       uniqueWrap.appendChild(el('div', { class: 'tile-slot' }, [
         cardTile(card),
@@ -304,7 +264,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     const epSelect = el('select', {
       class: 'select',
       onchange: () => { entry.epiphany = epSelect.value; refreshSidebar(); },
-    }, EPIPHANIES.map(e => el('option', { value: e, selected: e === entry.epiphany }, e)));
+    }, EPIPHANIES.map(e => el('option', { value: e, selected: e === entry.epiphany }, labelEpiphany(e, 'other'))));
 
     return el('div', { class: 'deck-card-row' }, [
       miniArt(entry.card),
@@ -457,11 +417,11 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 }
 
 // Display labels for epiphany dropdowns.
-// For starter cards: normal is free, divine is +20.
-// For non-starter cards (neutrals + unique character cards): normal is +10, divine is +30.
-function labelEpiphany(value, isStarter) {
+//   'unique' → unique character cards (Normal free, Divine +20)
+//   'other'  → neutrals / forbiddens / monsters (Normal +10, Divine +30)
+function labelEpiphany(value, kind) {
   if (value === 'none') return 'No epiphany';
-  if (value === 'normal') return isStarter ? 'Epiphany (free)' : 'Epiphany (+10)';
-  if (value === 'divine') return isStarter ? 'Divine (+20)'    : 'Divine (+30)';
+  if (value === 'normal') return kind === 'unique' ? 'Epiphany (free)' : 'Epiphany (+10)';
+  if (value === 'divine') return kind === 'unique' ? 'Divine (+20)'    : 'Divine (+30)';
   return value;
 }
