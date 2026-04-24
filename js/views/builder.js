@@ -187,6 +187,13 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     refreshSidebar();
   }
 
+  function tileAction(label, { active, danger, onclick, title } = {}) {
+    return el('button', {
+      class: `tile-action${active ? ' active' : ''}${danger ? ' danger' : ''}`,
+      onclick, title,
+    }, label);
+  }
+
   function renderCharacterCards() {
     clear(starterWrap);
     const starters = starterCards();
@@ -198,17 +205,14 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     starterWrap.classList.add('starter-grid');
     for (const card of starters) {
       const removed = findRemovedStarter(card.id) >= 0;
-
-      const removeBtn = el('button', {
-        class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
-        title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
-        onclick: () => toggleStarterRemoval(card),
-      }, removed ? 'Put back' : 'Remove');
-
-      starterWrap.appendChild(el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [
-        cardTile(card),
-        el('div', { class: 'tile-controls' }, [removeBtn]),
-      ]));
+      const actions = el('div', { class: 'tile-actions' }, [
+        tileAction(removed ? 'Put back' : 'Remove', {
+          active: removed, danger: !removed,
+          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
+          onclick: () => toggleStarterRemoval(card),
+        }),
+      ]);
+      starterWrap.appendChild(el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), actions]));
     }
   }
 
@@ -224,15 +228,21 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     for (const card of uniques) {
       const idx = findUniqueEpiphanyEntry(card.id);
       const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
-      const epSelect = el('select', {
-        class: 'select',
-        onchange: () => setUniqueEpiphany(card, epSelect.value),
-      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, 'unique'))));
-
-      uniqueWrap.appendChild(el('div', { class: 'tile-slot' }, [
-        cardTile(card),
-        el('div', { class: 'tile-controls' }, [epSelect]),
-      ]));
+      const actions = el('div', { class: 'tile-actions' }, [
+        tileAction('None', {
+          active: currentEp === 'none', title: 'No epiphany',
+          onclick: () => setUniqueEpiphany(card, 'none'),
+        }),
+        tileAction('Epiphany', {
+          active: currentEp === 'normal', title: 'Standard epiphany — free',
+          onclick: () => setUniqueEpiphany(card, 'normal'),
+        }),
+        tileAction('Divine', {
+          active: currentEp === 'divine', title: 'Divine epiphany — +20 FM',
+          onclick: () => setUniqueEpiphany(card, 'divine'),
+        }),
+      ]);
+      uniqueWrap.appendChild(el('div', { class: 'tile-slot' }, [cardTile(card), actions]));
     }
   }
 
