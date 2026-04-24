@@ -16,7 +16,8 @@ const routes = [
   { pattern: /^\/combatants$/,          handler: renderCombatants, auth: false },
   { pattern: /^\/combatants\/([^/]+)$/, handler: (ctx, m) => renderCombatantDetail(ctx, m[1]), auth: false },
   { pattern: /^\/decks$/,               handler: renderDecks,   auth: true  },
-  { pattern: /^\/decks\/new$/,          handler: (ctx) => renderBuilder(ctx, { mode: 'new' }),        auth: true  },
+  { pattern: /^\/builder$/,             handler: (ctx) => renderBuilder(ctx, { mode: 'new' }),        auth: false },
+  { pattern: /^\/decks\/new$/,          redirect: '#/builder' },
   { pattern: /^\/decks\/(\d+)$/,        handler: (ctx, m) => renderBuilder(ctx, { mode: 'edit', id: m[1] }), auth: true },
 ];
 
@@ -52,16 +53,17 @@ function renderNav() {
   const items = [
     { href: '#/cards',       icon: ICONS.cards,      label: 'Cards' },
     { href: '#/combatants',  icon: ICONS.combatants, label: 'Combatants' },
+    { href: '#/builder',     icon: ICONS.builder,    label: 'Builder' },
   ];
   if (loggedIn) {
-    items.push({ href: '#/decks',     icon: ICONS.decks,   label: 'Decks' });
-    items.push({ href: '#/decks/new', icon: ICONS.builder, label: 'New' });
+    items.push({ href: '#/decks', icon: ICONS.decks, label: 'Decks' });
   }
   for (const it of items) {
     const path = it.href.replace(/^#/, '');
     const isActive = current === path
       || (path === '/combatants' && current.startsWith('/combatants/'))
-      || (path === '/decks' && current.startsWith('/decks/') && current !== '/decks/new');
+      || (path === '/builder'    && (current === '/decks/new' || current.startsWith('/decks/')))
+      || (path === '/decks'      && current.startsWith('/decks/') && !current.startsWith('/decks/new'));
     nav.appendChild(navItem(it.href, it.icon, it.label, isActive));
   }
 

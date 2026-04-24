@@ -1,5 +1,5 @@
 import { el, clear, cardTile, miniArt } from '../ui.js';
-import { api } from '../api.js';
+import { api, getToken } from '../api.js';
 import {
   calculateFaintMemory, FLAGS, EPIPHANIES, TIER_MIN, TIER_MAX, MAX_EQUIPMENT_LEVEL,
 } from '../faintMemory.js';
@@ -27,9 +27,10 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   let combatants = [];
 
   // header + containers
+  const backHref = mode === 'edit' ? '#/decks' : '#/cards';
   view.appendChild(el('div', { class: 'view-header' }, [
-    el('h1', { class: 'grow' }, mode === 'edit' ? 'Edit Deck' : 'New Deck'),
-    el('button', { class: 'btn btn-ghost', onclick: () => navigate('#/decks') }, '← Back'),
+    el('h1', { class: 'grow' }, mode === 'edit' ? 'Edit Deck' : 'Deck Builder'),
+    el('button', { class: 'btn btn-ghost', onclick: () => navigate(backHref) }, '← Back'),
   ]));
 
   const layout = el('div', { class: 'builder' });
@@ -87,7 +88,13 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   // combatant picker (replaces free-text character field)
   const combatantSelect = el('select', {
     class: 'select',
-    onchange: () => { deck.character = combatantSelect.value; renderCharacterCards(); refreshSidebar(); },
+    onchange: () => {
+      deck.character = combatantSelect.value;
+      renderCharacterCards();
+      renderUniqueCards();
+      renderCardList();   // refresh because combatant change affects which uniques are filtered out
+      refreshSidebar();
+    },
   }, [el('option', { value: '' }, 'No combatant')]);
   for (const c of combatants) {
     combatantSelect.appendChild(el('option', {
@@ -106,15 +113,24 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Combatant'), combatantSelect]));
   main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Description'), descInput]));
 
-  // ── character cards (starters) ──
-  main.appendChild(el('h2', { class: 'mt-2' }, 'Character Cards'));
+  // ── start cards ──
+  main.appendChild(el('h2', { class: 'mt-2' }, 'Start Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'The starter cards from your chosen combatant. Each one costs a flat 20 Faint Memory to remove.'));
+    'Starter cards are free. Adding an Epiphany upgrade is free; Divine Epiphany is +20. Removing a starter costs a flat 20 FM.'));
   const starterWrap = el('div', { class: 'deck-cards' });
   main.appendChild(starterWrap);
 
-  // ── deck cards ──
-  main.appendChild(el('h2', { class: 'mt-3' }, 'Deck Cards'));
+  // ── unique cards ──
+  main.appendChild(el('h2', { class: 'mt-3' }, 'Unique Cards'));
+  main.appendChild(el('p', { class: 'builder-hint' },
+    'Unique cards are also free. Epiphany = +10 FM, Divine Epiphany = +30 FM each.'));
+  const uniqueWrap = el('div', { class: 'deck-cards' });
+  main.appendChild(uniqueWrap);
+
+  // ── other cards (neutrals / forbiddens / monsters) ──
+  main.appendChild(el('h2', { class: 'mt-3' }, 'Other Cards'));
+  main.appendChild(el('p', { class: 'builder-hint' },
+    'Neutral, Forbidden, and Monster cards you add to your deck. Each has its own base FM cost.'));
   const cardsWrap = el('div', { class: 'deck-cards' });
   main.appendChild(cardsWrap);
 
@@ -128,8 +144,11 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(eqWrap);
 
   // ── save / delete ──
+  const loggedIn = Boolean(getToken());
   const actions = el('div', { class: 'row mt-3' }, [
-    el('button', { class: 'btn btn-primary', onclick: save }, mode === 'edit' ? 'Save changes' : 'Create deck'),
+    loggedIn
+      ? el('button', { class: 'btn btn-primary', onclick: save }, mode === 'edit' ? 'Save changes' : 'Create deck')
+      : el('a', { class: 'btn btn-primary', href: '#/login' }, 'Log in to save this deck'),
     mode === 'edit' ? el('button', { class: 'btn btn-danger', onclick: remove }, 'Delete deck') : null,
   ].filter(Boolean));
   main.appendChild(actions);
@@ -137,22 +156,77 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   // ── renderers ──
 
   function starterCards() {
-    // Return the basic cards of the selected combatant (empty if none selected).
     if (!deck.character) return [];
     return allCards.filter(c => c.combatant === deck.character && c.kind === 'basic');
   }
 
-  function findRemovedStarter(cardId) {
+  function uniqueCards() {
+    if (!deck.character) return [];
+    return allCards.filter(c => c.combatant === deck.character && c.kind === 'unique');
+  }
+
+  // Find entry index for a starter card (either flag='removed' or flag='starter').
+  function findStarterEntry(cardId) {
     return deck.cards.findIndex(e =>
-      e.flag === 'removed' && e.is_starter === true && e.card?.id === cardId);
+      e.is_starter === true && e.card?.id === cardId && (e.flag === 'starter' || e.flag === 'removed'));
+  }
+
+  function findUniqueEpiphanyEntry(cardId) {
+    return deck.cards.findIndex(e =>
+      !e.is_starter && e.flag === 'normal' && e.card?.id === cardId);
   }
 
   function toggleStarterRemoval(card) {
-    const idx = findRemovedStarter(card.id);
-    if (idx >= 0) deck.cards.splice(idx, 1);
-    else deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: true });
+    const idx = findStarterEntry(card.id);
+    if (idx >= 0) {
+      const entry = deck.cards[idx];
+      if (entry.flag === 'removed') {
+        // un-remove: drop the entry; if it had an epiphany, bring it back as flag=starter
+        deck.cards.splice(idx, 1);
+      } else {
+        // flag was 'starter' — switch to 'removed', drop epiphany
+        entry.flag = 'removed';
+        entry.epiphany = 'none';
+      }
+    } else {
+      deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: true });
+    }
     renderCharacterCards();
+    renderUniqueCards();
     renderCardList();
+    refreshSidebar();
+  }
+
+  function setStarterEpiphany(card, epiphany) {
+    const idx = findStarterEntry(card.id);
+    if (epiphany === 'none') {
+      // remove entry if it exists and isn't a removal
+      if (idx >= 0 && deck.cards[idx].flag === 'starter') deck.cards.splice(idx, 1);
+    } else {
+      if (idx >= 0 && deck.cards[idx].flag === 'removed') {
+        // user picked an epiphany on a card they had removed — un-remove it
+        deck.cards[idx].flag = 'starter';
+        deck.cards[idx].epiphany = epiphany;
+      } else if (idx >= 0) {
+        deck.cards[idx].epiphany = epiphany;
+      } else {
+        deck.cards.push({ card, flag: 'starter', epiphany, is_starter: true });
+      }
+    }
+    renderCharacterCards();
+    refreshSidebar();
+  }
+
+  function setUniqueEpiphany(card, epiphany) {
+    const idx = findUniqueEpiphanyEntry(card.id);
+    if (epiphany === 'none') {
+      if (idx >= 0) deck.cards.splice(idx, 1);
+    } else if (idx >= 0) {
+      deck.cards[idx].epiphany = epiphany;
+    } else {
+      deck.cards.push({ card, flag: 'normal', epiphany, is_starter: false });
+    }
+    renderUniqueCards();
     refreshSidebar();
   }
 
@@ -165,7 +239,16 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       return;
     }
     for (const card of starters) {
-      const removed = findRemovedStarter(card.id) >= 0;
+      const idx = findStarterEntry(card.id);
+      const entry = idx >= 0 ? deck.cards[idx] : null;
+      const removed = entry?.flag === 'removed';
+      const currentEp = entry?.flag === 'starter' ? entry.epiphany : 'none';
+
+      const epSelect = el('select', {
+        class: 'select', disabled: removed,
+        onchange: () => setStarterEpiphany(card, epSelect.value),
+      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, true))));
+
       starterWrap.appendChild(el('div', { class: `deck-card-row starter-row${removed ? ' is-removed' : ''}` }, [
         miniArt(card),
         el('div', {}, [
@@ -173,29 +256,67 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
           el('div', { class: 'card-sublabel' }, [
             card.category || '',
             ' · Starter',
-            removed ? ' · removed (20 FM)' : '',
+            removed ? ' · removed (20 FM)' : (currentEp !== 'none' ? ` · ${labelEpiphany(currentEp, true)}` : ''),
           ].join('')),
         ]),
         el('div', {}),
-        el('div', {}),
+        epSelect,
         el('button', {
           class: `btn btn-sm ${removed ? 'btn-danger' : ''}`,
-          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (costs FM)',
+          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
           onclick: () => toggleStarterRemoval(card),
         }, removed ? 'Removed' : 'Remove'),
       ]));
     }
   }
 
-  function renderCardList() {
-    clear(cardsWrap);
-    // Exclude starter removals from the "deck cards" list — they render in the starter section.
-    const nonStarter = deck.cards.filter(e => !(e.flag === 'removed' && e.is_starter));
-    if (!nonStarter.length) {
-      cardsWrap.appendChild(el('div', { class: 'empty' }, 'No cards yet. Add one to get started.'));
+  function renderUniqueCards() {
+    clear(uniqueWrap);
+    const uniques = uniqueCards();
+    if (!uniques.length) {
+      uniqueWrap.appendChild(el('div', { class: 'empty' },
+        deck.character ? `${deck.character} has no unique cards in the data.` : 'Pick a combatant to see their unique cards.'));
       return;
     }
-    nonStarter.forEach((entry) => {
+    for (const card of uniques) {
+      const idx = findUniqueEpiphanyEntry(card.id);
+      const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
+      const epSelect = el('select', {
+        class: 'select',
+        onchange: () => setUniqueEpiphany(card, epSelect.value),
+      }, EPIPHANIES.map(e => el('option', { value: e, selected: e === currentEp }, labelEpiphany(e, false))));
+
+      uniqueWrap.appendChild(el('div', { class: 'deck-card-row' }, [
+        miniArt(card),
+        el('div', {}, [
+          el('div', { class: 'card-label' }, card.name),
+          el('div', { class: 'card-sublabel' }, [
+            card.category || '',
+            ' · Unique',
+            currentEp !== 'none' ? ` · ${labelEpiphany(currentEp, false)}` : '',
+          ].join('')),
+        ]),
+        el('div', {}),
+        epSelect,
+        el('div', {}),
+      ]));
+    }
+  }
+
+  function renderCardList() {
+    clear(cardsWrap);
+    // Exclude starters (rendered above) and unique-card epiphany entries for the
+    // selected combatant (rendered in the Unique Cards section above).
+    const others = deck.cards.filter(e => {
+      if (e.is_starter) return false;
+      if (e.card?.kind === 'unique' && e.card?.combatant === deck.character) return false;
+      return true;
+    });
+    if (!others.length) {
+      cardsWrap.appendChild(el('div', { class: 'empty' }, 'No neutral/forbidden/monster cards added yet. Click “+ Add Card”.'));
+      return;
+    }
+    others.forEach((entry) => {
       const idx = deck.cards.indexOf(entry);
       cardsWrap.appendChild(cardRow(entry, idx));
     });
@@ -306,7 +427,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     const list = el('div', { class: 'card-grid', style: { marginTop: '12px' } });
     const modal = el('div', { class: 'modal' }, [
       el('div', { class: 'row' }, [
-        el('h2', { class: 'grow' }, 'Add card'),
+        el('h2', { class: 'grow' }, 'Add neutral, forbidden, or monster card'),
         el('button', { class: 'btn btn-ghost', onclick: close }, '✕'),
       ]),
       search,
@@ -320,9 +441,12 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 
     function renderList(q = '') {
       clear(list);
+      // Exclude character cards from this modal — they belong to the Start/Unique
+      // sections above. Keep neutrals, forbiddens, and monsters here.
+      const pool = allCards.filter(c => c.card_type !== 'character');
       const filtered = q
-        ? allCards.filter(c => (c.name + ' ' + (c.description || '')).toLowerCase().includes(q))
-        : allCards;
+        ? pool.filter(c => (c.name + ' ' + (c.description || '')).toLowerCase().includes(q))
+        : pool;
       if (!filtered.length) {
         list.appendChild(el('div', { class: 'empty' }, 'No cards match.'));
         return;
@@ -376,9 +500,20 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   renderCharacterCards();
+  renderUniqueCards();
   renderCardList();
   renderEquipment();
   refreshSidebar();
 }
 
 function capitalize(s) { return s ? s[0].toUpperCase() + s.slice(1) : ''; }
+
+// Display labels for epiphany dropdowns.
+// For starter cards: normal is free, divine is +20.
+// For non-starter cards (neutrals + unique character cards): normal is +10, divine is +30.
+function labelEpiphany(value, isStarter) {
+  if (value === 'none') return 'No epiphany';
+  if (value === 'normal') return isStarter ? 'Epiphany (free)' : 'Epiphany (+10)';
+  if (value === 'divine') return isStarter ? 'Divine (+20)'    : 'Divine (+30)';
+  return value;
+}
