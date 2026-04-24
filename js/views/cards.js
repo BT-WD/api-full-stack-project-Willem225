@@ -49,11 +49,15 @@ export async function renderCards({ view, navigate, toast }) {
   try {
     const f = await api.cardFilters();
     for (const c of f.categories)  catSelect.appendChild(el('option',  { value: c }, c));
-    // Skip 'character' type in the type dropdown
+    // Skip 'character' type (browsed via Combatants page)
     for (const t of f.card_types.filter(t => t !== 'character')) {
       typeSelect.appendChild(el('option', { value: t }, t));
     }
   } catch { /* filter load is best-effort */ }
+
+  // The Cards view doesn't currently expose a combatant filter, but if we ever
+  // add one this is how we'd populate it from the API:
+  //   const { combatants } = await api.combatants();
 
   async function reload() {
     clear(grid);

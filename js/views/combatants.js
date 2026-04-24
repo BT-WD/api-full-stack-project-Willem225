@@ -1,12 +1,9 @@
 import { el, clear, cardTile } from '../ui.js';
+import { api } from '../api.js';
 
-let _combatantsCache = null;
 async function loadCombatants() {
-  if (_combatantsCache) return _combatantsCache;
-  const res = await fetch('combatants.json?v=5');
-  if (!res.ok) throw new Error('Failed to load combatants.json');
-  _combatantsCache = await res.json();
-  return _combatantsCache;
+  const { combatants } = await api.combatants();
+  return combatants;
 }
 
 /* ─── list view ─────────────────────────────── */
@@ -92,25 +89,20 @@ function combatantTile(c, onClick) {
 export async function renderCombatantDetail({ view, navigate, toast }, slug) {
   clear(view);
 
-  let combatants, combatant, allCards;
+  let combatant, startCards, uniqueCards;
   try {
-    combatants = await loadCombatants();
-    combatant = combatants.find(c => c.slug === slug);
-    const cardsRes = await fetch('cards.json?v=5');
-    allCards = await cardsRes.json();
+    const res = await api.combatant(slug);
+    combatant   = res.combatant;
+    startCards  = res.cards.starters;
+    uniqueCards = res.cards.unique;
   } catch (err) {
-    view.appendChild(el('div', { class: 'empty' }, `Failed: ${err.message}`));
+    if (err.status === 404) {
+      view.appendChild(el('div', { class: 'empty' }, 'Combatant not found.'));
+    } else {
+      view.appendChild(el('div', { class: 'empty' }, `Failed: ${err.message}`));
+    }
     return;
   }
-
-  if (!combatant) {
-    view.appendChild(el('div', { class: 'empty' }, 'Combatant not found.'));
-    return;
-  }
-
-  const theirCards = allCards.filter(c => c.combatant === combatant.name);
-  const startCards  = theirCards.filter(c => c.kind === 'basic');
-  const uniqueCards = theirCards.filter(c => c.kind === 'unique');
 
   view.appendChild(el('div', { class: 'view-header' }, [
     el('button', { class: 'btn btn-ghost', onclick: () => navigate('#/combatants') }, '← Combatants'),

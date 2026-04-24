@@ -1,18 +1,37 @@
-// localStorage-backed store for the static GitHub Pages deployment.
-// Preserves the same exported surface the views used to expect so they don't
-// need to care whether they're hitting a server or local storage.
+// API client + localStorage-backed account/deck store.
 //
-// ⚠️  Auth here is client-side only — passwords live in localStorage in plain
-// text. That's fine for a UI demo, but NEVER use this pattern in production.
+// Cards and combatants now come from the REST API at /api/*. The FM calculation
+// is still mirrored client-side for instant UI feedback, and you can also POST
+// to /api/calculate to verify server-side.
+//
+// ⚠️  Auth is client-side only — passwords live in localStorage in plain text.
+// Fine for a demo, never for production.
 
 import { calculateFaintMemory } from './faintMemory.js';
 
 const TOKEN_KEY = 'czn_token';
 const USER_KEY  = 'czn_user';
-const USERS_KEY = 'czn_users_v1';     // [{id, username, email, password, created_at}]
-const DECKS_KEY = 'czn_decks_v2';     // { [userId]: [deck, deck, ...] } — v2 = post-catalog-expansion
-const DATA_VERSION = '5';              // bump on every data schema change to bust caches
-const CARDS_URL = `cards.json?v=${DATA_VERSION}`;
+const USERS_KEY = 'czn_users_v1';
+const DECKS_KEY = 'czn_decks_v2';
+
+// Where to find the API.
+//   - On the Cloudflare Pages deployment (*.pages.dev): same origin, relative `/api`.
+//   - On localhost with `wrangler pages dev .`: same origin, relative `/api`.
+//   - Anywhere else (GitHub Pages, plain `python -m http.server`, file://):
+//     hit the Cloudflare URL directly via CORS.
+const CLOUDFLARE_API = 'https://api-full-stack-project-willem225.pages.dev/api';
+export const API_BASE = (() => {
+  const host = typeof location !== 'undefined' ? location.hostname : '';
+  if (host.endsWith('.pages.dev')) return '/api';
+  // Localhost on port 8788 = wrangler pages dev (functions available). Any other
+  // localhost port (e.g. 8000 from python http.server) has no API → hit prod.
+  if ((host === 'localhost' || host === '127.0.0.1') && location.port === '8788') {
+    return '/api';
+  }
+  return CLOUDFLARE_API;
+})();
+
+/* ────────── auth session ────────── */
 
 export function getToken() { return localStorage.getItem(TOKEN_KEY); }
 export function getUser()  {
@@ -28,27 +47,29 @@ export function clearSession() {
   localStorage.removeItem(USER_KEY);
 }
 
-/* ────────── card catalog (static JSON, cached in memory) ────────── */
+/* ────────── API fetch helper ────────── */
 
-let _cardsCache = null;
-let _cardsPromise = null;
-
-async function loadCards() {
-  if (_cardsCache) return _cardsCache;
-  if (!_cardsPromise) {
-    _cardsPromise = fetch(CARDS_URL).then(r => {
-      if (!r.ok) throw new Error(`Failed to load ${CARDS_URL} (${r.status})`);
-      return r.json();
-    }).then(rows => {
-      rows.forEach((c, i) => { if (c.id === undefined) c.id = i + 1; });
-      _cardsCache = rows;
-      return rows;
-    });
+async function apiFetch(path, opts = {}) {
+  const res = await fetch(`${API_BASE}${path}`, {
+    headers: { 'Accept': 'application/json', ...(opts.headers || {}) },
+    ...opts,
+  });
+  const contentType = res.headers.get('content-type') || '';
+  const data = contentType.includes('application/json') ? await res.json().catch(() => null) : null;
+  if (!res.ok) {
+    const msg = (data && data.error) || `HTTP ${res.status}`;
+    throw apiError(res.status, msg);
   }
-  return _cardsPromise;
+  return data;
 }
 
-/* ────────── user + deck stores ────────── */
+function apiError(status, message) {
+  const err = new Error(message);
+  err.status = status;
+  return err;
+}
+
+/* ────────── users + decks stores (localStorage) ────────── */
 
 function readUsers()    { try { return JSON.parse(localStorage.getItem(USERS_KEY)) || []; } catch { return []; } }
 function writeUsers(a)  { localStorage.setItem(USERS_KEY, JSON.stringify(a)); }
@@ -58,23 +79,10 @@ function writeDecks(o)  { localStorage.setItem(DECKS_KEY, JSON.stringify(o)); }
 function publicUser(u) {
   return { id: u.id, username: u.username, email: u.email, created_at: u.created_at };
 }
-
-function fakeToken(userId) {
-  return `local.${userId}.${Date.now().toString(36)}`;
-}
-
-function nextId(arr) {
-  return arr.reduce((m, x) => Math.max(m, x.id || 0), 0) + 1;
-}
-
-function apiError(status, message) {
-  const err = new Error(message);
-  err.status = status;
-  return err;
-}
-
-function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function fakeToken(userId)  { return `local.${userId}.${Date.now().toString(36)}`; }
+function nextId(arr)        { return arr.reduce((m, x) => Math.max(m, x.id || 0), 0) + 1; }
+function clamp(n, lo, hi)   { return Math.max(lo, Math.min(hi, n)); }
+function sleep(ms)          { return new Promise(r => setTimeout(r, ms)); }
 
 /* ────────── auth (client-side demo) ────────── */
 
@@ -93,10 +101,7 @@ async function signup({ username, email, password }) {
   if (users.some(u => u.username === username || u.email === email)) {
     throw apiError(409, 'Username or email already in use.');
   }
-  const user = {
-    id: nextId(users), username, email, password,
-    created_at: new Date().toISOString(),
-  };
+  const user = { id: nextId(users), username, email, password, created_at: new Date().toISOString() };
   users.push(user);
   writeUsers(users);
   return { token: fakeToken(user.id), user: publicUser(user) };
@@ -118,35 +123,48 @@ async function me() {
   return { user: u };
 }
 
-/* ────────── cards ────────── */
+/* ────────── cards (via /api/cards) ────────── */
+
+// Cache loaded cards in memory so repeated calls don't hammer the API.
+let _cardsCache = null;
+let _cardsPromise = null;
+
+async function loadAllCards() {
+  if (_cardsCache) return _cardsCache;
+  if (!_cardsPromise) {
+    _cardsPromise = apiFetch('/cards?limit=5000').then(data => {
+      _cardsCache = data.cards || [];
+      return _cardsCache;
+    });
+  }
+  return _cardsPromise;
+}
 
 async function cards(query = {}) {
-  const all = await loadCards();
-  const q       = (query.q || '').toLowerCase();
-  const char    = query.character;
-  const cat     = query.category;
-  const type    = query.card_type;
-  const comb    = query.combatant;
-  const includeCharacterCards = Boolean(query.include_character_cards);
+  const params = new URLSearchParams();
+  if (query.q)         params.set('q',         query.q);
+  if (query.character) params.set('character', query.character);
+  if (query.category)  params.set('category',  query.category);
+  if (query.card_type) params.set('card_type', query.card_type);
+  if (query.combatant) params.set('combatant', query.combatant);
+  params.set('limit', String(query.limit || 5000));
+  const qs = params.toString();
+  const data = await apiFetch(`/cards${qs ? `?${qs}` : ''}`);
+  let list = data.cards || [];
+  // Client-side filter: hide character cards from the main browser by default.
+  if (!query.include_character_cards) {
+    list = list.filter(c => c.card_type !== 'character');
+  }
+  return { cards: list };
+}
 
-  const filtered = all.filter(c => {
-    // Character-specific cards are browseable via the Combatants page, not here.
-    if (!includeCharacterCards && c.card_type === 'character') return false;
-    if (q) {
-      const hay = `${c.name || ''} ${c.description || ''} ${c.combatant || ''}`.toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    if (char && c.character !== char) return false;
-    if (cat  && c.category  !== cat)  return false;
-    if (type && c.card_type !== type) return false;
-    if (comb && c.combatant !== comb) return false;
-    return true;
-  });
-  return { cards: filtered };
+async function card(id) {
+  const data = await apiFetch(`/cards/${encodeURIComponent(id)}`);
+  return data;
 }
 
 async function cardFilters() {
-  const all = await loadCards();
+  const all = await loadAllCards();
   const uniq = (field) => [...new Set(all.map(c => c[field]).filter(Boolean))].sort();
   return {
     characters: uniq('character'),
@@ -155,7 +173,56 @@ async function cardFilters() {
   };
 }
 
-/* ────────── decks (scoped to the active user) ────────── */
+/* ────────── combatants (via /api/combatants) ────────── */
+
+let _combatantsCache = null;
+let _combatantsPromise = null;
+
+async function combatants(query = {}) {
+  // Cache the full list; apply filters client-side if a query is given
+  // (cheaper than repeated API hits for the dropdowns on every view).
+  if (!_combatantsCache && !_combatantsPromise) {
+    _combatantsPromise = apiFetch('/combatants').then(data => {
+      _combatantsCache = data.combatants || [];
+      return _combatantsCache;
+    });
+  }
+  const list = _combatantsCache || (await _combatantsPromise);
+  const q       = (query.q || '').toLowerCase();
+  const cls     = query.class;
+  const element = query.element;
+  const rarity  = query.rarity;
+  const filtered = list.filter(c => {
+    if (q && !c.name.toLowerCase().includes(q))          return false;
+    if (cls     && c.combatant_class !== cls)            return false;
+    if (element && c.element         !== element)        return false;
+    if (rarity  && c.rarity          !== rarity)         return false;
+    return true;
+  });
+  return { combatants: filtered };
+}
+
+async function combatant(slug) {
+  return apiFetch(`/combatants/${encodeURIComponent(slug)}`);
+}
+
+/* ────────── calculate (via /api/calculate) ────────── */
+
+// Two callers:
+//   - calculate(payload)       → POST /api/calculate (source of truth, used on save)
+//   - calculateLocal(payload)  → synchronous, for keystroke-live updates in the builder
+async function calculate(payload) {
+  return apiFetch('/calculate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload || {}),
+  });
+}
+export function calculateLocal(payload) {
+  return calculateFaintMemory(payload || {});
+}
+
+/* ────────── decks (scoped to the active user, localStorage) ────────── */
 
 function currentUserId() {
   const u = getUser();
@@ -165,10 +232,8 @@ function currentUserId() {
 
 async function decks() {
   const uid = currentUserId();
-  const allDecks = readDecks();
-  const list = allDecks[uid] || [];
-  const allCards = await loadCards();
-  // Make sure each stored deck has its card refs rehydrated from the catalog.
+  const list = readDecks()[uid] || [];
+  const allCards = await loadAllCards();
   return { decks: list.map(d => ({ ...d, cards: rehydrateCards(d.cards, allCards) })) };
 }
 
@@ -177,15 +242,15 @@ async function deck(id) {
   const list = readDecks()[uid] || [];
   const found = list.find(d => d.id === Number(id));
   if (!found) throw apiError(404, 'Deck not found.');
-  const allCards = await loadCards();
+  const allCards = await loadAllCards();
   return { deck: { ...found, cards: rehydrateCards(found.cards, allCards) } };
 }
 
 async function createDeck(body) {
   const uid = currentUserId();
-  const allDecks = readDecks();
-  const list = allDecks[uid] || [];
-  const allCards = await loadCards();
+  const all = readDecks();
+  const list = all[uid] || [];
+  const allCards = await loadAllCards();
   const now = new Date().toISOString();
   const newDeck = {
     id: nextId(list),
@@ -194,56 +259,51 @@ async function createDeck(body) {
     character: body.character || '',
     tier: clamp(Number(body.tier) || 1, 1, 13),
     nightmare: Boolean(body.nightmare),
-    created_at: now,
-    updated_at: now,
+    created_at: now, updated_at: now,
     cards: normalizeStoredEntries(body.cards),
     equipment: normalizeStoredEquipment(body.equipment),
   };
   list.push(newDeck);
-  allDecks[uid] = list;
-  writeDecks(allDecks);
+  all[uid] = list;
+  writeDecks(all);
   return { deck: { ...newDeck, cards: rehydrateCards(newDeck.cards, allCards) } };
 }
 
 async function updateDeck(id, body) {
   const uid = currentUserId();
-  const allDecks = readDecks();
-  const list = allDecks[uid] || [];
+  const all = readDecks();
+  const list = all[uid] || [];
   const idx = list.findIndex(d => d.id === Number(id));
   if (idx === -1) throw apiError(404, 'Deck not found.');
   const existing = list[idx];
-  const allCards = await loadCards();
+  const allCards = await loadAllCards();
   const updated = {
     ...existing,
-    name:        body.name !== undefined        ? String(body.name).trim()                  : existing.name,
-    description: body.description !== undefined ? body.description                          : existing.description,
-    character:   body.character !== undefined   ? body.character                            : existing.character,
-    tier:        body.tier !== undefined        ? clamp(Number(body.tier) || 1, 1, 13)      : existing.tier,
-    nightmare:   body.nightmare !== undefined   ? Boolean(body.nightmare)                   : existing.nightmare,
-    cards:       Array.isArray(body.cards)      ? normalizeStoredEntries(body.cards)        : existing.cards,
-    equipment:   Array.isArray(body.equipment)  ? normalizeStoredEquipment(body.equipment)  : existing.equipment,
+    name:        body.name !== undefined        ? String(body.name).trim()             : existing.name,
+    description: body.description !== undefined ? body.description                     : existing.description,
+    character:   body.character !== undefined   ? body.character                       : existing.character,
+    tier:        body.tier !== undefined        ? clamp(Number(body.tier) || 1, 1, 13) : existing.tier,
+    nightmare:   body.nightmare !== undefined   ? Boolean(body.nightmare)              : existing.nightmare,
+    cards:       Array.isArray(body.cards)      ? normalizeStoredEntries(body.cards)   : existing.cards,
+    equipment:   Array.isArray(body.equipment)  ? normalizeStoredEquipment(body.equipment) : existing.equipment,
     updated_at:  new Date().toISOString(),
   };
   list[idx] = updated;
-  allDecks[uid] = list;
-  writeDecks(allDecks);
+  all[uid] = list;
+  writeDecks(all);
   return { deck: { ...updated, cards: rehydrateCards(updated.cards, allCards) } };
 }
 
 async function deleteDeck(id) {
   const uid = currentUserId();
-  const allDecks = readDecks();
-  const list = allDecks[uid] || [];
+  const all = readDecks();
+  const list = all[uid] || [];
   const idx = list.findIndex(d => d.id === Number(id));
   if (idx === -1) throw apiError(404, 'Deck not found.');
   list.splice(idx, 1);
-  allDecks[uid] = list;
-  writeDecks(allDecks);
+  all[uid] = list;
+  writeDecks(all);
   return { ok: true };
-}
-
-async function calculate(payload) {
-  return calculateFaintMemory(payload || {});
 }
 
 /* ────────── normalizers ────────── */
@@ -281,7 +341,8 @@ function rehydrateCards(storedEntries = [], allCards = []) {
 
 export const api = {
   signup, login, me,
-  cards, cardFilters,
+  cards, card, cardFilters,
+  combatants, combatant,
   decks, deck, createDeck, updateDeck, deleteDeck,
   calculate,
 };

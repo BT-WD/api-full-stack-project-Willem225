@@ -44,10 +44,10 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     const [deckRes, cardsRes, combatantsRes] = await Promise.all([
       mode === 'edit' ? api.deck(id) : Promise.resolve(null),
       api.cards({ limit: 5000, include_character_cards: true }),
-      fetch('combatants.json?v=5').then(r => r.json()),
+      api.combatants(),
     ]);
     allCards = cardsRes.cards;
-    combatants = combatantsRes.sort((a, b) => a.name.localeCompare(b.name));
+    combatants = (combatantsRes.combatants || []).slice().sort((a, b) => a.name.localeCompare(b.name));
     if (deckRes) Object.assign(deck, {
       id: deckRes.deck.id,
       name: deckRes.deck.name,
