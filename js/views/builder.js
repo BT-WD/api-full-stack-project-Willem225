@@ -85,7 +85,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     onchange: () => {
       deck.character = combatantSelect.value;
       renderCharacterCards();
-      renderUniqueCards();
       renderCardList();   // refresh because combatant change affects which uniques are filtered out
       refreshSidebar();
     },
@@ -107,19 +106,12 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Combatant'), combatantSelect]));
   main.appendChild(el('div', { class: 'field' }, [el('label', {}, 'Description'), descInput]));
 
-  // ── start cards ──
-  main.appendChild(el('h2', { class: 'mt-2' }, 'Start Cards'));
+  // ── character cards (starters + uniques in one grid) ──
+  main.appendChild(el('h2', { class: 'mt-2' }, 'Character Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'Starter cards are free. Epiphanies cannot be applied to starters. Removing a starter costs a flat 20 FM.'));
-  const starterWrap = el('div', { class: 'starter-grid' });
-  main.appendChild(starterWrap);
-
-  // ── unique cards ──
-  main.appendChild(el('h2', { class: 'mt-3' }, 'Unique Cards'));
-  main.appendChild(el('p', { class: 'builder-hint' },
-    'Unique cards are free. A standard Epiphany is free too; only Divine Epiphany costs memory (+20 FM each).'));
-  const uniqueWrap = el('div', { class: 'starter-grid' });
-  main.appendChild(uniqueWrap);
+    'Starters first, then uniques (rare → legendary → mythic). Starters are free; removing one costs a flat 20 FM. Uniques are free; only Divine Epiphany costs memory (+20 FM).'));
+  const characterWrap = el('div', { class: 'starter-grid' });
+  main.appendChild(characterWrap);
 
   // ── other cards (neutrals / forbiddens / monsters) ──
   main.appendChild(el('h2', { class: 'mt-3' }, 'Other Cards'));
@@ -197,7 +189,7 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     } else {
       deck.cards.push({ card, flag: 'normal', epiphany, is_starter: false });
     }
-    renderUniqueCards();
+    renderCharacterCards();
     refreshSidebar();
   }
 
@@ -209,55 +201,51 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   function renderCharacterCards() {
-    clear(starterWrap);
+    clear(characterWrap);
     const starters = starterCards();
-    if (!starters.length) {
-      starterWrap.appendChild(el('div', { class: 'empty' },
-        deck.character ? `${deck.character} has no starter cards in the data.` : 'Pick a combatant above to see their starter cards.'));
+    const uniques  = uniqueCards();
+
+    if (!starters.length && !uniques.length) {
+      characterWrap.appendChild(el('div', { class: 'empty' },
+        deck.character ? `${deck.character} has no character cards in the data.` : 'Pick a combatant above to see their character cards.'));
       return;
     }
-    starterWrap.classList.add('starter-grid');
-    for (const card of starters) {
-      const removed = findRemovedStarter(card.id) >= 0;
-      const actions = el('div', { class: 'tile-actions' }, [
-        tileAction(removed ? 'Put back' : 'Remove', {
-          active: removed, danger: !removed,
-          title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
-          onclick: () => toggleStarterRemoval(card),
-        }),
-      ]);
-      starterWrap.appendChild(el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), actions]));
-    }
+
+    // Starters render with a Remove pill; uniques with the 3-state epiphany pills.
+    for (const card of starters) characterWrap.appendChild(buildStarterTile(card));
+    for (const card of uniques)  characterWrap.appendChild(buildUniqueTile(card));
   }
 
-  function renderUniqueCards() {
-    clear(uniqueWrap);
-    const uniques = uniqueCards();
-    if (!uniques.length) {
-      uniqueWrap.appendChild(el('div', { class: 'empty' },
-        deck.character ? `${deck.character} has no unique cards in the data.` : 'Pick a combatant to see their unique cards.'));
-      return;
-    }
-    uniqueWrap.classList.add('starter-grid');
-    for (const card of uniques) {
-      const idx = findUniqueEpiphanyEntry(card.id);
-      const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
-      const actions = el('div', { class: 'tile-actions' }, [
-        tileAction('None', {
-          active: currentEp === 'none', title: 'No epiphany',
-          onclick: () => setUniqueEpiphany(card, 'none'),
-        }),
-        tileAction('Epiphany', {
-          active: currentEp === 'normal', title: 'Standard epiphany — free',
-          onclick: () => setUniqueEpiphany(card, 'normal'),
-        }),
-        tileAction('Divine', {
-          active: currentEp === 'divine', title: 'Divine epiphany — +20 FM',
-          onclick: () => setUniqueEpiphany(card, 'divine'),
-        }),
-      ]);
-      uniqueWrap.appendChild(el('div', { class: 'tile-slot' }, [cardTile(card), actions]));
-    }
+  function buildStarterTile(card) {
+    const removed = findRemovedStarter(card.id) >= 0;
+    const actions = el('div', { class: 'tile-actions' }, [
+      tileAction(removed ? 'Put back' : 'Remove', {
+        active: removed, danger: !removed,
+        title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
+        onclick: () => toggleStarterRemoval(card),
+      }),
+    ]);
+    return el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), actions]);
+  }
+
+  function buildUniqueTile(card) {
+    const idx = findUniqueEpiphanyEntry(card.id);
+    const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
+    const actions = el('div', { class: 'tile-actions' }, [
+      tileAction('None', {
+        active: currentEp === 'none', title: 'No epiphany',
+        onclick: () => setUniqueEpiphany(card, 'none'),
+      }),
+      tileAction('Epiphany', {
+        active: currentEp === 'normal', title: 'Standard epiphany — free',
+        onclick: () => setUniqueEpiphany(card, 'normal'),
+      }),
+      tileAction('Divine', {
+        active: currentEp === 'divine', title: 'Divine epiphany — +20 FM',
+        onclick: () => setUniqueEpiphany(card, 'divine'),
+      }),
+    ]);
+    return el('div', { class: 'tile-slot' }, [cardTile(card), actions]);
   }
 
   function renderCardList() {
@@ -435,7 +423,6 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   renderCharacterCards();
-  renderUniqueCards();
   renderCardList();
   refreshSidebar();
 }
