@@ -171,6 +171,26 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       !e.is_starter && e.flag === 'normal' && e.card?.id === cardId);
   }
 
+  function findRemovedUnique(cardId) {
+    return deck.cards.findIndex(e =>
+      !e.is_starter && e.flag === 'removed' && e.card?.id === cardId);
+  }
+
+  function toggleUniqueRemoval(card) {
+    const removedIdx = findRemovedUnique(card.id);
+    if (removedIdx >= 0) {
+      // already removed → put it back
+      deck.cards.splice(removedIdx, 1);
+    } else {
+      // active or has epiphany → switch to removed; drop any epiphany entry first
+      const epIdx = findUniqueEpiphanyEntry(card.id);
+      if (epIdx >= 0) deck.cards.splice(epIdx, 1);
+      deck.cards.push({ card, flag: 'removed', epiphany: 'none', is_starter: false });
+    }
+    renderCharacterCards();
+    refreshSidebar();
+  }
+
   function toggleStarterRemoval(card) {
     const idx = findRemovedStarter(card.id);
     if (idx >= 0) deck.cards.splice(idx, 1);
@@ -181,6 +201,10 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   function setUniqueEpiphany(card, epiphany) {
+    // Picking an epiphany on a removed unique implicitly puts it back.
+    const removedIdx = findRemovedUnique(card.id);
+    if (removedIdx >= 0) deck.cards.splice(removedIdx, 1);
+
     const idx = findUniqueEpiphanyEntry(card.id);
     if (epiphany === 'none') {
       if (idx >= 0) deck.cards.splice(idx, 1);
@@ -241,23 +265,33 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   }
 
   function buildUniqueTile(card) {
+    const removed = findRemovedUnique(card.id) >= 0;
     const idx = findUniqueEpiphanyEntry(card.id);
     const currentEp = idx >= 0 ? deck.cards[idx].epiphany : 'none';
+
+    const corner = el('div', { class: 'tile-corners' }, [
+      cornerButton(removed ? ICON_RESTORE : ICON_X, {
+        danger: !removed,
+        title: removed ? 'Put this unique card back' : 'Remove this unique card (free)',
+        onclick: () => toggleUniqueRemoval(card),
+      }),
+    ]);
+
     const actions = el('div', { class: 'tile-actions' }, [
       tileAction('None', {
-        active: currentEp === 'none', title: 'No epiphany',
+        active: currentEp === 'none' && !removed, title: 'No epiphany',
         onclick: () => setUniqueEpiphany(card, 'none'),
       }),
       tileAction('Epiphany', {
-        active: currentEp === 'normal', title: 'Standard epiphany — free',
+        active: currentEp === 'normal' && !removed, title: 'Standard epiphany — free',
         onclick: () => setUniqueEpiphany(card, 'normal'),
       }),
       tileAction('Divine', {
-        active: currentEp === 'divine', title: 'Divine epiphany — +20 FM',
+        active: currentEp === 'divine' && !removed, title: 'Divine epiphany — +20 FM',
         onclick: () => setUniqueEpiphany(card, 'divine'),
       }),
     ]);
-    return el('div', { class: 'tile-slot' }, [cardTile(card), actions]);
+    return el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), corner, actions]);
   }
 
   function renderCardList() {
