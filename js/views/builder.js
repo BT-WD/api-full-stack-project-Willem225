@@ -1,4 +1,4 @@
-import { el, clear, cardTile, miniArt } from '../ui.js';
+import { el, clear, cardTile } from '../ui.js';
 import { api, getToken } from '../api.js';
 import {
   calculateFaintMemory, FLAGS, EPIPHANIES, TIER_MIN, TIER_MAX,
@@ -116,8 +116,8 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
   // ── other cards (neutrals / forbiddens / monsters) ──
   main.appendChild(el('h2', { class: 'mt-3' }, 'Other Cards'));
   main.appendChild(el('p', { class: 'builder-hint' },
-    'Neutral, Forbidden, and Monster cards you add to your deck. Each has its own base FM cost.'));
-  const cardsWrap = el('div', { class: 'deck-cards' });
+    'Neutral, Forbidden, and Monster cards you add to your deck. Each has its own base FM cost. Hover a tile to remove or duplicate it.'));
+  const cardsWrap = el('div', { class: 'starter-grid' });
   main.appendChild(cardsWrap);
 
   main.appendChild(el('button', {
@@ -200,6 +200,18 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
     }, label);
   }
 
+  // SVG icon helpers for the top-right corner buttons.
+  const ICON_X         = '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  const ICON_RESTORE   = '<svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 10 9 10"/></svg>';
+  const ICON_DUPLICATE = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+
+  function cornerButton(svg, { onclick, title, danger } = {}) {
+    return el('button', {
+      class: `tile-corner-action${danger ? ' danger' : ''}`,
+      onclick, title, html: svg,
+    });
+  }
+
   function renderCharacterCards() {
     clear(characterWrap);
     const starters = starterCards();
@@ -218,14 +230,14 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 
   function buildStarterTile(card) {
     const removed = findRemovedStarter(card.id) >= 0;
-    const actions = el('div', { class: 'tile-actions' }, [
-      tileAction(removed ? 'Put back' : 'Remove', {
-        active: removed, danger: !removed,
+    const corner = el('div', { class: 'tile-corners' }, [
+      cornerButton(removed ? ICON_RESTORE : ICON_X, {
+        danger: !removed,
         title: removed ? 'Put this starter back in the deck' : 'Remove this starter (20 FM)',
         onclick: () => toggleStarterRemoval(card),
       }),
     ]);
-    return el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), actions]);
+    return el('div', { class: `tile-slot${removed ? ' is-removed' : ''}` }, [cardTile(card), corner]);
   }
 
   function buildUniqueTile(card) {
@@ -250,8 +262,8 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 
   function renderCardList() {
     clear(cardsWrap);
-    // Exclude starters (rendered above) and unique-card epiphany entries for the
-    // selected combatant (rendered in the Unique Cards section above).
+    // Filter out starters (rendered in Character Cards) and unique-card epiphany
+    // entries for the selected combatant (also rendered in Character Cards).
     const others = deck.cards.filter(e => {
       if (e.is_starter) return false;
       if (e.card?.kind === 'unique' && e.card?.combatant === deck.character) return false;
@@ -261,40 +273,84 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
       cardsWrap.appendChild(el('div', { class: 'empty' }, 'No neutral/forbidden/monster cards added yet. Click “+ Add Card”.'));
       return;
     }
-    others.forEach((entry) => {
-      const idx = deck.cards.indexOf(entry);
-      cardsWrap.appendChild(cardRow(entry, idx));
-    });
+    // Group by card id so each card shows as ONE tile with a count badge.
+    const byId = new Map();
+    for (const entry of others) {
+      const k = entry.card.id;
+      if (!byId.has(k)) byId.set(k, []);
+      byId.get(k).push(entry);
+    }
+    for (const entries of byId.values()) {
+      cardsWrap.appendChild(buildOtherCardTile(entries));
+    }
   }
 
-  function cardRow(entry, idx) {
-    const flagSelect = el('select', {
-      class: 'select',
-      onchange: () => { entry.flag = flagSelect.value; if (entry.flag === 'starter') entry.is_starter = true; refreshSidebar(); },
-    }, FLAGS.map(f => el('option', { value: f, selected: f === entry.flag }, f)));
+  // Add another copy of a non-character card. First copy = flag 'normal', extras
+  // are 'duplicate' (so the FM cost ladder kicks in correctly).
+  function duplicateOtherCard(card) {
+    const existing = deck.cards.filter(e => !e.is_starter && e.card?.id === card.id).length;
+    deck.cards.push({
+      card,
+      flag: existing === 0 ? 'normal' : 'duplicate',
+      epiphany: 'none',
+      is_starter: false,
+    });
+    renderCardList();
+    refreshSidebar();
+  }
 
-    const epSelect = el('select', {
-      class: 'select',
-      onchange: () => { entry.epiphany = epSelect.value; refreshSidebar(); },
-    }, EPIPHANIES.map(e => el('option', { value: e, selected: e === entry.epiphany }, labelEpiphany(e, 'other'))));
+  // Remove the most recently added entry for this card (one click = one copy).
+  function removeOneOtherCard(card) {
+    for (let i = deck.cards.length - 1; i >= 0; i--) {
+      const e = deck.cards[i];
+      if (!e.is_starter && e.card?.id === card.id) {
+        deck.cards.splice(i, 1);
+        break;
+      }
+    }
+    // After removal, if a single copy remains it should be 'normal', not 'duplicate'.
+    const remaining = deck.cards.filter(e => !e.is_starter && e.card?.id === card.id);
+    if (remaining.length === 1) remaining[0].flag = 'normal';
+    renderCardList();
+    refreshSidebar();
+  }
 
-    return el('div', { class: 'deck-card-row' }, [
-      miniArt(entry.card),
-      el('div', {}, [
-        el('div', { class: 'card-label' }, entry.card.name),
-        el('div', { class: 'card-sublabel' }, [
-          entry.card.card_type || '',
-          entry.card.monster_rarity ? ` · ${entry.card.monster_rarity}` : '',
-          entry.card.combatant ? ` · ${entry.card.combatant}` : (entry.card.character ? ` · ${entry.card.character}` : ''),
-        ].join('')),
-      ]),
-      flagSelect,
-      epSelect,
-      el('button', {
-        class: 'btn btn-sm btn-ghost', title: 'Remove from deck',
-        onclick: () => { deck.cards.splice(idx, 1); renderCardList(); refreshSidebar(); },
-      }, '×'),
+  function buildOtherCardTile(entries) {
+    const card = entries[0].card;
+    const count = entries.length;
+    const firstEntry = entries[0];
+
+    const corner = el('div', { class: 'tile-corners' }, [
+      cornerButton(ICON_X, {
+        danger: true,
+        title: count > 1 ? `Remove one copy (${count} in deck)` : 'Remove from deck',
+        onclick: () => removeOneOtherCard(card),
+      }),
+      cornerButton(ICON_DUPLICATE, {
+        title: 'Duplicate this card',
+        onclick: () => duplicateOtherCard(card),
+      }),
     ]);
+
+    const epActions = el('div', { class: 'tile-actions' }, [
+      tileAction('None', {
+        active: firstEntry.epiphany === 'none', title: 'No epiphany',
+        onclick: () => { firstEntry.epiphany = 'none'; renderCardList(); refreshSidebar(); },
+      }),
+      tileAction('Epiphany', {
+        active: firstEntry.epiphany === 'normal', title: 'Standard epiphany — +10 FM',
+        onclick: () => { firstEntry.epiphany = 'normal'; renderCardList(); refreshSidebar(); },
+      }),
+      tileAction('Divine', {
+        active: firstEntry.epiphany === 'divine', title: 'Divine epiphany — +30 FM',
+        onclick: () => { firstEntry.epiphany = 'divine'; renderCardList(); refreshSidebar(); },
+      }),
+    ]);
+
+    const children = [cardTile(card), corner, epActions];
+    if (count > 1) children.push(el('div', { class: 'tile-count-badge' }, `× ${count}`));
+
+    return el('div', { class: 'tile-slot' }, children);
   }
 
   function refreshSidebar() {
