@@ -12,9 +12,20 @@ export function onRequestGet({ params }) {
     c.slug === slug || c.name.toLowerCase() === slug);
   if (!combatant) return jsonError(404, 'Combatant not found.');
 
-  const theirs   = cards.filter(c => c.combatant === combatant.name);
-  const starters = theirs.filter(c => c.kind === 'basic');
-  const unique   = theirs.filter(c => c.kind === 'unique');
+  const RARITY_ORDER = { common: 0, rare: 1, legendary: 2, mythic: 3 };
+
+  const theirs = cards.filter(c => c.combatant === combatant.name);
+  const starters = theirs
+    .filter(c => c.kind === 'basic')
+    .sort((a, b) => (a.gk_sort ?? 0) - (b.gk_sort ?? 0));
+  const unique = theirs
+    .filter(c => c.kind === 'unique')
+    .sort((a, b) => {
+      const ra = RARITY_ORDER[a.rarity] ?? 99;
+      const rb = RARITY_ORDER[b.rarity] ?? 99;
+      if (ra !== rb) return ra - rb;
+      return (a.gk_sort ?? 0) - (b.gk_sort ?? 0);
+    });
 
   return json({
     combatant,

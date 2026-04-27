@@ -144,14 +144,28 @@ export async function renderBuilder({ view, navigate, toast }, { mode, id }) {
 
   // ── renderers ──
 
+  // Display order:
+  //   starters:  by gk_sort ascending (Launcher, Charge Launcher, Barrier, Opening Found, …)
+  //   uniques:   by rarity (rare → legendary → mythic), then gk_sort ascending
+  const RARITY_ORDER = { common: 0, rare: 1, legendary: 2, mythic: 3 };
+
   function starterCards() {
     if (!deck.character) return [];
-    return allCards.filter(c => c.combatant === deck.character && c.kind === 'basic');
+    return allCards
+      .filter(c => c.combatant === deck.character && c.kind === 'basic')
+      .sort((a, b) => (a.gk_sort ?? 0) - (b.gk_sort ?? 0));
   }
 
   function uniqueCards() {
     if (!deck.character) return [];
-    return allCards.filter(c => c.combatant === deck.character && c.kind === 'unique');
+    return allCards
+      .filter(c => c.combatant === deck.character && c.kind === 'unique')
+      .sort((a, b) => {
+        const ra = RARITY_ORDER[a.rarity] ?? 99;
+        const rb = RARITY_ORDER[b.rarity] ?? 99;
+        if (ra !== rb) return ra - rb;
+        return (a.gk_sort ?? 0) - (b.gk_sort ?? 0);
+      });
   }
 
   // Starter cards can only be removed (or not). No epiphany state.
