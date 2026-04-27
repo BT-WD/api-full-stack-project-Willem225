@@ -439,7 +439,7 @@
     "image_url": "images/gk939.png",
     "combatant": "Diana",
     "combatant_slug": "diana",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 28,
@@ -583,7 +583,7 @@
     "image_url": "images/gk929.png",
     "combatant": "Rita",
     "combatant_slug": "rita",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 36,
@@ -727,7 +727,7 @@
     "image_url": "images/gk918.png",
     "combatant": "Tiphera",
     "combatant_slug": "tiphera",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 44,
@@ -1095,7 +1095,7 @@
     "image_url": "images/gk872.png",
     "combatant": "Nine",
     "combatant_slug": "nine",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 66,
@@ -1239,7 +1239,7 @@
     "image_url": "images/gk860.png",
     "combatant": "Narja",
     "combatant_slug": "narja",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 74,
@@ -3159,7 +3159,7 @@
     "image_url": "images/gk725.png",
     "combatant": "Leona",
     "combatant_slug": "leona",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 193,
@@ -3303,7 +3303,7 @@
     "image_url": "images/gk712.png",
     "combatant": "Nia",
     "combatant_slug": "nia",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 201,
@@ -3447,7 +3447,7 @@
     "image_url": "images/gk703.png",
     "combatant": "Beryl",
     "combatant_slug": "beryl",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 209,
@@ -3591,7 +3591,7 @@
     "image_url": "images/gk693.png",
     "combatant": "Chizuru",
     "combatant_slug": "chizuru",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 217,
@@ -3735,7 +3735,7 @@
     "image_url": "images/gk682.png",
     "combatant": "Sereniel",
     "combatant_slug": "sereniel",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 225,
@@ -3879,7 +3879,7 @@
     "image_url": "images/gk673.png",
     "combatant": "Selena",
     "combatant_slug": "selena",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 233,
@@ -4023,7 +4023,7 @@
     "image_url": "images/gk665.png",
     "combatant": "Mika",
     "combatant_slug": "mika",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 241,
@@ -4167,7 +4167,7 @@
     "image_url": "images/gk657.png",
     "combatant": "Magna",
     "combatant_slug": "magna",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 249,
@@ -4311,7 +4311,7 @@
     "image_url": "images/gk649.png",
     "combatant": "Yuki",
     "combatant_slug": "yuki",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 257,
@@ -4455,7 +4455,7 @@
     "image_url": "images/gk641.png",
     "combatant": "Owen",
     "combatant_slug": "owen",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 265,
@@ -4599,7 +4599,7 @@
     "image_url": "images/gk632.png",
     "combatant": "Maribelle",
     "combatant_slug": "maribelle",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 273,
@@ -4743,7 +4743,7 @@
     "image_url": "images/gk624.png",
     "combatant": "Koharu",
     "combatant_slug": "koharu",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 281,
@@ -4887,7 +4887,7 @@
     "image_url": "images/gk614.png",
     "combatant": "Mei Lin",
     "combatant_slug": "mei-lin",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 289,
@@ -5031,7 +5031,7 @@
     "image_url": "images/gk604.png",
     "combatant": "Cassius",
     "combatant_slug": "cassius",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 297,
@@ -5175,7 +5175,7 @@
     "image_url": "images/gk588.png",
     "combatant": "Luke",
     "combatant_slug": "luke",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 305,
@@ -5319,7 +5319,7 @@
     "image_url": "images/gk572.png",
     "combatant": "Amy",
     "combatant_slug": "amy",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 313,
@@ -5463,7 +5463,7 @@
     "image_url": "images/gk564.png",
     "combatant": "Veronica",
     "combatant_slug": "veronica",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 321,
@@ -5607,7 +5607,7 @@
     "image_url": "images/gk533.png",
     "combatant": "Orlea",
     "combatant_slug": "orlea",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 329,
@@ -5751,7 +5751,7 @@
     "image_url": "images/gk513.png",
     "combatant": "Rey",
     "combatant_slug": "rey",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 337,
@@ -5895,7 +5895,7 @@
     "image_url": "images/gk505.png",
     "combatant": "Khalipe",
     "combatant_slug": "khalipe",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 345,
@@ -6039,7 +6039,7 @@
     "image_url": "images/gk497.png",
     "combatant": "Lucas",
     "combatant_slug": "lucas",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 353,
@@ -6183,7 +6183,7 @@
     "image_url": "images/gk484.png",
     "combatant": "Tressa",
     "combatant_slug": "tressa",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 361,
@@ -6327,7 +6327,7 @@
     "image_url": "images/gk473.png",
     "combatant": "Rin",
     "combatant_slug": "rin",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 369,
@@ -6471,7 +6471,7 @@
     "image_url": "images/gk465.png",
     "combatant": "Kayron",
     "combatant_slug": "kayron",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 377,
@@ -6615,7 +6615,7 @@
     "image_url": "images/gk454.png",
     "combatant": "Hugo",
     "combatant_slug": "hugo",
-    "kind": "unique"
+    "kind": "basic"
   },
   {
     "id": 385,
